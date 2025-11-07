@@ -1,0 +1,18 @@
+body {
+  background-color: #ffd9d9;
+}
+.cntr {
+  text-align: center;
+}
+
+span {
+  color: red;
+}
+
+.to-right{
+  text-align: right;
+}
+
+.diff{
+  font-family: sans-serif;
+}

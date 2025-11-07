@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+    <style>
+      body {
+        background-color: #f0f8ff;
+      }
+      fieldset {
+        padding: 30px;
+        width: 50%;
+        margin: auto;
+        border-color: blue;
+      }
+      legend {
+        color: red;
+        font-size: 30px;
+      }
+      label,
+      input[type="text"],
+      input[type="password"] {
+        width: 100%;
+        font-size: 20px;
+      }
+      fieldset div {
+        margin-bottom: 30px;
+      }
+      .cntr {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="main.html">
+      <fieldset>
+        <legend>Login</legend>
+        <div>
+          <label for="name">User name:</label>
+          <input type="text" id="name" accesskey="n" />
+        </div>
+        <div>
+          <label for="password">User password:</label>
+          <input type="password" id="password" accesskey="p" />
+        </div>
+        <div>
+          <input type="checkbox" name="remember" id="remember" />
+          <label for="remember">Remember me</label>
+        </div>
+        <div class="cntr">
+          <input type="submit" value="Sign in" />
+        </div>
+      </fieldset>
+    </form>
+  </body>
+</html>

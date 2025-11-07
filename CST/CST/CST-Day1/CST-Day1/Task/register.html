@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <style>
+      body {
+        background-color: #f0f8ff;
+      }
+      table,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      td {
+        padding: 10px;
+      }
+      .cntr {
+        text-align: center;
+      }
+      textarea {
+        resize: none;
+      }
+      table {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      input[type="date"],
+      select,
+      textarea {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="cntr"><u>Registration Form</u></h1>
+    <form action="login.html">
+      <table>
+        <tr>
+          <td><label for="fname">First Name</label></td>
+          <td><input type="text" id="fname" /></td>
+        </tr>
+
+        <tr>
+          <td><label for="lname">Last Name</label></td>
+          <td><input type="text" id="lname" /></td>
+        </tr>
+
+        <tr>
+          <td><label for="email">Email</label></td>
+          <td><input type="email" id="email" /></td>
+        </tr>
+
+        <tr>
+          <td><label for="password">Password</label></td>
+          <td>
+            <input type="password" id="password" />
+          </td>
+        </tr>
+
+        <tr>
+          <td rowspan="2"><label>Gender</label></td>
+          <td>
+            <input type="radio" id="male" name="gender" value="Male" />
+            <label for="male">Male</label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="radio" id="female" name="gender" value="Female" />
+            <label for="female">Female</label>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="country">Country</label></td>
+          <td>
+            <select id="country" name="country">
+              <option value="">Select a Countery..</option>
+              <optgroup label="Africa">
+                <option value="Egypt">Egypt</option>
+                <option value="Sudan">Sudan</option>
+                <option value="Libya">Libya</option>
+                <option value="Tunisia">Tunisia</option>
+                <option value="Morocco">Morocco</option>
+              </optgroup>
+              <optgroup label="Europe" disabled>
+                <option value="Italy">Italy</option>
+                <option value="Sweden">Sweden</option>
+                <option value="Spain">Spain</option>
+              </optgroup>
+              <optgroup label="Asia">
+                <option value="Palestine">Palestine</option>
+                <option value="South Korea">South Korea</option>
+                <option value="India">India</option>
+              </optgroup>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="birthday">Birthday</label></td>
+          <td><input type="date" name="date" id="birthday" /></td>
+        </tr>
+
+        <tr>
+          <td colspan="2" class="cntr">
+            <u>Interests</u>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="checkbox" name="interest" value="Sports" id="Sports" />
+            <label for="Sports">Sports</label>
+            <input type="checkbox" name="interest" value="Music" id="Music" />
+            <label for="Music">Music</label>
+            <input
+              type="checkbox"
+              name="interest"
+              value="Fashion"
+              id="Fashion"
+            />
+            <label for="Fashion">Fashion</label>
+            <br />
+            <input
+              type="checkbox"
+              name="interest"
+              value="Reading"
+              id="Reading"
+            />
+            <label for="Reading">Reading</label>
+            <input
+              type="checkbox"
+              name="interest"
+              value="Shopping"
+              id="Shopping"
+            />
+            <label for="Shopping">Shopping</label>
+            <input type="checkbox" name="interest" value="Movies" id="Movies" />
+            <label for="Movies">Movies</label>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" class="cntr"><span>Bio</span></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <textarea id="bio" name="bio" rows="4"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" class="cntr">
+            <input type="submit" />
+            <input type="reset" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+</html>

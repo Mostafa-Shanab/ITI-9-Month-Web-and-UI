@@ -93,7 +93,7 @@ public:
 };
 
 // ------------------- 2D: Triangle (Protected Inheritance) -------------------
-class Triangle : public GeoShape // <-- Protected Inheritance
+class Triangle : protected GeoShape // <-- Protected Inheritance
 {
 private:
   double a, b, c;
@@ -171,7 +171,7 @@ int main()
 
   vector<GeoShape *> shapes;
   shapes.push_back(new Circle(2.5));
-  shapes.push_back(new Triangle(3.4, 4.0, 5.0));
+  shapes.push_back((GeoShape *)new Triangle(3.4, 4.0, 5.0));
   shapes.push_back((GeoShape *)new Rhombus(5.0, 6.0));
   shapes.push_back(new Cube(2.0));
 

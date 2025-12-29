@@ -18,17 +18,16 @@ do {
 let email;
 do {
   email = prompt("Enter your email address:");
-} while (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/.test(email));
+} while (!/^[a-zA-Z]{3}@[0-9]{3}\.com$/.test(email));
+// } while (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/.test(email));
 
 let color;
 do {
   color = prompt("Choose a color: red, green, or blue").toLowerCase();
 } while (!(color === "red" || color === "green" || color === "blue"));
 
-// Get today's date
 let today = new Date();
 
-// Display result
 document.write(
   `<h2 style="color:${color}">
       Welcome ${userName}!<br>

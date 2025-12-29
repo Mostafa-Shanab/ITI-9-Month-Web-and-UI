@@ -1,6 +1,6 @@
 let text = prompt("Enter a string:");
 let char = prompt("Enter the character you want to count:");
-let caseSensitive = confirm("Do you want to consider letter case?");
+let caseSensitive = confirm("Case Sensitive??");
 
 // If case-insensitive, convert both to lowercase
 if (!caseSensitive) {

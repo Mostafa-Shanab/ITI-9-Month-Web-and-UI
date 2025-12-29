@@ -1,5 +1,5 @@
 let text = prompt("Enter a string:");
-let caseSensitive = confirm("Do you want to consider letter case?");
+let caseSensitive = confirm("Case Sensitive?");
 
 let originalText = text;
 

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="javascript:void(0)" id="aElem" onclick="alert('anchor tag'); "
+      >google</a
+    >
+    <input type="button" value="  1  " onclick="displayNum(this)" />
+    <input type="button" value="  2  " onclick="displayNum(this)" />
+    <input type="button" value="  3  " onclick="displayNum(this)" />
+    <input type="button" value="  4  " onclick="displayNum(this)" />
+    <input type="button" value="  5  " onclick="displayNum(this)" />
+    <input type="button" value="  6  " onclick="displayNum(this)" />
+    <input type="button" value="  7  " onclick="displayNum(this)" />
+    <input type="text" id="txt1" />
+    <input type="button" value=" C  " onclick="clearFun()" />
+    <input type="button" value=" << " onclick="eraseVal()" />
+    <br />
+    <select id="menu" multiple size="3">
+      <option>option#1</option>
+      <option>option#2</option>
+      <option>option#3</option>
+      <option value="o4">option#4</option>
+      <option>option#5</option>
+      <option>option#6</option>
+      <option>option#7</option>
+      <option>option#8</option>
+      <option>option#9</option>
+    </select>
+    <input
+      type="button"
+      value="displayOptions"
+      id="diplayBtn"
+      onclick="displaOptions()"
+    />
+    <input
+      type="text"
+      onfocus="select()"
+      onblur="console.log('blur event')"
+      onchange="displayContent(this)"
+    />
+    <div id="div1id"></div>
+    <script>
+      var inputField = document.getElementById("txt1");
+      var clearFun = function () {
+        inputField.value = "";
+      };
+      var eraseVal = function () {
+        inputField.value = inputField.value.substring(
+          0,
+          inputField.value.length - 1
+        );
+      };
+
+      function displayNum(elem) {
+        var val = elem.value;
+        inputField.value += val.trim();
+      }
+
+      function displaOptions() {
+        const sel = document.getElementById("menu");
+        const selected = Array.from(sel.selectedOptions).map(
+          (opt) => `${opt.text} (${opt.value})`
+        );
+
+        console.log(selected);
+      }
+      function displayContent(txtField) {
+        var txt = txtField.value;
+        document.getElementById("div1id").innerHTML = txt;
+      }
+    </script>
+  </body>
+</html>

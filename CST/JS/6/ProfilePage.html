@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <script src="cookieLib.js"></script>
+  </head>
+  <body>
+    <div style="display: flex; align-items: flex-end">
+      <img src="" alt="" />
+      <p>
+        Welcome <strong id="userName"></strong> You Have Visited this site
+        <strong id="numOfTimesVisited"></strong> times :)
+      </p>
+    </div>
+    <script>
+      if (hasCookie("numOfTimesVisited")) {
+        setCookie(
+          "numOfTimesVisited",
+          parseInt(getCookie("numOfTimesVisited")) + 1
+        );
+      } else {
+        setCookie("numOfTimesVisited", 1);
+      }
+      const profileImage = document.images[0];
+      profileImage.src = getCookie("userPhoto");
+
+      const userName = document.getElementById("userName");
+      userName.innerHTML = getCookie("userName");
+      userName.style.color = getCookie("userColor");
+      userName.style.fontSize = "55px";
+
+      const numOfTimesVisited = document.getElementById("numOfTimesVisited");
+      numOfTimesVisited.innerHTML = getCookie("numOfTimesVisited");
+      numOfTimesVisited.style.color = getCookie("userColor");
+      numOfTimesVisited.style.fontSize = "55px";
+    </script>
+  </body>
+</html>

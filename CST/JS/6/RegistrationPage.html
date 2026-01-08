@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+    <script src="cookieLib.js"></script>
+  </head>
+  <body>
+    <div>
+      <label for="userName">Enter Your Name : </label>
+      <input type="text" name="userName" id="userName" />
+    </div>
+    <br /><br /><br />
+    <div>
+      <label for="userAge">Enter Your Age : </label>
+      <input type="text" name="userAge" id="userAge" />
+    </div>
+    <br /><br /><br />
+    <div>
+      <label>Select Your Gender : </label>
+      <div style="display: flex">
+        <div>
+          <input
+            type="radio"
+            name="gender"
+            id="male"
+            value="CST-Day8/CST-Day8/Tasks/Task Resources/cookies/1.jpg"
+          />
+          <label for="male"
+            ><img
+              src="CST-Day8/CST-Day8/Tasks/Task Resources/cookies/1.jpg"
+              alt=""
+          /></label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            name="gender"
+            id="female"
+            value="CST-Day8/CST-Day8/Tasks/Task Resources/cookies/2.jpg"
+          />
+          <label for="female"
+            ><img
+              src="CST-Day8/CST-Day8/Tasks/Task Resources/cookies/2.jpg"
+              alt=""
+          /></label>
+        </div>
+      </div>
+    </div>
+    <br /><br /><br />
+    <label for="favColor">Select Your Favourite Color: </label>
+    <select name="favColor" id="favColor">
+      <option value="red">Red</option>
+      <option value="blue">Blue</option>
+      <option value="green">Green</option>
+    </select>
+    <br /><br /><br />
+    <input type="submit" value="Register" id="submitBtn" />
+    <script>
+      let today = new Date();
+      today.setMonth(today.getMonth() + 2);
+      document
+        .getElementById("submitBtn")
+        .addEventListener("click", function () {
+          setCookie(
+            "userName",
+            document.getElementById("userName").value,
+            today
+          );
+
+          setCookie("userAge", document.getElementById("userAge").value);
+
+          if (document.getElementById("female").checked) {
+            setCookie("userPhoto", document.getElementById("female").value);
+          } else {
+            setCookie("userPhoto", document.getElementById("male").value);
+          }
+
+          setCookie("userColor", document.getElementById("favColor").value);
+
+          if (hasCookie("numOfTimesVisited")) {
+            setCookie("numOfTimesVisited", 0);
+          }
+
+          location.assign("ProfilePage.html");
+        });
+    </script>
+  </body>
+</html>

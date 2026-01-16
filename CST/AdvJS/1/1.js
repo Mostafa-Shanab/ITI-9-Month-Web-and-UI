@@ -60,7 +60,7 @@ var LnkdLstObj = {
 
   display: function () {
     for (var i = 0; i < this.data.length; i++) {
-      console.log(this.data[i]);
+      console.log(this.data[i].val);
     }
   },
 };

@@ -31,7 +31,7 @@
 //     test:function(){
 //         console.log('test')
 //     }
-
+    
 // }
 
 // emp.display()//
@@ -49,6 +49,7 @@
 //     console.log('settimeout')
 // },2000)
 
+
 // var arr = [1,2,3,function(){
 //     console.log('hiii')
 // }]
@@ -62,12 +63,15 @@
 //     //function expression
 //     //literal creation function
 //     //anonymous function
-//     var sum = function fun(){}
+//     var sum = function fun(){}    
 //     return sum
 // }
 
 // var result = newFun()
 // result()
+
+
+
 
 // //shared function
 // var usrnm = 'global scope'
@@ -93,6 +97,7 @@
 // console.log(obj.myfun())
 // console.log(obj2.print())
 
+
 // let x = 1
 
 // var myfun = new Function('a','b','return a+b')
@@ -106,15 +111,19 @@
 // void function(){console.log('test')}()
 // !function(){console.log('test')}()
 
-function add(x = 10, y = 11) {
-  // var x = arguments[0]||10
-  // var y = arguments[1]==undefined?11:arguments[1]
-  // console.log(arguments)
-  return x + y;
+
+
+
+function add(x=10,y=11){
+    // var x = arguments[0]||10
+    // var y = arguments[1]==undefined?11:arguments[1]
+    // console.log(arguments)
+    return x+y
 }
 
 // console.log(add(1,2))//3
 // console.log(add(1,2,3,4,5))//3
+
 
 /**
  * apply
@@ -135,6 +144,7 @@ function add(x = 10, y = 11) {
 
 // // str.reverse()
 // [].reverse.call(str)
+
 
 /**Inner Function */
 //closure
@@ -159,45 +169,78 @@ function add(x = 10, y = 11) {
  * arr=[fun1,fun2]
  * anonymous-fun1--i=0--j----->return fun1
  * anonymous-fun2--i=1--j----->return fun2
- *
+ * 
  */
-function outerfun() {
-  var arr = [];
-  for (var i = 0; i < 3; i++) {
-    arr.push(
-      (function (j) {
-        return function () {
-          console.log(j);
-        };
-      })(i)
-    );
-  }
-  return arr;
+function outerfun(){
+    var arr = []
+    for(var i=0;i<3;i++){
+        arr.push((function(j){
+            return function(){
+                console.log(j)
+            }
+        })(i))
+    }
+    return arr
 }
 
-var result = outerfun(); //[f,f,f]
-result[0](); //3-0
-result[1](); //3-1
-result[2](); //3-2
+var result = outerfun()//[f,f,f]
+result[0]()//3-0
+result[1]()//3-1
+result[2]()//3-2
 
-linkedlist.push(1);
-linkedlist.push(3)[({ val: 1 }, { val: 3 })];
 
-obj = {
-  id: "xyz",
-  nm: "dfdsf",
-  getsetGen: function () {},
-};
-obj.getsetGen();
-obj = {
-  id: "",
-  nm: "",
-  getId: function () {},
-  setId: function (val) {},
-};
 
-obj.getId(); //xyz
-obj.setId("123"); //id=123
 
-var user = { usernm: "", userage: 20 };
-obj.getsetGen.call(user);
+linkedlist.push(1)
+linkedlist.push(3)
+
+
+[{val:1},{val:3}]
+
+
+obj={
+    id:'xyz',
+    nm:'dfdsf',
+    getsetGen:function(){
+
+    }
+}
+obj.getsetGen()
+obj={
+    id:''
+    ,nm:'',
+    getId:function(){},
+    setId:function(val){}
+}
+
+obj.getId()//xyz
+obj.setId('123')//id=123
+
+var user = {usernm:'',userage:20}
+obj.getsetGen.call(user)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

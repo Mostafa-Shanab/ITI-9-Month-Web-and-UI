@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <script src="Demo/jquery-3.7.1.js"></script>
+    <style>
+      body {
+        font-family: "Pacifico", cursive;
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      .menu {
+        display: flex;
+        justify-content: space-around;
+      }
+
+      .menu button {
+        background-color: #ff69b4;
+        color: white;
+        border: none;
+        padding: 50px 100px;
+        margin: 5px;
+        font-size: 45px;
+        cursor: pointer;
+        border-radius: 5px;
+        box-shadow: 5px 5px black;
+      }
+      .container {
+        display: none;
+        margin: auto;
+        margin-top: 55px;
+        border: 1px solid #ccc;
+        padding: 55px;
+        height: 255px;
+        width: 55%;
+        box-shadow: 3px 3px black;
+        text-align: center;
+        position: relative;
+      }
+      #servicesList {
+        list-style-type: disc;
+        margin-left: 20px;
+        text-align: left;
+      }
+      input,
+      textarea {
+        width: 50%;
+        padding: 5px;
+        margin: 5px 0;
+      }
+      #preview {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-top: 10px;
+        display: none;
+        text-align: center;
+      }
+      #editBtn {
+        margin-top: 10px;
+        padding: 5px 10px;
+      }
+
+      #prevBtn,
+      #nextBtn {
+        position: absolute;
+        top: 50%;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+        transform: translateY(-50%);
+      }
+
+      #prevBtn {
+        left: 10px;
+      }
+      #nextBtn {
+        right: 10px;
+      }
+
+      #sliderContainer .sliderImage {
+        width: 300px;
+        height: 300px;
+        display: none;
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      #servicesDropdown {
+        display: none;
+        width: 90%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        z-index: 10;
+      }
+
+      #servicesDropdown li {
+        width: 100%;
+        padding: 15px 15px;
+        cursor: pointer;
+        color: white;
+        font-size: 20px;
+        border-radius: 15px;
+        background-color: #ff69b4;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="menu">
+      <button id="aboutBtn">About</button>
+      <button id="galleryBtn">Gallery</button>
+      <div class="dropdown">
+        <button id="servicesBtn">Services</button>
+        <ul id="servicesDropdown">
+          <li>Web Design</li>
+          <li>SEO Optimization</li>
+          <li>App Development</li>
+        </ul>
+      </div>
+      <button id="complainBtn">Complain</button>
+    </div>
+
+    <div id="about" class="container">
+      <p>Story About snow man</p>
+    </div>
+
+    <div id="gallery" class="container">
+      <div id="sliderContainer">
+        <img class="sliderImage" src="Tasks/images/1.jpg" />
+        <img class="sliderImage" src="Tasks/images/2.jpg" />
+        <img class="sliderImage" src="Tasks/images/3.jpg" />
+        <img class="sliderImage" src="Tasks/images/4.jpg" />
+        <img class="sliderImage" src="Tasks/images/5.jpg" />
+        <img class="sliderImage" src="Tasks/images/6.jpg" />
+        <img class="sliderImage" src="Tasks/images/7.jpg" />
+        <img class="sliderImage" src="Tasks/images/8.jpg" />
+
+        <img id="prevBtn" src="Tasks/images/left.png" />
+        <img id="nextBtn" src="Tasks/images/right.png" />
+      </div>
+    </div>
+
+    <div id="services"></div>
+
+    <div id="complain" class="container">
+      <form id="complainForm">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" /><br />
+        </div>
+        <div>
+          <label for="phone">Phone</label>
+          <input id="phone" type="text" /><br />
+        </div>
+        <div>
+          <label for="message">Complain</label><br />
+          <textarea id="message"></textarea><br />
+        </div>
+
+        <button type="button" id="sendBtn">Send</button>
+      </form>
+      <div id="preview">
+        <p><strong>Name:</strong> <span id="previewName"></span></p>
+        <p><strong>Email:</strong> <span id="previewEmail"></span></p>
+        <p><strong>Phone:</strong> <span id="previewPhone"></span></p>
+        <p><strong>Message:</strong> <span id="previewMessage"></span></p>
+        <button id="editBtn">Edit</button>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $("#servicesBtn").click(function (e) {
+          e.stopPropagation();
+          $("#servicesDropdown").slideToggle(300);
+        });
+
+        $(document).click(function () {
+          $("#servicesDropdown").slideUp(300);
+        });
+
+        $(".menu button").click(function () {
+          var btnId = $(this).attr("id");
+          $(".container").hide();
+          $("#preview").hide();
+          if (btnId === "aboutBtn") {
+            $("#about").show();
+          } else if (btnId === "galleryBtn") {
+            $("#gallery").show();
+            $("#prevBtn").show();
+            $("#nextBtn").show();
+            var currentIndex = 0;
+            var images = $("#sliderContainer .sliderImage");
+            var total = images.length;
+
+            function showImage(index) {
+              images.hide();
+              $(images[index]).fadeIn();
+            }
+
+            $("#nextBtn").click(function () {
+              currentIndex = (currentIndex + 1) % total;
+              showImage(currentIndex);
+            });
+
+            $("#prevBtn").click(function () {
+              currentIndex = (currentIndex - 1 + total) % total;
+              showImage(currentIndex);
+            });
+
+            currentIndex = 0;
+            showImage(currentIndex);
+          } else if (btnId === "servicesBtn") {
+            $("#services").show();
+            $("#servicesList").hide().slideDown(500);
+          } else if (btnId === "complainBtn") {
+            $("#complain").show();
+          }
+        });
+
+        $("#sendBtn").click(function () {
+          $("#previewName").text($("#name").val());
+          $("#previewPhone").text($("#phone").val());
+          $("#previewEmail").text($("#email").val());
+          $("#previewMessage").text($("#message").val());
+          $("#complainForm").hide();
+          $("#preview").show();
+        });
+
+        $("#editBtn").click(function () {
+          $("#preview").hide();
+          $("#complainForm").show();
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="Demo/jquery-3.7.1.js"></script>
+    <script src="Demo/script/jquery-ui.min.js"></script>
+
+    <style>
+      #rabbitcont {
+        background-color: yellow;
+      }
+
+      #rabbit {
+        width: 100px;
+        cursor: grab;
+        position: relative;
+      }
+
+      #container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Droppables</h1>
+    <hr />
+    <div id="container">
+      <img
+        src="Tasks/images/31.jpg"
+        alt="black hole"
+        draggable="false"
+        id="hole"
+      />
+      <div id="rabbitcont">
+        <img id="rabbit" src="Tasks/images/21.jpg" alt="rabbit" />
+        <p style="text-align: center">Drag me</p>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        var shakeInterval;
+
+        $("#rabbit").draggable({
+          revert: "invalid",
+          start: function () {
+            var rabbit = $(this);
+            var direction = 1;
+            var distance = 5;
+
+            shakeInterval = setInterval(function () {
+              rabbit.css(
+                "left",
+                parseInt(rabbit.css("left")) + distance * direction,
+              );
+              direction *= -1;
+            }, 55);
+          },
+          stop: function () {
+            clearInterval(shakeInterval);
+          },
+        });
+
+        $("#hole").droppable({
+          accept: "#rabbit",
+          drop: function (event, ui) {
+            ui.draggable.fadeOut(500);
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <script src="Demo/jquery-3.7.1.js"></script>
+    <style>
+      body {
+        font-family: "Pacifico", cursive;
+        font-weight: 400;
+        font-style: normal;
+      }
+      img {
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <img id="car" src="Tasks/images/12.gif" alt="car image" />
+
+    <br /><br />
+    <button id="moveBtn">Move Car</button>
+
+    <p>Left value: <span id="leftValue">0px</span></p>
+
+    <script>
+      $(document).ready(function () {
+        $("#moveBtn").click(function () {
+          $("#car").animate({ left: "345px" }, 2000, function () {
+            $("#leftValue").text($(this).css("left"));
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

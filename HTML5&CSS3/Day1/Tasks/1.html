@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video</title>
+    <style>
+      #seek {
+        width: 777px;
+      }
+    </style>
+  </head>
+  <body>
+    <video
+      src="../Demos/video/frozen.mp4"
+      width="777px"
+      poster="../Demos/image/frozen.jpg"
+    ></video>
+    <div id="duration">
+      <input type="range" id="seek" min="0" value="0" />
+      <span id="current">00:00</span> /
+      <span id="total">00:00</span>
+    </div>
+    <div id="controls">
+      <button id="play">Play</button>
+      <button id="stop">Stop</button>
+
+      <button id="back10"><<</button>
+      <button id="back5"><</button>
+      <button id="forward5">></button>
+      <button id="forward10">>></button>
+
+      <input type="range" id="volume" min="0" max="1" step="0.01" value="1" />
+      <button id="mute">Mute</button>
+    </div>
+    <div>
+      <input
+        type="range"
+        id="speed"
+        min="0.25"
+        max="16"
+        step="0.25"
+        value="1"
+      />
+    </div>
+
+    <script>
+      const vid = document.getElementsByTagName("video")[0];
+      const seek = document.getElementById("seek");
+      const volume = document.getElementById("volume");
+
+      // seek.max = vid.duration;
+      vid.addEventListener("loadedmetadata", () => {
+        seek.max = vid.duration;
+        console.log("🚀 ~ vid.duration:", seek.max);
+      });
+      vid.addEventListener("timeupdate", () => {
+        seek.value = vid.currentTime;
+      });
+
+      document.getElementById("play").onclick = function () {
+        vid.play();
+      };
+      document.getElementById("stop").onclick = function () {
+        vid.pause();
+      };
+      document.getElementById("mute").onclick = function () {
+        vid.muted = !vid.muted;
+      };
+
+      seek.oninput = function () {
+        vid.currentTime = seek.value;
+      };
+
+      volume.oninput = function () {
+        vid.volume = volume.value;
+      };
+
+      function seekBy(seconds) {
+        let newTime = vid.currentTime + seconds;
+
+        if (newTime < 0) newTime = 0;
+        if (newTime > vid.duration) newTime = vid.duration;
+
+        vid.currentTime = newTime;
+        console.log("🚀 ~ seekBy ~ newTime:", newTime);
+        console.log("🚀 ~ seekBy ~ vid.currentTime:", vid.currentTime);
+      }
+
+      document.getElementById("back5").onclick = () => seekBy(-5);
+      document.getElementById("back10").onclick = () => seekBy(-10);
+
+      document.getElementById("forward5").onclick = () => seekBy(5);
+      document.getElementById("forward10").onclick = () => seekBy(10);
+
+      const speedSlider = document.getElementById("speed");
+      speedSlider.addEventListener("input", () => {
+        vid.playbackRate = speedSlider.value;
+        console.log("🚀 ~ speedSlider.value:", speedSlider.value);
+        console.log("🚀 ~ vid.playbackRate:", vid.playbackRate);
+      });
+
+      const currentTimeEl = document.getElementById("current");
+      const totalTimeEl = document.getElementById("total");
+
+      function formatTime(time) {
+        const minutes = Math.floor(time / 60);
+        const seconds = Math.floor(time % 60);
+        return `${minutes}:${seconds.toString().padStart(2, "0")}`;
+      }
+
+      vid.addEventListener("loadedmetadata", () => {
+        totalTimeEl.textContent = formatTime(vid.duration);
+      });
+
+      vid.addEventListener("timeupdate", () => {
+        currentTimeEl.textContent = formatTime(vid.currentTime);
+      });
+    </script>
+  </body>
+</html>

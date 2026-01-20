@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Colors</title>
+    <style>
+      #colorBox {
+        width: 200px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <label for="red">Red</label>
+      <input type="range" min="0" max="255" value="0" id="red" class="slider" />
+    </div>
+    <div>
+      <label for="green">Green</label>
+      <input
+        type="range"
+        min="0"
+        max="255"
+        value="0"
+        id="green"
+        class="slider"
+      />
+    </div>
+    <div>
+      <label for="blue">Blue</label>
+      <input
+        type="range"
+        min="0"
+        max="255"
+        value="0"
+        id="blue"
+        class="slider"
+      />
+    </div>
+    <div>
+      <!-- <input
+        type="button"
+        name="calcColor"
+        id="calcColor"
+        value="Calc Colors"
+      /> -->
+    </div>
+    <div>
+      <p id="colorBox">Change Colors</p>
+    </div>
+    <script>
+      const red = document.getElementById("red");
+      const green = document.getElementById("green");
+      const blue = document.getElementById("blue");
+      const colorBox = document.getElementById("colorBox");
+
+      const sliders = document.querySelectorAll('input[type="range"]');
+
+      function updateColor(e) {
+        const r = red.value;
+        const g = green.value;
+        const b = blue.value;
+        colorBox.style.color = `rgb(${r},${g},${b})`;
+      }
+
+      console.log("🚀 ~ sliders.length:", sliders.length);
+      for (let i = 0; i < sliders.length; i++) {
+        const element = sliders[i];
+        element.addEventListener("input", updateColor);
+        console.log("🚀 ~ element:", element);
+      }
+      // sliders.forEach((s) => s.addEventListener("input", updateColor));
+
+      // document
+      //   .getElementById("calcColor")
+      //   .addEventListener("click", function () {
+      //     colorBox.style.backgroundColor = `rgb(${red.value},${green.value},${blue.value})`;
+      //   });
+    </script>
+  </body>
+</html>

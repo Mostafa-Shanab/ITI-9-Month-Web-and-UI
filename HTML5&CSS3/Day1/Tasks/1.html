@@ -91,7 +91,10 @@
       document.getElementById("back10").onclick = () => seekBy(-10);
 
       document.getElementById("forward5").onclick = () => seekBy(5);
-      document.getElementById("forward10").onclick = () => seekBy(10);
+      document.getElementById("forward10").onclick = function () {
+        vid.src = "../Demos/video/Lab 3.mp4";
+        vid.play();
+      };
 
       const speedSlider = document.getElementById("speed");
       speedSlider.addEventListener("input", () => {

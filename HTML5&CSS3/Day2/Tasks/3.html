@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3</title>
+    <style>
+      body {
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      canvas {
+        background-color: white;
+        border: 1px solid #efefef;
+        max-width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="animationCanvas" width="500" height="500"></canvas>
+
+    <script>
+      const canvas = document.getElementById("animationCanvas");
+      const ctx = canvas.getContext("2d");
+
+      const startX = 0;
+      const startY = 0;
+      const endX = canvas.width;
+      const endY = canvas.height;
+
+      let currentFrame = 0;
+      const totalFrames = 120;
+
+      function animateLine() {
+        let progress = currentFrame / totalFrames;
+
+        if (progress > 1) progress = 1;
+
+        const currentX = startX + (endX - startX) * progress;
+        const currentY = startY + (endY - startY) * progress;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(currentX, currentY);
+
+        ctx.strokeStyle = "#8B0000";
+        ctx.lineWidth = 8;
+        ctx.lineCap = "round";
+        ctx.stroke();
+
+        if (currentFrame < totalFrames) {
+          currentFrame++;
+          requestAnimationFrame(animateLine);
+        } else {
+          setTimeout(() => {
+            alert("animation end");
+          }, 20);
+        }
+      }
+
+      animateLine();
+    </script>
+  </body>
+</html>

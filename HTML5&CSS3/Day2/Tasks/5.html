@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="buttonCanvas" width="500" height="500"></canvas>
+
+    <script>
+      const canvas = document.getElementById("buttonCanvas");
+      const ctx = canvas.getContext("2d");
+
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+
+      const outerRadius = 220;
+
+      const outerGrad = ctx.createRadialGradient(
+        centerX - 80,
+        centerY - 80,
+        40,
+        centerX,
+        centerY,
+        outerRadius,
+      );
+      outerGrad.addColorStop(0, "#4a90e2");
+      outerGrad.addColorStop(0.7, "#0044cc");
+      outerGrad.addColorStop(1, "#002288");
+
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, outerRadius, 0, 2 * Math.PI);
+      ctx.fillStyle = outerGrad;
+      ctx.fill();
+
+      const innerRadius = 150;
+
+      const innerGrad = ctx.createRadialGradient(
+        centerX - 60,
+        centerY - 60,
+        20,
+        centerX,
+        centerY,
+        innerRadius,
+      );
+      innerGrad.addColorStop(0, "#80bdff");
+      innerGrad.addColorStop(1, "#3377dd");
+
+      ctx.beginPath();
+      ctx.arc(centerX, centerY, innerRadius, 0, 2 * Math.PI);
+      ctx.fillStyle = innerGrad;
+      ctx.fill();
+
+      ctx.fillStyle = "white";
+      ctx.font = "bold 250px Arial, sans-serif";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+
+      ctx.fillText("N", centerX, centerY + 15);
+    </script>
+  </body>
+</html>

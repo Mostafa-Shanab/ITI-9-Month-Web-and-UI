@@ -1,0 +1,64 @@
+.top,
+.bottom {
+  font-family: "Dancing Script", cursive;
+  font-size: 55px;
+  font-weight: 700;
+  position: absolute;
+}
+
+.top {
+  top: 15px;
+  left: 15px;
+}
+.bottom {
+  bottom: 15px;
+  right: 15px;
+  transform: rotate(180deg);
+}
+
+div {
+  position: relative;
+  width: 300px;
+  height: 500px;
+  border: 5px solid red;
+  border-radius: 15px;
+}
+
+.circle {
+  position: absolute;
+  width: 100px;
+  height: 90px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -150%);
+}
+.circle:before,
+.circle:after {
+  position: absolute;
+  content: "";
+  left: 50px;
+  top: 0;
+  width: 50px;
+  height: 80px;
+  background: black;
+  border-radius: 50px 50px 0 0;
+  transform: rotate(135deg);
+  transform-origin: 0 100%;
+}
+.circle:after {
+  left: 0;
+  transform: rotate(225deg);
+  transform-origin: 100% 100%;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 40px solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-51%, 9%);
+}

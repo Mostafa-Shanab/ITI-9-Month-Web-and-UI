@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1</title>
+    <style>
+      input {
+        padding: 10px;
+        outline: none;
+        font-size: 14px;
+      }
+
+      input:invalid {
+        border-color: red;
+      }
+
+      input:invalid + .hint {
+        display: block;
+      }
+
+      input:valid {
+        border-color: none;
+      }
+
+      input:valid + .hint {
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <div>
+        <input
+          type="text"
+          placeholder="Username"
+          required
+          pattern="[a-zA-Z0-9]{5,}"
+        />
+        <p class="hint">
+          Username must be at least 5 characters (letters & numbers only)
+        </p>
+      </div>
+
+      <div>
+        <input
+          type="password"
+          placeholder="Password"
+          required
+          pattern=".{8,}"
+        />
+        <p class="hint">Password must be at least 8 characters</p>
+      </div>
+    </form>
+  </body>
+</html>

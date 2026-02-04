@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5</title>
+    <style>
+      .pacman {
+        width: 0px;
+        height: 0px;
+        border-right: 60px solid transparent;
+        border-top: 60px solid red;
+        border-left: 60px solid red;
+        border-bottom: 60px solid red;
+        border-top-left-radius: 60px;
+        border-top-right-radius: 60px;
+        border-bottom-left-radius: 60px;
+        border-bottom-right-radius: 60px;
+
+        animation: chomp 1s infinite alternate;
+      }
+
+      @keyframes chomp {
+        0% {
+          border-right-color: transparent;
+        }
+        100% {
+          border-right-color: red;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <p class="pacman"></p>
+  </body>
+</html>

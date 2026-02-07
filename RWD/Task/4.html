@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 0;
+      }
+
+      section.intro {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: space-between;
+        padding-block: 25px;
+      }
+
+      section.intro .text {
+        flex-basis: 50%;
+      }
+
+      .text > * {
+        margin: 0;
+      }
+
+      .services {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 15px;
+        background-color: white;
+        margin-inline: -55px;
+        padding: 55px;
+      }
+      .services p {
+        border: 1px solid black;
+        padding: 55px;
+        flex-basis: 175px;
+        margin: 0;
+        text-align: center;
+        background-color: #e1dcdc;
+      }
+
+      .feed {
+        background-color: white;
+        margin-inline: -55px;
+        padding: 55px;
+      }
+
+      .feed p {
+        background-color: #e1dcdc;
+        padding: 25px;
+      }
+
+      .container {
+        background-color: #e1dcdc;
+        padding: 15px 55px;
+      }
+
+      footer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl37Ha8cXj2c-sdAN1bfoPl31dXDgypc55Kw&s"
+          alt="logo"
+          width="55px"
+        />
+        <nav>
+          <ul>
+            <li>Link1</li>
+            <li>Link2</li>
+            <li>Link3</li>
+            <li>Link4</li>
+            <li>Link5</li>
+          </ul>
+        </nav>
+      </header>
+      <main>
+        <section class="intro">
+          <div class="text">
+            <h1>Intro</h1>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum
+              reprehenderit labore accusantium doloremque
+            </p>
+          </div>
+          <div class="slider">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl37Ha8cXj2c-sdAN1bfoPl31dXDgypc55Kw&s"
+              alt="slider"
+              width="100%"
+            />
+          </div>
+        </section>
+        <section class="services">
+          <p>Services1</p>
+          <p>Services2</p>
+          <p>Services3</p>
+          <p>Services4</p>
+          <p>Services5</p>
+          <p>Services6</p>
+        </section>
+        <section class="feed"><p>Twitter Feed</p></section>
+      </main>
+      <footer>
+        <nav>
+          <ul>
+            <li>Link1</li>
+            <li>Link2</li>
+            <li>Link3</li>
+            <li>Link4</li>
+            <li>Link5</li>
+          </ul>
+        </nav>
+        <p>copyright info</p>
+      </footer>
+    </div>
+  </body>
+</html>

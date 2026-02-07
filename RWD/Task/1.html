@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1</title>
+    <style>
+      nav ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        background-color: #eee;
+        padding: 11px;
+        font-size: 25px;
+      }
+
+      nav ul li {
+        flex-basis: 255px;
+        text-align: center;
+      }
+
+      footer {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+      footer div {
+        flex: 1 1 500px;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid black;
+        text-align: center;
+        min-height: 155px;
+        justify-content: space-between;
+      }
+      footer div p:last-child {
+        background-color: #eee;
+        margin: 0;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Services</li>
+        <li>Contact</li>
+      </ul>
+    </nav>
+    <footer>
+      <div>
+        <p>This is a flex item</p>
+        <p>Footer</p>
+      </div>
+      <div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur
+          ratione commodi ad voluptatum omnis explicabo quia blanditiis modi
+          odio adipisci nisi, tempore repellat velit voluptates sit harum
+          repellendus hic cum. Lorem ipsum, dolor sit amet consectetur
+          adipisicing elit. Sint eum earum unde eaque voluptate et corporis est
+          laborum ratione aspernatur labore, assumenda fuga autem illum odio
+          delectus quasi sapiente sunt.
+        </p>
+        <p>Footer</p>
+      </div>
+    </footer>
+  </body>
+</html>

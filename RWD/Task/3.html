@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>3</title>
+    <style>
+      header,
+      main > *,
+      footer {
+        padding: 55px;
+        font-size: 25px;
+        font-weight: bold;
+        font-family: sans-serif;
+      }
+      body {
+        color: white;
+        text-align: center;
+      }
+
+      main {
+        display: flex;
+        flex-wrap: wrap;
+        min-height: 500px;
+      }
+      main > aside {
+        flex-grow: 1;
+      }
+      main > .main-content {
+        flex-grow: 2;
+      }
+
+      header,
+      footer {
+        background-color: rgb(80, 80, 245);
+      }
+      aside {
+        background-color: rgb(181, 119, 5);
+      }
+      .main-content {
+        background-color: rgb(23, 121, 47);
+      }
+    </style>
+  </head>
+  <body>
+    <header>HEADER</header>
+    <main>
+      <aside>SIDENAV</aside>
+      <section class="main-content">MAIN CONTENT</section>
+      <aside>SIDEBAR</aside>
+    </main>
+    <footer>FOOTER</footer>
+  </body>
+</html>

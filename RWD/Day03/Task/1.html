@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1</title>
+    <link
+      rel="stylesheet"
+      href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <style type="text/css">
+      body {
+        margin: 0 auto;
+        padding-top: 22px;
+        font:
+          13px/22px Helvetica,
+          Arial,
+          sans-serif;
+      }
+
+      aside {
+        background: url(images/sidebar_background.png) repeat-y;
+      }
+
+      svg {
+        cursor: pointer;
+      }
+
+      /* * {
+        border: 2px solid green;
+      } */
+    </style>
+    <script
+      src="./node_modules/bootstrap/dist/js/bootstrap.min.js"
+      defer
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>The Flower Blog</h1>
+      </header>
+    </div>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary mt-5 mb-5">
+      <div class="container-fluid">
+        <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarNavAltMarkup"
+        >
+          <div class="navbar-nav gap-5">
+            <a class="nav-link active" aria-current="page" href="#">Blog</a>
+            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#">Archives</a>
+            <a class="nav-link" href="#">Subscribe via. RSS</a>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="35"
+              height="35"
+              fill="currentColor"
+              class="bi bi-moon-fill dark-mode text-black nav-link"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"
+              />
+            </svg>
+
+            <script>
+              document
+                .querySelector(".dark-mode")
+                .addEventListener("click", function () {
+                  const html = document.documentElement;
+                  html.setAttribute(
+                    "data-bs-theme",
+                    html.getAttribute("data-bs-theme") === "dark"
+                      ? "light"
+                      : "dark",
+                  );
+
+                  this.classList.toggle("text-white");
+                  this.classList.toggle("text-black");
+                });
+            </script>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <section id="intro">
+        <div class="card text-bg-dark overflow-auto">
+          <img src="./Images/intro_flower.png" class="card-img" alt="Logo" />
+          <div class="card-img-overlay">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              This is a wider card with supporting text below as a natural
+              lead-in to additional content. This content is a little bit
+              longer.
+            </p>
+            <p class="card-text"><small>Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="content" class="row justify-content-between">
+        <section id="mainContent" class="col-12 col-sm-6 mb-5">
+          <!--role='main'-->
+          <section>
+            <article class="blogPost">
+              <header>
+                <h2>This is the title of a blog post</h2>
+                <p>
+                  Posted on June 29th 2009 by <a href="#">Mads Kjaer</a> -
+                  <a href="#comments">3 comments</a>
+                </p>
+              </header>
+              <div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                  euismod tellus eu orci imperdiet nec rutrum lacus blandit.
+                  Cras enim nibh, sodales ultricies elementum vel, fermentum id
+                  tellus. Proin metus odio, ultricies eu pharetra dictum,
+                  laoreet id odio. Curabitur in odio augue. Morbi congue auctor
+                  interdum. Phasellus sit amet metus justo. Phasellus vitae
+                  tellus orci, at elementum ipsum. In in quam eget diam
+                  adipiscing condimentum. Maecenas gravida diam vitae nisi
+                  convallis vulputate quis sit amet nibh. Nullam ut velit
+                  tortor. Curabitur ut elit id nisl volutpat consectetur ac ac
+                  lorem. Quisque non elit et elit lacinia lobortis nec a velit.
+                  Sed ac nisl sed enim consequat porttitor.
+                </p>
+                <figure>
+                  <img src="images/flower.png" alt="Flower" />
+                  <figcaption><i>This is a beautiful flower</i></figcaption>
+                </figure>
+                <br />
+                <p>
+                  Pellentesque ut sapien arcu, egestas mollis massa. Fusce
+                  lectus leo, fringilla at aliquet sit amet, volutpat non erat.
+                  Aenean molestie nibh vitae turpis venenatis vel accumsan nunc
+                  tincidunt. Suspendisse id purus vel felis auctor mattis non ac
+                  erat. Pellentesque sodales venenatis condimentum. Aliquam sit
+                  amet nibh nisi, ut pulvinar est. Sed ullamcorper nisi vel
+                  tortor volutpat eleifend. Vestibulum iaculis ullamcorper diam
+                  consectetur sagittis. Quisque vitae mauris ut elit semper
+                  condimentum varius nec nisl. Nulla tempus porttitor dolor ac
+                  eleifend. Proin vitae purus lectus, a hendrerit ipsum. Aliquam
+                  mattis lacinia risus in blandit.
+                </p>
+                <p>
+                  Vivamus vitae nulla dolor. Suspendisse eu lacinia justo.
+                  Vestibulum a felis ante, non aliquam leo. Aliquam eleifend,
+                  est viverra semper luctus, metus purus commodo elit, a
+                  elementum nisi lectus vel magna. Praesent faucibus leo sit
+                  amet arcu vehicula sed facilisis eros aliquet. Etiam sodales,
+                  enim sit amet mollis vestibulum, ipsum sapien accumsan lectus,
+                  eget ultricies arcu velit ut diam. Aenean fermentum luctus
+                  nulla, eu malesuada urna consequat in. Pellentesque habitant
+                  morbi tristique senectus et netus et malesuada fames ac turpis
+                  egestas. Pellentesque massa lacus, sodales id facilisis ac,
+                  lobortis sed arcu. Donec hendrerit fringilla ligula, ac rutrum
+                  nulla bibendum id. Cras sapien ligula, tincidunt eget euismod
+                  nec, ultricies eu augue. Nulla vitae velit sollicitudin magna
+                  mattis eleifend. Nam enim justo, vulputate vitae pretium ac,
+                  rutrum at turpis. Aenean id magna neque. Sed rhoncus aliquet
+                  viverra.
+                </p>
+              </div>
+            </article>
+          </section>
+          <section id="comments" class="mt-5 mb-5">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseOne"
+                  >
+                    Accordion Item #1
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseOne"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body">
+                    Placeholder content for this accordion, which is intended to
+                    demonstrate the <code>.accordion-flush</code> class. This is
+                    the first item’s accordion body.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseTwo"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseTwo"
+                  >
+                    Accordion Item #2
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseTwo"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body">
+                    Placeholder content for this accordion, which is intended to
+                    demonstrate the <code>.accordion-flush</code> class. This is
+                    the second item’s accordion body. Let’s imagine this being
+                    filled with some actual content.
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseThree"
+                    aria-expanded="false"
+                    aria-controls="flush-collapseThree"
+                  >
+                    Accordion Item #3
+                  </button>
+                </h2>
+                <div
+                  id="flush-collapseThree"
+                  class="accordion-collapse collapse"
+                  data-bs-parent="#accordionFlushExample"
+                >
+                  <div class="accordion-body">
+                    Placeholder content for this accordion, which is intended to
+                    demonstrate the <code>.accordion-flush</code> class. This is
+                    the third item’s accordion body. Nothing more exciting
+                    happening here in terms of content, but just filling up the
+                    space to make it look, at least at first glance, a bit more
+                    representative of how this would look in a real-world
+                    application.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <form action="#" method="post">
+            <h3>Post a comment</h3>
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="floatingInput1"
+                placeholder="name123"
+              />
+              <label for="floatingInput1">Name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input
+                type="email"
+                class="form-control"
+                id="floatingInput2"
+                placeholder="name@example.com"
+              />
+              <label for="floatingInput2">Email address</label>
+            </div>
+            <div class="input-group mb-3">
+              <span class="input-group-text">@</span>
+              <div class="form-floating">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="floatingInputGroup1"
+                  placeholder="Username"
+                />
+                <label for="floatingInputGroup1">Username</label>
+              </div>
+            </div>
+            <div class="form-floating">
+              <textarea
+                class="form-control"
+                placeholder="Leave a comment here"
+                id="floatingTextarea2"
+                style="height: 100px"
+              ></textarea>
+              <label for="floatingTextarea2">Comments</label>
+            </div>
+            <div class="text-center">
+              <button type="button" class="btn btn-primary mt-5">
+                Post Comment
+              </button>
+            </div>
+          </form>
+        </section>
+        <aside class="col-12 col-sm-4">
+          <section>
+            <header>
+              <h3>Categories</h3>
+            </header>
+            <ul>
+              <li>
+                <a
+                  class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                  href="#"
+                >
+                  Lorem Absum
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                  href="#"
+                >
+                  Sit amet consectetur
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                  href="#"
+                >
+                  Adipisicing elit sed
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                  href="#"
+                >
+                  Do eiusmod tempor
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                  href="#"
+                >
+                  Incididunt ut labore
+                </a>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <header>
+              <h3>Archives</h3>
+            </header>
+            <ul>
+              <li>
+                <a
+                  class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                  href="#"
+                >
+                  December 2008
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                  href="#"
+                >
+                  January 2009
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                  href="#"
+                >
+                  February 2009
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                  href="#"
+                >
+                  March 2009
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                  href="#"
+                >
+                  April 2009
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                  href="#"
+                >
+                  May 2009
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                  href="#"
+                >
+                  June 2009
+                </a>
+              </li>
+            </ul>
+          </section>
+        </aside>
+      </section>
+    </div>
+    <div class="container-fluid">
+      <footer
+        class="row gap-5 justify-content-between p-5 text-white"
+        style="background-color: #222222"
+      >
+        <section id="about" class="col-12 col-lg-4">
+          <header>
+            <h3>About</h3>
+          </header>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco
+            <a href="#">laboris nisi ut aliquip</a> ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
+          </p>
+        </section>
+        <section id="blogroll" class="col-12 col-lg-4">
+          <header>
+            <h3>Blogroll</h3>
+          </header>
+          <ul>
+            <li><a href="#">NETTUTS+</a></li>
+            <li><a href="#">FreelanceSwitch</a></li>
+            <li><a href="#">In The Woods</a></li>
+            <li><a href="#">Netsetter</a></li>
+            <li><a href="#">PSDTUTS+</a></li>
+          </ul>
+        </section>
+        <section id="popular" class="col-12 col-lg-3">
+          <header>
+            <h3>Popular</h3>
+          </header>
+          <ul>
+            <li><a href="#">This is the title of a blog post</a></li>
+            <li><a href="#">Lorem ipsum dolor sit amet</a></li>
+            <li>
+              <a href="#">Consectetur adipisicing elit, sed do eiusmod</a>
+            </li>
+            <li><a href="#">Duis aute irure dolor</a></li>
+            <li><a href="#">Excepteur sint occaecat cupidatat</a></li>
+            <li><a href="#">Reprehenderit in voluptate velit</a></li>
+            <li><a href="#">Officia deserunt mollit anim id est laborum</a></li>
+            <li><a href="#">Lorem ipsum dolor sit amet</a></li>
+          </ul>
+        </section>
+      </footer>
+    </div>
+  </body>
+</html>

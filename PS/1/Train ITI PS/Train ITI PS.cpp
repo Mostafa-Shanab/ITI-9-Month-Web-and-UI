@@ -1,50 +1,36 @@
-#include <bits/stdc++.h>
-
+#include <iostream>
+#include <vector>
 using namespace std;
 
 int main()
 {
-    int n, m;
-    cin >> n >> m;
-    int *all_points = new int[m + 1]{0};
+    int n, k, current_sum = 0;
+    cin >> n >> k;
 
+    vector<int> h(n);
     for (int i = 0; i < n; i++)
     {
-        int left, right;
-        cin >> left >> right;
-        for (int j = left; j <= right; j++)
-        {
-            all_points[j]++;
-        }
+        cin >> h[i];
+        if (i < k)
+            current_sum += h[i];
     }
-    // cout << "asd Shanab\n";
-    // for (int i = 0; i < m + 1; i++)
-    // {
-    //     cout << all_points[i] << " ";
-    // }
 
-    vector<int> not_in_segment;
-    int cnt = 0;
-    for (int i = 1; i < m + 1; i++)
+    int min_sum = current_sum;
+    int min_index = 0;
+
+    for (int i = k; i < n; i++)
     {
-        if (all_points[i] == 0)
+        current_sum += h[i];
+        current_sum -= h[i - k];
+
+        if (current_sum < min_sum)
         {
-            cnt++;
-            not_in_segment.push_back(i);
+            min_sum = current_sum;
+            min_index = i - k + 1;
         }
     }
-    if (cnt > 0)
-    {
-        cout << cnt << endl;
-        for (int i = 0; i < not_in_segment.size(); i++)
-        {
-            cout << not_in_segment[i] << " ";
-        }
-    }
-    else
-    {
-        cout << 0;
-    }
+
+    cout << min_index + 1 << endl;
 
     return 0;
 }

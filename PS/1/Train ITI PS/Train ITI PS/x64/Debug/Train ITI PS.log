@@ -1,2 +1,3 @@
 ﻿  Train ITI PS.cpp
+D:\iTi Learn\PS\1\Train ITI PS\Train ITI PS.cpp(11,6): warning C4326: return type of 'main' should be 'int' instead of 'void'
   Train ITI PS.vcxproj -> D:\iTi Learn\PS\1\Train ITI PS\x64\Debug\Train ITI PS.exe

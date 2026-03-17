@@ -1,0 +1,65 @@
+// ============================================================
+// _footer.scss
+// Replaces Bootstrap footer row with gap-5, justify-content-between, p-5
+// ============================================================
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem; // gap-5
+  justify-content: space-between; // justify-content-between
+  padding: 3rem; // p-5
+  background-color: $footer-bg;
+  color: $footer-text;
+
+  section {
+    flex: 1 1 200px; // responsive columns
+    min-width: 0;
+
+    @include respond-to(lg) {
+      &:nth-child(1) {
+        flex: 0 0 33.333%;
+        max-width: 33.333%;
+      } // col-lg-4
+      &:nth-child(2) {
+        flex: 0 0 33.333%;
+        max-width: 33.333%;
+      } // col-lg-4
+      &:nth-child(3) {
+        flex: 0 0 25%;
+        max-width: 25%;
+      } // col-lg-3
+    }
+  }
+
+  h3 {
+    color: $footer-text;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
+  p {
+    color: rgba($color-white, 0.8);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  ul {
+    @include list-unstyled;
+
+    li {
+      margin-bottom: 0.4rem;
+    }
+  }
+
+  a {
+    color: rgba($color-white, 0.75);
+    text-decoration: none;
+
+    &:hover {
+      color: $color-white;
+      text-decoration: underline;
+    }
+  }
+}

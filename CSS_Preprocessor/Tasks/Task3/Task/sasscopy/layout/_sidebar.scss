@@ -1,0 +1,31 @@
+// ============================================================
+// _sidebar.scss
+// Styles for the <aside> (Categories + Archives)
+// ============================================================
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+aside {
+  background: url(images/sidebar_background.png) repeat-y;
+
+  section {
+    margin-bottom: 2rem;
+
+    header h3 {
+      @extend %section-header !optional;
+    }
+  }
+
+  ul {
+    @include list-unstyled;
+
+    li {
+      margin-bottom: 0.35rem;
+    }
+
+    a {
+      @extend %link-underline-hover !optional;
+      font-size: 0.95rem;
+      color: $color-text;
+    }
+  }
+}

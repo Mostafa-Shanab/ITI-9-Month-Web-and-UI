@@ -1,0 +1,12 @@
+// ============================================
+// layout/_header.scss
+// The top <header> with the blog title.
+// ============================================
+
+header {
+  h1 {
+    font-size: $font-size-h1;
+    color: $color-primary;
+    font-family: $font-family-heading;
+  }
+}

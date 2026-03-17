@@ -1,0 +1,12 @@
+// ============================================================
+// _header.scss
+// Styles for the <header> inside .container at the top
+// ============================================================
+@import "../abstracts/variables";
+header {
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $color-text;
+  }
+}

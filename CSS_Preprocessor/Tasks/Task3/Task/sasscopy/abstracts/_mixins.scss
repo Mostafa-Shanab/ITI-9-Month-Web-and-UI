@@ -1,0 +1,48 @@
+// ============================================================
+// _mixins.scss
+// Reusable snippets: respond-to, flex helpers, clearfix, etc.
+// ============================================================
+
+// --- Responsive breakpoint (mobile-first) ---
+// Usage:  @include respond-to(sm) { ... }
+@mixin respond-to($bp) {
+  @if $bp == sm  { @media (min-width: $breakpoint-sm)  { @content; } }
+  @if $bp == md  { @media (min-width: $breakpoint-md)  { @content; } }
+  @if $bp == lg  { @media (min-width: $breakpoint-lg)  { @content; } }
+  @if $bp == xl  { @media (min-width: $breakpoint-xl)  { @content; } }
+}
+
+// --- Flex helpers ---
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// --- Visually truncate text to one line ---
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// --- Reset list defaults ---
+@mixin list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+
+// --- Overlay (absolute full-cover) ---
+@mixin overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}

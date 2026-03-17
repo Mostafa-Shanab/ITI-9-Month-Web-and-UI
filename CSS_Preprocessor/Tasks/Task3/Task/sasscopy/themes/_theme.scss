@@ -1,0 +1,85 @@
+// ============================================================
+// _theme.scss
+// Light (default) and dark theme via data-bs-theme attribute
+// Mirrors Bootstrap's data-bs-theme="dark" toggle used in the HTML
+// ============================================================
+
+// --- Light theme (default) ---
+@import "../abstracts/variables";
+:root,
+[data-bs-theme="light"] {
+  --body-bg:        #{$color-white};
+  --body-color:     #{$color-text};
+  --navbar-bg:      #{$color-light-bg};
+  --border-color:   #{$color-border};
+  --input-bg:       #{$color-white};
+  --accordion-bg:   #{$color-white};
+  --card-bg:        #{$color-white};
+  --link-color:     #{$color-primary};
+  --muted-color:    #{$color-muted};
+}
+
+// --- Dark theme ---
+[data-bs-theme="dark"] {
+  --body-bg:        #121212;
+  --body-color:     #e0e0e0;
+  --navbar-bg:      #1e1e1e;
+  --border-color:   #444;
+  --input-bg:       #2a2a2a;
+  --accordion-bg:   #1e1e1e;
+  --card-bg:        #1e1e1e;
+  --link-color:     #6ea8fe;
+  --muted-color:    #adb5bd;
+
+  body {
+    background-color: var(--body-bg);
+    color: var(--body-color);
+  }
+
+  .navbar {
+    background-color: var(--navbar-bg);
+  }
+
+  .accordion-item {
+    background-color: var(--accordion-bg);
+    border-color: var(--border-color);
+  }
+
+  .accordion-button {
+    background-color: var(--accordion-bg);
+    color: var(--body-color);
+  }
+
+  .form-control {
+    background-color: var(--input-bg);
+    color: var(--body-color);
+    border-color: var(--border-color);
+  }
+
+  .input-group-text {
+    background-color: var(--input-bg);
+    border-color: var(--border-color);
+    color: var(--body-color);
+  }
+
+  .card {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+  }
+
+  a {
+    color: var(--link-color);
+  }
+
+  aside a {
+    color: var(--body-color);
+  }
+
+  .nav-link {
+    color: var(--body-color);
+
+    &:hover, &.active {
+      color: var(--link-color);
+    }
+  }
+}

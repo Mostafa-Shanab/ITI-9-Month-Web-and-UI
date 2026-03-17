@@ -1,0 +1,27 @@
+// ============================================
+// _functions.scss
+// Custom Sass functions.
+// Usage: property: function-name(args)
+// ============================================
+
+// --- Strip unit from a number ---
+// e.g. strip-unit(16px) → 16
+@function strip-unit($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+// --- Convert px to rem ---
+// e.g. rem(16px) → 1rem  (assumes 16px root)
+@function rem($px, $base: 16px) {
+  @return (strip-unit($px) / strip-unit($base)) * 1rem;
+}
+
+// --- Convert px to em ---
+@function em($px, $base: 16px) {
+  @return (strip-unit($px) / strip-unit($base)) * 1em;
+}
+
+// --- Clamp a value between min and max ---
+@function clamp-value($value, $min, $max) {
+  @return max($min, min($max, $value));
+}

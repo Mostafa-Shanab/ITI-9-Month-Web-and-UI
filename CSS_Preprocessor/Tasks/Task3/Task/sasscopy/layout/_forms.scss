@@ -1,0 +1,102 @@
+// ============================================================
+// _forms.scss
+// Replaces Bootstrap .form-control, .form-floating, .input-group
+// ============================================================
+
+// --- Base input & textarea ---
+.form-control {
+  display: block;
+  width: 100%;
+  padding: $input-padding;
+  font-size: $input-font-size;
+  font-family: inherit;
+  line-height: 1.5;
+  color: $color-text;
+  background-color: $color-white;
+  border: 1px solid $input-border;
+  border-radius: $input-border-radius;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  appearance: none;
+
+  &:focus {
+    outline: 0;
+    border-color: lighten($color-primary, 20%);
+    box-shadow: 0 0 0 0.25rem rgba($color-primary, 0.25);
+  }
+
+  &::placeholder {
+    color: $color-muted;
+    opacity: 1;
+  }
+}
+
+textarea.form-control {
+  resize: vertical;
+}
+
+// --- Floating label wrapper ---
+// The label floats up when the input has content or focus.
+// Requires JS to add .has-value or the :placeholder-shown trick.
+.form-floating {
+  position: relative;
+  flex: 1;                      // used inside .input-group
+
+  > .form-control {
+    height: 3.5rem;
+    padding: 1rem 0.75rem 0.25rem; // space for the floating label
+    line-height: 1.25;
+
+    &::placeholder {
+      color: transparent;       // hide native placeholder; label acts as placeholder
+    }
+  }
+
+  > label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 1rem 0.75rem;
+    pointer-events: none;
+    color: $color-muted;
+    font-size: $input-font-size;
+    line-height: 1.5;
+    transform-origin: 0 0;
+    transition: opacity 0.1s ease, transform 0.1s ease;
+  }
+
+  // Float the label when input is focused or filled (:not(:placeholder-shown))
+  > .form-control:focus ~ label,
+  > .form-control:not(:placeholder-shown) ~ label {
+    opacity: 0.65;
+    transform: scale(0.75) translateY(-0.5rem) translateX(0.15rem);
+  }
+}
+
+// --- Input group (@ prefix + floating input) ---
+.input-group {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+
+  > .form-floating > .form-control {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.input-group-text {
+  display: flex;
+  align-items: center;
+  padding: 0.375rem 0.75rem;
+  font-size: $input-font-size;
+  color: $color-text;
+  background-color: $color-light-bg;
+  border: 1px solid $input-border;
+  border-right: 0;
+  border-radius: $input-border-radius 0 0 $input-border-radius;
+  white-space: nowrap;
+}
+
+// --- Spacing helpers used after form groups ---
+.mb-3 { margin-bottom: 1rem; }

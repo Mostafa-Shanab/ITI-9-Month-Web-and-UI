@@ -1,0 +1,34 @@
+// ============================================================
+// _placeholders.scss
+// Silent selectors extended with @extend
+// ============================================================
+@import "./variables";
+// Shared link style used in sidebar & navbar
+%nav-link-base {
+  text-decoration: none;
+  color: $color-text;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+// Shared underline-on-hover link (used in sidebar lists)
+%link-underline-hover {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Section header shared style
+%section-header {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: $spacer * 0.75;
+  border-bottom: 1px solid $color-border;
+  padding-bottom: 0.25rem;
+}

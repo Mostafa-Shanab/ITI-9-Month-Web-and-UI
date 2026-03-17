@@ -1,0 +1,94 @@
+// ============================================
+// layout/_grid.scss
+// The page's row/column layout system.
+// ============================================
+
+.container {
+  @include container;
+}
+
+.container-fluid {
+  width: 100%;
+  padding-left: $spacing-md;
+  padding-right: $spacing-md;
+}
+
+// --- Row ---
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$spacing-sm;
+  margin-right: -$spacing-sm;
+}
+
+// --- Columns ---
+// col-12 = full width, col-sm-6 = half on small+, col-sm-4 = one-third on small+
+[class*="col-"] {
+  padding-left: $spacing-sm;
+  padding-right: $spacing-sm;
+  width: 100%; // mobile first: all full width
+}
+
+// On small screens (576px+)
+@include respond-to(sm) {
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-4 {
+    width: 33.333%;
+  }
+  .col-sm-8 {
+    width: 66.666%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+}
+
+// On large screens (992px+)
+@include respond-to(lg) {
+  .col-lg-3 {
+    width: 25%;
+  }
+  .col-lg-4 {
+    width: 33.333%;
+  }
+  .col-lg-6 {
+    width: 50%;
+  }
+  .col-lg-8 {
+    width: 66.666%;
+  }
+}
+
+// Always full width override
+.col-12 {
+  width: 100%;
+}
+
+// Alignment helpers for rows
+.justify-content-between {
+  justify-content: space-between;
+}
+.justify-content-center {
+  justify-content: center;
+}
+
+// Gap helpers (for footer row)
+.gap-5 {
+  gap: $spacing-xl;
+}
+
+// Spacing utilities
+.mt-5 {
+  margin-top: $spacing-xl;
+}
+.mb-5 {
+  margin-bottom: $spacing-xl;
+}
+.p-5 {
+  padding: $spacing-xl;
+}
+.mb-3 {
+  margin-bottom: $spacing-md;
+}

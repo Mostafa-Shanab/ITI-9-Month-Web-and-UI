@@ -1,0 +1,46 @@
+// ============================================
+// layout/_sidebar.scss
+// The right-side <aside> with categories/archives.
+// ============================================
+
+aside {
+  background: url(../images/sidebar_background.png) repeat-y;
+
+  section {
+    margin-bottom: $spacing-xl;
+
+    header h3 {
+      font-size: $font-size-h3;
+      color: $color-primary;
+      border-bottom: 2px solid $color-primary;
+      padding-bottom: $spacing-xs;
+      margin-bottom: $spacing-md;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: $spacing-xs 0;
+        border-bottom: 1px solid $color-border;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        a {
+          @include link-style;
+          font-size: $font-size-base;
+
+          // Underline on hover only
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

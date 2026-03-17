@@ -1,0 +1,40 @@
+// ============================================
+// main.scss
+// THE ENTRY POINT — import order matters!
+//
+// Sass processes files top to bottom.
+// Variables must come before anything that uses them.
+// Mixins must come before anything that calls them.
+// ============================================
+
+// 1. ABSTRACTS — no CSS output, just tools
+@import "abstracts/variables"; // design tokens ($color-primary, etc.)
+@import "abstracts/functions"; // helper functions (rem(), em())
+@import "abstracts/mixins"; // reusable blocks (@include flex-center)
+@import "abstracts/placeholders"; // silent classes (@extend %list-reset)
+
+// 2. BASE — bare HTML element resets
+@import "base/reset"; // box-sizing, margins, normalize
+@import "base/typography"; // h1-h6, text utilities
+
+// 3. LAYOUT — structural page sections
+@import "layout/grid"; // .container, .row, .col-*
+@import "layout/header"; // <header> with blog title
+@import "layout/navigation"; // <nav> bar + hamburger
+@import "layout/sidebar"; // <aside> categories & archives
+@import "layout/footer"; // dark <footer>
+@import "layout/forms"; // comment form inputs
+
+// 4. COMPONENTS — reusable UI pieces
+@import "components/buttons"; // .btn, .btn-primary
+@import "components/card"; // hero intro card
+@import "components/accordion"; // collapsible comments
+
+// 5. PAGES — page-specific overrides
+@import "pages/home"; // blog post, comments, intro
+
+// 6. THEMES — color-scheme overrides
+@import "themes/theme"; // dark mode [data-bs-theme="dark"]
+
+// 7. VENDORS — third-party CSS (empty for now)
+@import "vendors/bootstrap"; // placeholder (currently disabled)

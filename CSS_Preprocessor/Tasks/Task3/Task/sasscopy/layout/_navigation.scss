@@ -1,0 +1,136 @@
+// ============================================================
+// _navigation.scss
+// Replaces Bootstrap .navbar, .navbar-expand-lg, .navbar-collapse,
+// .navbar-toggler, .navbar-nav, .nav-link
+// ============================================================
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  background-color: $navbar-bg;
+  position: relative;
+
+  // bg-body-tertiary is handled by $navbar-bg
+
+  // Toggler button (hamburger) — visible on mobile
+  &-toggler {
+    padding: 0.25rem 0.75rem;
+    font-size: 1.25rem;
+    background: transparent;
+    border: 1px solid $color-border;
+    border-radius: $input-border-radius;
+    cursor: pointer;
+
+    &-icon {
+      display: inline-block;
+      width: 1.5em;
+      height: 1.5em;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-size: 100%;
+      vertical-align: middle;
+    }
+  }
+
+  // Collapse wrapper — hidden on mobile, shown on lg+
+  &-collapse {
+    flex-basis: 100%;
+    flex-grow: 1;
+    align-items: center;
+
+    // Hidden by default (mobile)
+    display: none;
+    width: 100%;
+
+    // Shown when .show is toggled by JS
+    &.show {
+      display: flex;
+    }
+
+    // On lg+ screens: always visible
+    @include respond-to(lg) {
+      display: flex !important;
+      flex-basis: auto;
+      width: auto;
+    }
+  }
+
+  // justify-content-center on the collapse wrapper
+  .justify-content-center {
+    justify-content: center;
+  }
+
+  // .navbar-nav: the <div> holding .nav-link items
+  &-nav {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    list-style: none;
+    width: 100%;
+
+    @include respond-to(lg) {
+      flex-direction: row;
+      align-items: center;
+      width: auto;
+    }
+
+    // gap-5 = 3rem (set inline on the element; replicated here for completeness)
+    &.gap-5 {
+      gap: 3rem;
+    }
+  }
+
+  // navbar-expand-lg: collapse is always open on lg+
+  &-expand-lg {
+    @include respond-to(lg) {
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+    }
+  }
+}
+
+// --- Individual nav link ---
+.nav-link {
+  display: block;
+  padding: 0.5rem 0;
+  color: $color-text;
+  text-decoration: none;
+  transition: color 0.15s ease;
+
+  @include respond-to(lg) {
+    padding: 0.5rem 0;
+  }
+
+  &:hover,
+  &.active {
+    color: $color-primary;
+  }
+
+  // Active page indicator
+  &.active {
+    font-weight: 600;
+  }
+}
+
+// --- Dark / light moon icon colour helpers ---
+.text-black {
+  color: $color-black !important;
+}
+.text-white {
+  color: $color-white !important;
+}
+
+// --- container-fluid used for the navbar wrapper ---
+.container-fluid {
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}

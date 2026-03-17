@@ -1,0 +1,40 @@
+// ============================================
+// _typography.scss
+// Font sizes, headings, text utility styles.
+// ============================================
+
+h1 {
+  font-size: $font-size-h1;
+}
+h2 {
+  font-size: $font-size-h2;
+}
+h3 {
+  font-size: $font-size-h3;
+}
+
+.text-muted {
+  color: $color-muted;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-small {
+  font-size: $font-size-sm;
+}
+.text-large {
+  font-size: $font-size-lg;
+}
+
+// Italic utility
+.italic {
+  font-style: italic;
+}
+
+// Bold utility
+.bold {
+  font-weight: $font-weight-bold;
+}

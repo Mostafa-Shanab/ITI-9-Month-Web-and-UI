@@ -1,0 +1,47 @@
+// ============================================================
+// _home.scss
+// Styles specific to the blog home page layout
+// ============================================================
+@import "../abstracts/variables";
+// --- Intro hero card section ---
+#intro {
+  margin-bottom: 2rem;
+}
+
+// --- Main content column ---
+#mainContent {
+  section {
+    margin-bottom: 2rem;
+  }
+
+  // Blog post article
+  .blogPost {
+    header {
+      margin-bottom: 1rem;
+
+      h2 {
+        font-size: 1.4rem;
+        margin-bottom: 0.25rem;
+      }
+
+      p {
+        color: $color-muted;
+        font-size: 0.9rem;
+        margin-bottom: 0;
+      }
+    }
+
+    figure {
+      margin: 1.5rem 0;
+
+      img {
+        max-width: 100%;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+// --- Spacing helpers used on page ---
+.mt-5  { margin-top: 3rem; }
+.mb-5  { margin-bottom: 3rem; }

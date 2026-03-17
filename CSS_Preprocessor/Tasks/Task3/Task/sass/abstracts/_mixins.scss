@@ -1,0 +1,115 @@
+// ============================================
+// _mixins.scss
+// Reusable chunks of CSS logic.
+// Use them with: @include mixin-name(args)
+// ============================================
+
+// --- Responsive Breakpoints ---
+// Usage: @include respond-to(md) { ... }
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (min-width: $breakpoint-md) {
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (min-width: $breakpoint-lg) {
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (min-width: $breakpoint-xl) {
+      @content;
+    }
+  }
+}
+
+// --- Flexbox Shortcuts ---
+// Usage: @include flex-center;
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Usage: @include flex-between;
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// --- Container ---
+// Usage: @include container;
+@mixin container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $spacing-md;
+  padding-right: $spacing-md;
+}
+
+// --- Clearfix (for floats) ---
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// --- Truncate text with ellipsis ---
+@mixin truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// --- Visually hidden (accessible) ---
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// --- Link styling ---
+@mixin link-style($color: $color-link, $hover: $color-link-hover) {
+  color: $color;
+  text-decoration: none;
+
+  &:hover {
+    color: $hover;
+    text-decoration: underline;
+  }
+}
+
+// --- Card style ---
+@mixin card($bg: $color-white, $padding: $spacing-lg) {
+  background: $bg;
+  padding: $padding;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-sm;
+}
+
+// --- Button base ---
+@mixin button-base {
+  display: inline-block;
+  padding: $spacing-sm $spacing-lg;
+  border: none;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  font-size: $font-size-base;
+  font-family: $font-family-base;
+  text-align: center;
+  transition: $transition-fast;
+  text-decoration: none;
+}

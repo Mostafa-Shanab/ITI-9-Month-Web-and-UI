@@ -1,0 +1,68 @@
+// ============================================
+// pages/_home.scss
+// Styles specific to the blog home page.
+// ============================================
+
+// --- Intro section ---
+#intro {
+  margin-bottom: $spacing-xl;
+}
+
+// --- Blog Post (article) ---
+.blogPost {
+  margin-bottom: $spacing-xxl;
+
+  header {
+    margin-bottom: $spacing-lg;
+
+    h2 {
+      font-size: $font-size-h2;
+      color: $color-primary;
+      margin-bottom: $spacing-xs;
+    }
+
+    p {
+      font-size: $font-size-sm;
+      color: $color-muted;
+      margin: 0;
+
+      a {
+        @include link-style;
+      }
+    }
+  }
+
+  p {
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    margin-bottom: $spacing-md;
+  }
+
+  figure {
+    margin: $spacing-lg 0;
+
+    img {
+      border-radius: $border-radius-sm;
+      box-shadow: $shadow-sm;
+    }
+
+    figcaption {
+      font-style: italic;
+      color: $color-muted;
+      font-size: $font-size-sm;
+      margin-top: $spacing-xs;
+    }
+  }
+}
+
+// --- Comments section ---
+#comments {
+  margin-top: $spacing-xl;
+  margin-bottom: $spacing-xl;
+
+  h3 {
+    font-size: $font-size-h3;
+    color: $color-primary;
+    margin-bottom: $spacing-md;
+  }
+}

@@ -1,0 +1,82 @@
+// ============================================================
+// _grid.scss
+// Replaces Bootstrap .container, .row, .col-*, justify-content-between
+// ============================================================
+
+// --- Container (centered, max-width) ---
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+.container {
+  width: 100%;
+  max-width: $container-max-width;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+// --- Row ---
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -0.75rem;
+  margin-left: -0.75rem;
+}
+
+// --- All columns ---
+[class^="col-"],
+[class*=" col-"] {
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  width: 100%;
+}
+
+// --- col-12: always full width ---
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+// --- col-sm-* : kicks in at 576px ---
+@include respond-to(sm) {
+  .col-sm-4 {
+    flex: 0 0 33.333%;
+    max-width: 33.333%;
+  }
+  .col-sm-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .col-sm-8 {
+    flex: 0 0 66.666%;
+    max-width: 66.666%;
+  }
+}
+
+// --- col-lg-* : kicks in at 992px ---
+@include respond-to(lg) {
+  .col-lg-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+  .col-lg-4 {
+    flex: 0 0 33.333%;
+    max-width: 33.333%;
+  }
+  .col-lg-8 {
+    flex: 0 0 66.666%;
+    max-width: 66.666%;
+  }
+}
+
+// --- Alignment helpers used in the page ---
+.justify-content-between {
+  justify-content: space-between;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.text-center {
+  text-align: center;
+}

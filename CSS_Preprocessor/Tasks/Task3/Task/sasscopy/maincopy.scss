@@ -1,0 +1,38 @@
+// ============================================================
+// main.scss  —  The single entry point
+// Import order matters:
+//   1. Abstracts  (variables, functions, mixins, placeholders)
+//   2. Base       (reset, typography)
+//   3. Components (buttons, card, accordion, forms)
+//   4. Layout     (grid, navigation, header, footer, sidebar)
+//   5. Pages      (home-specific overrides)
+//   6. Themes     (light / dark)
+// ============================================================
+
+// 1. Abstracts
+@use 'abstracts/variables'    as *;
+@use 'abstracts/functions'    as *;
+@use 'abstracts/mixins'       as *;
+@use 'abstracts/placeholders' as *;
+
+// 2. Base
+@use 'base/reset';
+@use 'base/typography';
+
+// 3. Components
+@use 'components/buttons';
+@use 'components/card';
+@use 'components/accordion';
+
+// 4. Layout
+@use 'layout/grid';
+@use 'layout/navigation';
+@use 'layout/header';
+@use 'layout/footer';
+@use 'layout/sidebar';
+
+// 5. Pages
+@use 'pages/home';
+
+// 6. Themes
+@use 'themes/theme';

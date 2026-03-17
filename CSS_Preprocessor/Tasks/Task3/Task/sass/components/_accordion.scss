@@ -1,0 +1,82 @@
+// ============================================
+// components/_accordion.scss
+// Expandable accordion for comments section.
+// ============================================
+
+.accordion {
+  border-radius: $border-radius-md;
+  overflow: hidden;
+
+  &-item {
+    border: $border-width solid $color-border;
+    border-top: none;
+
+    &:first-child {
+      border-top: $border-width solid $color-border;
+      border-radius: $border-radius-md $border-radius-md 0 0;
+    }
+
+    &:last-child {
+      border-radius: 0 0 $border-radius-md $border-radius-md;
+    }
+  }
+
+  &-header {
+    margin: 0;
+  }
+
+  &-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: $spacing-md $spacing-lg;
+    background-color: $color-white;
+    border: none;
+    font-size: $font-size-base;
+    font-family: $font-family-base;
+    font-weight: $font-weight-bold;
+    color: $color-text;
+    cursor: pointer;
+    transition: $transition-fast;
+    text-align: left;
+
+    &::after {
+      content: "▼";
+      font-size: $font-size-sm;
+      transition: transform 0.3s ease;
+      flex-shrink: 0;
+    }
+
+    &:not(.collapsed)::after {
+      transform: rotate(180deg);
+    }
+
+    &:hover {
+      background-color: darken($color-light, 3%);
+    }
+  }
+
+  &-collapse {
+    &.collapse:not(.show) {
+      display: none;
+    }
+  }
+
+  &-body {
+    padding: $spacing-md $spacing-lg;
+    border-top: $border-width solid $color-border;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    background: $color-white;
+  }
+
+  // Flush variant (no outer border)
+  &-flush {
+    .accordion-item {
+      border-left: none;
+      border-right: none;
+      border-radius: 0;
+    }
+  }
+}

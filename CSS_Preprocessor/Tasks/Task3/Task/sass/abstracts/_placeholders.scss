@@ -1,0 +1,47 @@
+// ============================================
+// _placeholders.scss
+// Silent classes — NOT output unless @extended.
+// Usage: @extend %placeholder-name;
+// ============================================
+
+// --- Base list reset (no bullets, no padding) ---
+%list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// --- Clearfix ---
+%clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// --- Visually hidden ---
+%visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// --- Box with border ---
+%box-bordered {
+  border: $border-width solid $color-border;
+  border-radius: $border-radius-md;
+  padding: $spacing-md;
+}
+
+// --- Unstyled link ---
+%link-unstyled {
+  color: inherit;
+  text-decoration: none;
+}

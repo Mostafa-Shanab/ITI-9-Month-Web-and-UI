@@ -1,0 +1,99 @@
+// ============================================
+// layout/_navigation.scss
+// Styles for the <nav> bar.
+// ============================================
+
+.navbar {
+  background-color: #f5f5f5;
+  padding: $spacing-sm $spacing-md;
+  margin-top: $spacing-xl;
+  margin-bottom: $spacing-xl;
+
+  @include respond-to(lg) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  // Dark mode
+  [data-bs-theme="dark"] & {
+    background-color: $dark-surface;
+  }
+}
+
+.navbar-nav {
+  @extend %list-reset;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xl;
+}
+
+.nav-link {
+  @include link-style($color-text, $color-primary);
+  font-size: $font-size-base;
+  padding: $spacing-xs $spacing-sm;
+  transition: $transition-fast;
+
+  &.active {
+    color: $color-primary;
+    font-weight: $font-weight-bold;
+  }
+}
+
+// Hamburger toggle (mobile)
+.navbar-toggler {
+  @include button-base;
+  background: transparent;
+  border: $border-width solid $color-border;
+  padding: $spacing-xs $spacing-sm;
+  display: block;
+
+  @include respond-to(lg) {
+    display: none;
+  }
+}
+
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background-color: $color-text;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: $color-text;
+    position: absolute;
+  }
+
+  &::before {
+    top: -7px;
+  }
+  &::after {
+    top: 7px;
+  }
+}
+
+// Collapsible menu (mobile)
+.navbar-collapse {
+  width: 100%;
+
+  @include respond-to(lg) {
+    display: flex !important;
+    justify-content: center;
+  }
+}
+
+.collapse:not(.show) {
+  display: none;
+
+  @include respond-to(lg) {
+    display: flex !important;
+  }
+}

@@ -1,0 +1,45 @@
+.main-title {
+  color: #3498db;
+}
+.main-subtitle {
+  color: #7f8c8d;
+}
+.main-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.main-btn:hover {
+  background-color: #7f8c8d;
+}
+
+.font-18px p {
+  font-size: 18px;
+}
+
+.font-16px p {
+  font-size: 16px;
+}
+
+.font-14px p {
+  font-size: 14px;
+}
+
+.finish-btn {
+  padding: 10px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+}
+@media (max-width: 768px) {
+  .finish-btn {
+    width: 50%;
+  }
+}
+@media (max-width: 480px) {
+  .finish-btn {
+    width: 100%;
+  }
+}/*# sourceMappingURL=style.css.map */

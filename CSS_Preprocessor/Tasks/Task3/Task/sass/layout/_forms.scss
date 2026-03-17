@@ -1,0 +1,91 @@
+// ============================================
+// layout/_forms.scss
+// Comment form: inputs, textarea, button.
+// ============================================
+
+form {
+  h3 {
+    margin-bottom: $spacing-lg;
+    font-size: $font-size-h3;
+    color: $color-primary;
+  }
+}
+
+// --- Floating label wrapper ---
+.form-floating {
+  position: relative;
+  margin-bottom: $spacing-md;
+
+  label {
+    position: absolute;
+    top: $spacing-sm;
+    left: $spacing-md;
+    font-size: $font-size-sm;
+    color: $color-muted;
+    pointer-events: none;
+    transition: $transition-fast;
+  }
+
+  input:focus + label,
+  input:not(:placeholder-shown) + label,
+  textarea:focus + label,
+  textarea:not(:placeholder-shown) + label {
+    top: 4px;
+    font-size: 10px;
+    color: $color-primary;
+  }
+}
+
+// --- Input and Textarea base ---
+.form-control {
+  display: block;
+  width: 100%;
+  padding: $spacing-lg $spacing-md $spacing-xs;
+  font-size: $font-size-base;
+  font-family: $font-family-base;
+  line-height: $line-height-base;
+  color: $color-text;
+  background-color: $color-white;
+  border: $border-width solid $color-border;
+  border-radius: $border-radius-sm;
+  transition: $transition-fast;
+  outline: none;
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba($color-primary, 0.15);
+  }
+}
+
+textarea.form-control {
+  resize: vertical;
+  height: 100px;
+  padding-top: $spacing-lg;
+}
+
+// --- Input group (@username) ---
+.input-group {
+  display: flex;
+  align-items: stretch;
+  margin-bottom: $spacing-md;
+
+  .input-group-text {
+    @include flex-center;
+    padding: 0 $spacing-md;
+    background-color: darken($color-light, 5%);
+    border: $border-width solid $color-border;
+    border-right: none;
+    border-radius: $border-radius-sm 0 0 $border-radius-sm;
+    color: $color-muted;
+    font-size: $font-size-base;
+  }
+
+  .form-floating {
+    flex: 1;
+    margin-bottom: 0;
+
+    .form-control {
+      border-radius: 0 $border-radius-sm $border-radius-sm 0;
+    }
+  }
+}

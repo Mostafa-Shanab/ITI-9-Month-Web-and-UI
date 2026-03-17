@@ -1,0 +1,40 @@
+// ============================================
+// layout/_footer.scss
+// Dark footer at the bottom of the page.
+// ============================================
+
+footer {
+  background-color: $color-dark;
+  color: $color-white;
+  padding: $spacing-xl;
+
+  h3 {
+    color: $color-white;
+    font-size: $font-size-h3;
+    margin-bottom: $spacing-md;
+  }
+
+  p {
+    color: lighten($color-dark, 60%);
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+  }
+
+  ul {
+    @extend %list-reset;
+    padding: 0;
+
+    li {
+      margin-bottom: $spacing-xs;
+    }
+
+    a {
+      color: lighten($color-dark, 55%);
+      @include link-style(lighten($color-dark, 55%), $color-white);
+    }
+  }
+
+  a {
+    @include link-style(lighten($color-dark, 55%), $color-white);
+  }
+}

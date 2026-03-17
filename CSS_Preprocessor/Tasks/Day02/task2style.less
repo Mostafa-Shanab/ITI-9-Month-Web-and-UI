@@ -1,0 +1,27 @@
+@grid-columns: 12;
+
+@sm: 576px;
+@md: 768px;
+@lg: 992px;
+@xl: 1200px;
+
+.generate-grid(@prefix, @breakpoint) {
+
+  @media (min-width: @breakpoint) {
+
+    .loop(1);
+
+    .loop(@i) when (@i =< @grid-columns) {
+      .col-@{prefix}-@{i} {
+        width: (@i / @grid-columns)*100%;
+      }
+
+      .loop(@i + 1);
+    }
+  }
+}
+
+.generate-grid(sm, @sm);
+.generate-grid(md, @md);
+.generate-grid(lg, @lg);
+.generate-grid(xl, @xl);

@@ -1,0 +1,14 @@
+// ============================================================
+// _functions.scss
+// Helper functions
+// ============================================================
+
+// Convert px to rem (base 16px)
+@function rem($px) {
+  @return #{$px / 16}rem;
+}
+
+// Clamp a value between a min and max
+@function clamp-val($min, $val, $max) {
+  @return clamp(#{$min}, #{$val}, #{$max});
+}

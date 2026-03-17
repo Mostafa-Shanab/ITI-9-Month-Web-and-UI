@@ -1,0 +1,98 @@
+// ============================================
+// themes/_theme.scss
+// Dark mode overrides triggered by
+// [data-bs-theme="dark"] on <html>.
+// ============================================
+
+[data-bs-theme="dark"] {
+  body {
+    background-color: $dark-bg;
+    color: $dark-text;
+  }
+
+  // Navbar
+  .navbar {
+    background-color: $dark-surface;
+  }
+
+  .nav-link {
+    color: $dark-text;
+    &:hover {
+      color: $color-primary-light;
+    }
+    &.active {
+      color: $color-primary-light;
+    }
+  }
+
+  // Cards
+  .card {
+    background-color: $dark-surface;
+    &-title {
+      color: $dark-text;
+    }
+  }
+
+  // Accordion
+  .accordion-button {
+    background-color: $dark-surface;
+    color: $dark-text;
+
+    &:hover {
+      background-color: lighten($dark-surface, 5%);
+    }
+  }
+
+  .accordion-body {
+    background-color: $dark-bg;
+    color: $dark-text;
+  }
+
+  .accordion-item {
+    border-color: $dark-border;
+  }
+
+  // Forms
+  .form-control {
+    background-color: $dark-surface;
+    color: $dark-text;
+    border-color: $dark-border;
+
+    &:focus {
+      border-color: $color-primary-light;
+      box-shadow: 0 0 0 3px rgba($color-primary-light, 0.2);
+    }
+  }
+
+  .input-group-text {
+    background-color: lighten($dark-surface, 5%);
+    border-color: $dark-border;
+    color: $dark-muted;
+  }
+
+  // Blog post
+  .blogPost {
+    header h2 {
+      color: $color-primary-light;
+    }
+  }
+
+  // Aside
+  aside section header h3 {
+    color: $color-primary-light;
+    border-color: $color-primary-light;
+  }
+
+  aside ul li {
+    border-color: $dark-border;
+    a {
+      color: $dark-text;
+    }
+  }
+
+  // code
+  code {
+    background: lighten($dark-surface, 5%);
+    color: $color-accent;
+  }
+}

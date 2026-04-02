@@ -1,0 +1,17 @@
+{
+  "name": "task4",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "task day4 node js",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "Shanab",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^9.3.3"
+  }
+}

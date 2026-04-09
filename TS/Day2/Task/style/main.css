@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: sans-serif;
+}
+body {
+  background: url("../assets/brain.jpg");
+  min-height: 100vh;
+}
+
+.container {
+  width: 85%;
+  min-height: 85vh;
+  background-color: #ffffffa6;
+  padding: 15px;
+}
+
+main {
+  display: flex;
+  min-height: inherit;
+  justify-content: center;
+  align-items: center;
+}
+
+.bar {
+  height: 55px;
+  background-color: #ffffffbd;
+  display: flex;
+  justify-content: center;
+}
+
+.progress {
+  height: 100%;
+  background: repeating-linear-gradient(
+    -45deg,
+    #000000 0px,
+    #000000 18px,
+    #4f96cf 18px,
+    #4f96cf 36px
+  );
+  width: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 25px 0;
+  gap: 15px;
+}
+.card {
+  flex-basis: calc(15% - 9px);
+  display: flex;
+  outline: 3px dotted red;
+  position: relative;
+}
+.card:hover {
+  cursor: pointer;
+}
+@media (max-width: 767px) {
+  .card {
+    flex-basis: calc(50% - 9px);
+  }
+  .progress {
+    font-size: 25px;
+    font-weight: bold;
+  }
+}
+img {
+  width: 100%;
+  height: 100px;
+  object-fit: fill;
+  background-color: white;
+}
+.card span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 55px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 5px 5px blue;
+}
+
+.card {
+  transition: outline 0.2s;
+}
+
+.card.flipping img {
+  transform: scaleX(0);
+  transition: transform 0.15s ease-in;
+}
+.card.flippedClass span {
+  display: none;
+}
+
+img {
+  transition: transform 0.15s ease-out;
+}
+
+.card.matched {
+  outline: 3px solid #4caf50;
+}
+
+.card.matched img {
+  opacity: 0.85;
+}
+
+.card.matched span {
+  display: none;
+}
+
+.card.wrong {
+  outline: 3px solid #f44336;
+  animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+.win-banner {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: #4caf50;
+  color: white;
+  padding: 14px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}

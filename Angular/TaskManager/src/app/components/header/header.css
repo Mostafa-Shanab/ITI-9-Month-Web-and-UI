@@ -1,0 +1,30 @@
+header {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  padding: 25px;
+  margin-bottom: 30px;
+  /* display: flex;
+  justify-content: space-between;
+  align-items: center; */
+}
+
+header h1 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+nav {
+  text-align: center;
+}
+
+nav span {
+  margin: 0 10px;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+nav span:hover {
+  opacity: 1;
+  text-decoration: underline;
+}

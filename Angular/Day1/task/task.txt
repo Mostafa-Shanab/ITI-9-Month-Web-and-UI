@@ -1,0 +1,15 @@
+Smart Task Manager App :- (Day1)
+
+= What You Will Build (Today) :
+1. Header
+  - App Name: Task Manager
+  - Simple navigation (just text for now)
+2. Task Input component(Static)
+	- Input fields: Task Title - Description - Priority (Low - Medium - High) - Due Date - Category (Work - Personal - Study) - Tags (no logic yet)
+	- Button: “Add Task” (no logic yet)
+3. Task List component (Dummy Data in html)
+4. Task Card component
+5. footer
+
+------------------------------------------------------------------
+Research About All files in Angular Project Structure in details

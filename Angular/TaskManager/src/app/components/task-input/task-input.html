@@ -1,22 +1,23 @@
 <div>
-  <input placeholder="Task Title" />
-  <input placeholder="Description" />
+  <input placeholder="Task Title" [(ngModel)]="title" />
 
-  <select>
+  <input placeholder="Description" [(ngModel)]="description" />
+
+  <select [(ngModel)]="priority">
     <option>Low</option>
     <option>Medium</option>
     <option>High</option>
   </select>
 
-  <input type="date" />
+  <input type="date" [(ngModel)]="dueDate" />
 
-  <select>
+  <select [(ngModel)]="category">
     <option>Work</option>
     <option>Personal</option>
     <option>Study</option>
   </select>
 
-  <input placeholder="Tags" />
+  <input placeholder="Tags" [(ngModel)]="tags" />
 
-  <button>Add Task</button>
+  <button (click)="addTask()">Add Task</button>
 </div>

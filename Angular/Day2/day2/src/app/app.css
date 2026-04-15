@@ -1,0 +1,15 @@
+h1 {
+  background-color: black;
+}
+
+app-first {
+  background-color: aqua;
+  border: 1px solid black;
+  display: block;
+}
+
+:host {
+  background-color: red;
+  height: 200px;
+  display: block;
+}

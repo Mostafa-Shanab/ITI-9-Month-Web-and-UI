@@ -1,0 +1,7 @@
+Smart Task Manager App :- (Day2)
+
+=> What You Will Build (Today) :
+
+	1. carousel images for home page
+
+	2. Add “Add Task” form => implements adding task to array and display it in console.log

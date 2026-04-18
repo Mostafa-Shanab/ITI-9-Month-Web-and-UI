@@ -1,5 +1,32 @@
-<div class="card">
-  <h3>Task Title</h3>
-  <p>Description</p>
-  <span>Priority: High</span>
+<div
+  class="card"
+  [class.low]="task.priority === 'Low'"
+  [class.medium]="task.priority === 'Medium'"
+  [class.high]="task.priority === 'High'"
+  [class.done]="task.done"
+>
+  <div class="top-row">
+    <div>
+      <h3>{{ task.title }}</h3>
+      <div class="status-row">
+        <span class="status" [class.done]="task.done" [class.pending]="!task.done">
+          {{ task.done ? 'Done' : 'Pending' }}
+        </span>
+        <span class="badge">{{ task.priority }}</span>
+      </div>
+    </div>
+
+    <button class="edit" (click)="editTask()">Edit</button>
+  </div>
+
+  <p>{{ task.description }}</p>
+  <div class="meta">
+    <span>Category: {{ task.category }}</span>
+    <span>Due: {{ task.dueDate || 'No date' }}</span>
+  </div>
+  <div class="tags">Tags: {{ task.tags || 'None' }}</div>
+  <div class="actions">
+    <button (click)="toggleDone()">{{ task.done ? 'Mark Undone' : 'Mark Done' }}</button>
+    <button class="danger" (click)="deleteTask()">Delete</button>
+  </div>
 </div>

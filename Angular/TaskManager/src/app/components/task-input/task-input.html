@@ -1,23 +1,33 @@
-<div>
-  <input placeholder="Task Title" [(ngModel)]="title" />
+<section class="task-input-card">
+  <div class="task-input-header">
+    <div>
+      <h2>{{ editing ? 'Edit task' : 'Add a new task' }}</h2>
+      <p>Use the form below to save tasks and keep track of work, personal, and study items.</p>
+    </div>
+    <span class="mode-chip">{{ editing ? 'Edit mode' : 'New task' }}</span>
+  </div>
 
-  <input placeholder="Description" [(ngModel)]="description" />
+  <div class="task-input-grid">
+    <input placeholder="Task Title" [(ngModel)]="currentTask.title" />
+    <textarea placeholder="Description" [(ngModel)]="currentTask.description"></textarea>
+    <select [(ngModel)]="currentTask.priority">
+      <option>Low</option>
+      <option>Medium</option>
+      <option>High</option>
+    </select>
+    <input type="date" [(ngModel)]="currentTask.dueDate" />
+    <select [(ngModel)]="currentTask.category">
+      <option>Work</option>
+      <option>Personal</option>
+      <option>Study</option>
+    </select>
+    <input placeholder="Tags (comma separated)" [(ngModel)]="currentTask.tags" />
+  </div>
 
-  <select [(ngModel)]="priority">
-    <option>Low</option>
-    <option>Medium</option>
-    <option>High</option>
-  </select>
-
-  <input type="date" [(ngModel)]="dueDate" />
-
-  <select [(ngModel)]="category">
-    <option>Work</option>
-    <option>Personal</option>
-    <option>Study</option>
-  </select>
-
-  <input placeholder="Tags" [(ngModel)]="tags" />
-
-  <button (click)="addTask()">Add Task</button>
-</div>
+  <div class="task-input-actions">
+    <button class="primary" (click)="addTask()">{{ editing ? 'Save changes' : 'Add task' }}</button>
+    @if (editing) {
+      <button class="secondary" (click)="cancelEdit()">Cancel edit</button>
+    }
+  </div>
+</section>

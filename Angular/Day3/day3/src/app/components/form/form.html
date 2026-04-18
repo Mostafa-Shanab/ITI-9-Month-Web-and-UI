@@ -1,0 +1,105 @@
+<div class="container py-4">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">Add New Product {{ parentData }}</h5>
+    </div>
+
+    <div class="card-body">
+      <div>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Product Name</label>
+            <input
+              [(ngModel)]="prod.name"
+              type="text"
+              class="form-control"
+              placeholder="Enter product name"
+            />
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Category</label>
+            <select [(ngModel)]="prod.category" class="form-select">
+              <option selected disabled>Select category</option>
+              <option>Electronics</option>
+              <option>Clothing</option>
+              <option>Home Appliances</option>
+            </select>
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label">Price</label>
+            <input [(ngModel)]="prod.price" type="number" class="form-control" placeholder="0.00" />
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label">Quantity</label>
+            <input [(ngModel)]="prod.quantity" type="number" class="form-control" placeholder="0" />
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">Description</label>
+            <textarea
+              [(ngModel)]="prod.description"
+              class="form-control"
+              rows="3"
+              placeholder="Product description"
+            ></textarea>
+          </div>
+
+          <div class="col-12">
+            <label class="form-label">Image URL</label>
+            <input
+              [(ngModel)]="prod.imageUrl"
+              type="text"
+              class="form-control"
+              placeholder="Enter image URL"
+            />
+          </div>
+
+          <div class="col-12">
+            <label class="form-label d-block">Status</label>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="status"
+                value="active"
+                [(ngModel)]="prod.status"
+              />
+              <label class="form-check-label">Active</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="status"
+                value="inactive"
+                [(ngModel)]="prod.status"
+              />
+              <label class="form-check-label">Inactive</label>
+            </div>
+          </div>
+        </div>
+
+        @if (error.state) {
+          <p class="bg-danger text-white rounded-3 text-center w-50 mx-auto">{{ error.message }}</p>
+        }
+
+        <div class="mt-4 d-flex justify-content-end gap-2">
+          <button (click)="setProduct()" class="btn btn-primary">Save Product</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- events
+
+e.on("ddd" , ()=>{})\
+
+
+
+e.emit("dddd"   , "kfhudgsfuygsdf") -->

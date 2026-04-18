@@ -1,37 +1,127 @@
 .card {
   background: white;
-  padding: 15px;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
-  transition: 0.2s;
+  padding: 18px;
+  border-radius: 18px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+  transition: 0.2s ease;
+  border: 1px solid transparent;
+  display: grid;
+  gap: 14px;
 }
 
 .card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
+  border-color: #e2e8f0;
+}
+
+.card.done {
+  opacity: 0.94;
+  background: #f0fdf4;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
 }
 
 .card h3 {
-  margin-bottom: 8px;
+  margin: 0;
+  font-size: 1.12rem;
+  color: #0f172a;
+}
+
+.status-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.status,
+.badge {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 5px 11px;
+  border-radius: 999px;
+}
+
+.status.done {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status.pending {
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.badge {
+  background: rgba(100, 116, 139, 0.12);
+  color: #334155;
 }
 
 .card p {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 10px;
+  margin: 0;
+  color: #475569;
+  line-height: 1.6;
 }
 
-.card span {
-  font-size: 12px;
-  padding: 5px 10px;
-  border-radius: 6px;
-  background: #eee;
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: #64748b;
+  font-size: 13px;
 }
 
-/* Priority colors */
-.high {
-  background: #fee2e2;
+.tags {
+  color: #334155;
+  font-size: 13px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.actions button,
+button.edit {
+  border-radius: 999px;
+  padding: 10px 14px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+button.edit {
+  background: #0ea5e9;
+  color: white;
+}
+
+.actions button {
+  background: #4338ca;
+  color: white;
+}
+
+.actions button:hover,
+button.edit:hover {
+  filter: brightness(0.95);
+}
+
+button.danger {
+  background: #ef4444;
+
   color: #b91c1c;
+}
+
+.high {
+  background: #ffaaaa;
 }
 
 .medium {

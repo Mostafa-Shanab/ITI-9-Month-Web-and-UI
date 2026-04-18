@@ -1,0 +1,126 @@
+<!-- <p class="bg" [ngClass]="['c', 'border']">App Comp Works!</p>
+<p class="bg" [class]="['c', 'border']">App Comp Works!</p>
+<br />
+<br />
+<p class="bg" [ngClass]="['c border']">App Comp Works!</p>
+<p class="bg" [class]="['c border']">App Comp Works!</p>
+<br />
+<br />
+<p
+  class="bg"
+  [ngClass]="{
+    'c border': true,
+  }"
+>
+  App Comp Works!
+</p>
+<p
+  class="bg"
+  [class]="{
+    'c border': true,
+  }"
+>
+  App Comp Works!
+</p>
+<br />
+<br />
+<p class="bg" [ngClass.border]="true">App Comp Works!</p>
+<p class="bg" [class.border]="true">App Comp Works!</p>
+ [style.fontSize.px]='100' -->
+<!-- 
+<input #input1 type="text" value="1" />
+<input #input2 type="text" value="2" />
+<input #input3 type="text" value="3" />
+
+<button (click)="hideShow([input1, input2, input3])">{{ show ? 'show' : 'hide' }}</button> -->
+
+<!-- <ng-template [ngIf]="show">
+  <p>Lorem ipsum dolor sit amet.</p>
+</ng-template> -->
+<!-- <p *ngIf="show; else elsep" [class.bg]="show">this is true state</p> -->
+<!-- <p *ngIf="show; then elset; else elsep" [class.bg]="show">this is true state</p> -->
+<!-- <p *ngIf="show" [class.bg]="show">this is true state</p> -->
+<!-- <p *ngIf="!show" [class.bg]="show">this is flase state</p> -->
+<!-- <p #elsep>this is false state</p> -->
+<!-- <ng-template #elsep>
+  <p>this is false state</p>
+</ng-template>
+<ng-template #elset>
+  <p>this is true state</p>
+</ng-template> -->
+<!-- <div *ngIf="show; else elsep" [class.bg]="show">
+  <p>Lorem ipsum dolor sit amet.</p>
+  <p>Lorem ipsum dolor sit amet.</p>
+  <p>Lorem ipsum dolor sit amet.</p>
+  <p>Lorem ipsum dolor sit amet.</p>
+  <p>Lorem ipsum dolor sit amet.</p>
+</div> -->
+<!-- 
+@if (show) {
+  <p>this is true</p>
+} @else if(!show){
+    <p class="bg">this is flase</p>
+}  -->
+<!-- @else {
+    <p class="bg">this is flase</p>
+} -->
+<!-- @if (!show) {
+  <p class="bg">this is flase</p>
+} -->
+
+<!-- <p>
+  {{ stdArr[1].fname }}
+</p> -->
+
+<!-- ngFor => for of -->
+
+<!-- index , first , last , even , odd , count -->
+<!-- 
+<button (click)="refreshStdArr()">Refresh</button>
+<button (click)="shiftArr()">Shift</button>
+<button (click)="unShiftArr()">unShift</button> -->
+
+<!-- <div
+  *ngFor="let std of stdArr; index as idx; first as f; last as l; count as c;"
+  [class.bg]="f"
+  [class.border]="l"
+> -->
+<!-- <div
+  *ngFor="let std of stdArr; index as idx; first as f; last as l; count as c; trackBy: trackByFun"
+  [class.bg]="f"
+  [class.border]="l"
+>
+  <input type="text" />
+  <p>count : {{ c }}</p>
+  <p>index : {{ idx }}</p>
+  <p>first : {{ f }}</p>
+  <p>last : {{ l }}</p>
+  <p>id : {{ std.id }}</p>
+  <p>name : {{ std.fname + ' ' + std.lname }}</p>
+</div> -->
+
+<!-- @for = for....of -->
+<!-- 
+@for (std of stdArr; track std.id; let idx = $index) {
+  <div [class.bg]="$first" [class.border]="$last">
+    <input type="text" />
+    <p>index : {{ $index }}</p>
+    <p>index : {{ idx }}</p>
+    <p>count : {{ $count }}</p>
+    <p>first : {{ $first }}</p>
+    <p>odd : {{ $odd }}</p>
+    <p>id : {{ std.id }}</p>
+    <p>name : {{ std.fname + ' ' + std.lname }}</p>
+  </div>
+} -->
+
+<!-- @switch () {
+  @case () {}
+} -->
+
+<h1 class="text-white bg-warning bg-gradient p-3 m-2 rounded-3 text-center">
+  APP ROOT COMP {{ AppParentNumber }}
+  <button class="btn btn-dark" (click)="inc()">inc</button>
+</h1>
+<app-form [data]="AppParentNumber" (sendProductsToParent)="getData($event)" />
+<app-productlists    [dataInlist] = "prodArr"/>

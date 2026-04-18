@@ -1,3 +1,33 @@
-<app-task-card></app-task-card>
-<app-task-card></app-task-card>
-<app-task-card></app-task-card>
+<div class="task-list-header">
+  <div class="tabs">
+    <button (click)="selectedTab = 'all'" [class.active]="selectedTab === 'all'">All Tasks</button>
+    <button (click)="selectedTab = 'done'" [class.active]="selectedTab === 'done'">Done</button>
+    <button (click)="selectedTab = 'notDone'" [class.active]="selectedTab === 'notDone'">
+      Not Done
+    </button>
+  </div>
+
+  <div class="stats">
+    <span>{{ stats.total }} total</span>
+    <span>{{ stats.done }} done</span>
+    <span>{{ stats.pending }} pending</span>
+  </div>
+</div>
+
+<div class="task-list">
+  @for (task of filteredTasks; track task.id) {
+    <app-task-card
+      [task]="task"
+      (delete)="onDelete($event)"
+      (toggle)="onToggle($event)"
+      (edit)="onEdit($event)"
+    ></app-task-card>
+  }
+
+  @if (filteredTasks.length === 0) {
+    <div class="empty">
+      <h3>No tasks yet</h3>
+      <p>Use the form on the left to add a new task and keep your day organized.</p>
+    </div>
+  }
+</div>

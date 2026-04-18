@@ -1,0 +1,12 @@
+<div class="container-sm py-3">
+  <app-tabs (sendTabName)="getTabName($event)" />
+  <div class="tab-content border border-top-0 p-3">
+    @if (name === 'all') {
+      <app-allproducts [data]="dataInlist" />
+    } @else if (name === 'cart') {
+      <app-cart />
+    }
+  </div>
+</div>
+
+{{ dis }}

@@ -2,8 +2,25 @@
 
 <div class="container">
   <app-carousel />
-  <app-task-input />
-  <app-task-list />
+
+  <section class="task-grid">
+    <app-task-input
+      [editingTask]="editingTask"
+      (add)="addTask($event)"
+      (update)="updateTask($event)"
+      (cancel)="cancelEdit()"
+      (notify)="showNotification($event.msg, $event.type)"
+    />
+
+    <app-task-list
+      [tasks]="tasks"
+      (delete)="deleteTask($event)"
+      (toggle)="toggleDone($event)"
+      (edit)="startEdit($event)"
+    />
+  </section>
+
+  <app-notification [message]="notification.msg" [type]="notification.type" />
 </div>
 
 <app-footer />

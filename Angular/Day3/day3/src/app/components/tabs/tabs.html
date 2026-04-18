@@ -1,0 +1,23 @@
+<ul class="nav nav-tabs mb-3">
+  <li class="nav-item">
+    <button
+      (click)="setall()"
+      class="nav-link"
+      [class]="name === 'all' ? 'active bg-danger' : ''"
+      type="button"
+    >
+      All Products
+    </button>
+  </li>
+
+  <li class="nav-item">
+    <button
+      (click)="setcart()"
+      class="nav-link"
+      [class]="name === 'cart' ? 'active bg-warning' : ''"
+      type="button"
+    >
+      Cart
+    </button>
+  </li>
+</ul>

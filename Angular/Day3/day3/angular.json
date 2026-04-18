@@ -6,10 +6,11 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "TaskManager": {
+    "day3": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
+          "inlineStyle": true,
           "skipTests": true,
           "path": "src/app/components"
         }
@@ -30,7 +31,7 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.css"]
+            "styles": ["./node_modules/bootstrap/dist/css/bootstrap.min.css", "src/styles.css"]
           },
           "configurations": {
             "production": {
@@ -60,10 +61,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "TaskManager:build:production"
+              "buildTarget": "day3:build:production"
             },
             "development": {
-              "buildTarget": "TaskManager:build:development"
+              "buildTarget": "day3:build:development"
             }
           },
           "defaultConfiguration": "development"

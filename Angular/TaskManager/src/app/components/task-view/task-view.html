@@ -1,0 +1,17 @@
+<div class="task-list">
+  @for (task of filteredTasks; track task.id) {
+    <app-task-card
+      [task]="task"
+      (delete)="deleteTask($event)"
+      (toggle)="toggleDone($event)"
+      (edit)="editTask($event)"
+    ></app-task-card>
+  }
+
+  @if (filteredTasks.length === 0) {
+    <div class="empty">
+      <h3>No tasks here</h3>
+      <p>This view is empty. Switch tabs or add a new task to see items appear.</p>
+    </div>
+  }
+</div>

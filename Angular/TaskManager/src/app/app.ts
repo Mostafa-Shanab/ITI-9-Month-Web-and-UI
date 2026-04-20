@@ -21,8 +21,9 @@ import { Task } from './types';
   styleUrl: './app.css',
 })
 export class App {
-  tasks: Task[] = [];
   editingTask: Task | undefined;
+  taskToAdd: Task | undefined;
+  taskToUpdate: Task | undefined;
 
   notification = {
     msg: '',
@@ -30,24 +31,13 @@ export class App {
   };
 
   addTask(task: Task) {
-    this.tasks = [task, ...this.tasks];
-    this.showNotification('Task added successfully', 'success');
+    this.taskToAdd = { ...task };
+    this.taskToUpdate = undefined;
   }
 
-  deleteTask(id: string) {
-    this.tasks = this.tasks.filter((t) => t.id !== id);
-    if (this.editingTask?.id === id) {
-      this.editingTask = undefined;
-    }
-    this.showNotification('Task deleted', 'error');
-  }
-
-  toggleDone(id: string) {
-    const task = this.tasks.find((t) => t.id === id);
-    if (task) {
-      task.done = !task.done;
-      this.showNotification(task.done ? 'Task marked done' : 'Task marked not done', 'info');
-    }
+  updateTask(task: Task) {
+    this.taskToUpdate = { ...task };
+    this.taskToAdd = undefined;
   }
 
   startEdit(task: Task) {
@@ -59,16 +49,22 @@ export class App {
     this.editingTask = undefined;
   }
 
-  updateTask(task: Task) {
-    const index = this.tasks.findIndex((t) => t.id === task.id);
-    if (index !== -1) {
-      this.tasks[index] = task;
+  clearEditingIfDeleted(id: string) {
+    if (this.editingTask?.id === id) {
       this.editingTask = undefined;
-      this.showNotification('Task updated successfully', 'info');
     }
   }
 
-  showNotification(msg: string, type: string) {
+  handleTaskListNotification(event: { msg: string; type: string }) {
+    this.showNotification(event.msg, event.type);
+  }
+
+  handleViewClosed(view: 'all' | 'done' | 'notDone') {
+    const label = view === 'notDone' ? 'Not Done' : view.charAt(0).toUpperCase() + view.slice(1);
+    this.showNotification(`${label} view closed`, 'info');
+  }
+
+  private showNotification(msg: string, type: string) {
     this.notification = { msg, type };
     setTimeout(() => (this.notification.msg = ''), 3000);
   }

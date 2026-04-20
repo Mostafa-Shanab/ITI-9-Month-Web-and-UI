@@ -1,0 +1,12 @@
+.task-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.empty {
+  padding: 2rem;
+  border: 1px dashed var(--border-color, #ccc);
+  border-radius: 12px;
+  text-align: center;
+  color: var(--muted-color, #666);
+}

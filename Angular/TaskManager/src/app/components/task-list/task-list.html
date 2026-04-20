@@ -14,20 +14,35 @@
   </div>
 </div>
 
-<div class="task-list">
-  @for (task of filteredTasks; track task.id) {
-    <app-task-card
-      [task]="task"
-      (delete)="onDelete($event)"
-      (toggle)="onToggle($event)"
+@switch (selectedTab) {
+  @case ('all') {
+    <app-task-view
+      [tasks]="tasks"
+      view="all"
+      (delete)="deleteTask($event)"
+      (toggle)="toggleDone($event)"
       (edit)="onEdit($event)"
-    ></app-task-card>
+      (componentClosed)="onViewClosed($event)"
+    ></app-task-view>
   }
-
-  @if (filteredTasks.length === 0) {
-    <div class="empty">
-      <h3>No tasks yet</h3>
-      <p>Use the form on the left to add a new task and keep your day organized.</p>
-    </div>
+  @case ('done') {
+    <app-task-view
+      [tasks]="tasks"
+      view="done"
+      (delete)="deleteTask($event)"
+      (toggle)="toggleDone($event)"
+      (edit)="onEdit($event)"
+      (componentClosed)="onViewClosed($event)"
+    ></app-task-view>
   }
-</div>
+  @case ('notDone') {
+    <app-task-view
+      [tasks]="tasks"
+      view="notDone"
+      (delete)="deleteTask($event)"
+      (toggle)="toggleDone($event)"
+      (edit)="onEdit($event)"
+      (componentClosed)="onViewClosed($event)"
+    ></app-task-view>
+  }
+}

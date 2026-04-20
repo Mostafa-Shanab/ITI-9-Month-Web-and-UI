@@ -9,14 +9,16 @@
       (add)="addTask($event)"
       (update)="updateTask($event)"
       (cancel)="cancelEdit()"
-      (notify)="showNotification($event.msg, $event.type)"
+      (notify)="handleTaskListNotification($event)"
     />
 
     <app-task-list
-      [tasks]="tasks"
-      (delete)="deleteTask($event)"
-      (toggle)="toggleDone($event)"
+      [incomingTask]="taskToAdd"
+      [incomingUpdate]="taskToUpdate"
+      (taskDeleted)="clearEditingIfDeleted($event)"
+      (notify)="handleTaskListNotification($event)"
       (edit)="startEdit($event)"
+      (viewClosed)="handleViewClosed($event)"
     />
   </section>
 

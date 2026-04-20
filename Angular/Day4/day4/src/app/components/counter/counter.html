@@ -1,0 +1,12 @@
+<div
+  class="container d-flex flex-column justify-content-center shadow-lg border border-1 border-dark rounded h-50"
+>
+  <h1 class="text-center">Counter</h1>
+  <div
+    class="bg-warning rounded-2 w-50 mx-auto d-flex justify-content-center align-items-center p-3"
+  >
+    <button (click)="inc()" class="d-block btn btn-info fs-2">+</button>
+    <h1 class="w-25 text-center">{{ counterFromParent }}</h1>
+    <button (click)="dec()" class="d-block btn btn-info fs-2">-</button>
+  </div>
+</div>

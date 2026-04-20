@@ -1,0 +1,18 @@
+<h1>one works!</h1>
+<h2>{{ dataOne.name }}</h2>
+<h2>{{ dataCount }}</h2>
+{{ dis }}
+
+<div>
+  <!-- <button (click)="childCount = childCount + 1">+</button> -->
+  <button (click)="inc()">+</button>
+  <h2>{{ childCount }}</h2>
+</div>
+
+<!-- html tag => selfclosing -->
+<app-three class="d-block">
+  <!-- // content => add in parent -->
+  <h1 #h1conteninparent class="fs-1 bg-danger">hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</h1>
+</app-three>
+
+<!-- // template ref variable -->

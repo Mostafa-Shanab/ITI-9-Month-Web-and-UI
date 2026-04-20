@@ -1,0 +1,34 @@
+<!-- <div class="bg-danger rounded-2 w-50 mx-auto d-flex justify-content-center align-items-center p-3">
+  <button (click)="count = count + 1" class="d-block btn btn-info fs-2">+</button>
+  <h1 class="w-25 text-center">{{ count }}</h1>
+  <button (click)="count = count - 1" class="d-block btn btn-info fs-2">-</button>
+</div>
+<app-counter
+  [counterFromParent]="count"
+  (sendUpdatedCounterToParent)="getCountFromChild($event)"
+  class="d-flex w-100 h-100 justify-content-center align-items-center"
+/>
+<app-counter
+  [(counterFromParent)]="count"
+  class="d-flex w-100 h-100 justify-content-center align-items-center"
+/> -->
+
+<!-- /////////////////////////////////////////////////// -->
+
+<!-- <h1 class="text-white bg-warning bg-gradient p-3 m-2 rounded-3 text-center">APP ROOT COMP</h1>
+<app-form (sendProductsToParent)="getData($event)" />
+<app-productlists [dataJiiii]="5555" [dataObjInList]="prodObjInParent" /> -->
+<!-- /////////////////////////////////////////////////// -->
+
+<h1 class="text-white bg-warning bg-gradient p-3 m-2 rounded-3 text-center">APP ROOT COMP</h1>
+<div class="bg-danger rounded-2 w-50 mx-auto d-flex justify-content-center align-items-center p-3">
+  <button (click)="count = count + 1" class="d-block btn btn-info fs-2">+</button>
+  <h1 class="w-25 text-center">{{ count }}</h1>
+  <button (click)="count = count - 1" class="d-block btn btn-info fs-2">-</button>
+</div>
+<button (click)="changObj()">change</button>
+
+<app-one [dataCount]="count" [dataOne]="obj" />
+<app-two />
+
+{{ dis }}

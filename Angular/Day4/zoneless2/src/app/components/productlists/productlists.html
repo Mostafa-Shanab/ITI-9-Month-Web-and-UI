@@ -1,0 +1,15 @@
+<div class="container-sm py-3">
+  <div class="tab-content border border-top-0 p-3">
+    <div class="tab-pane fade show active p-4">
+      @for (p of dataInlist; track p.id) {
+        <app-card class="d-block mb-2" [prod]="p" />
+      }
+    </div>
+
+    <!-- <div class="tab-pane fade show active p-4">
+      @for (p of pushToArray(); track p.id) {
+        <app-card class="d-block mb-2" [prod]="p" />
+      }
+    </div> -->
+  </div>
+</div>

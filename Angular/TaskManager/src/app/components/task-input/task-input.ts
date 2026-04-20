@@ -10,11 +10,9 @@ import { v4 as uuidv4 } from 'uuid';
   styleUrl: './task-input.css',
 })
 export class TaskInputComponent {
-  private _editingTask?: Task;
 
   @Input()
   set editingTask(task: Task | undefined) {
-    this._editingTask = task;
     if (task) {
       this.currentTask = { ...task };
       this.editing = true;
@@ -23,9 +21,6 @@ export class TaskInputComponent {
     }
   }
 
-  get editingTask(): Task | undefined {
-    return this._editingTask;
-  }
 
   @Output() add = new EventEmitter<Task>();
   @Output() update = new EventEmitter<Task>();
@@ -44,7 +39,10 @@ export class TaskInputComponent {
     for (const p in updatedTask) {
       const key = p as keyof Task;
       if (updatedTask[key] === '') {
-        this.notify.emit({ msg: `Please fill required fields: ${key}`, type: 'warning' });
+        this.notify.emit({
+          msg: `Please fill required fields: ${key.toUpperCase()}`,
+          type: 'warning',
+        });
         return;
       }
     }

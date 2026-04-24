@@ -1,0 +1,55 @@
+<div
+  [formGroup]="form"
+  (submit)="handleSubmit()"
+  class="p-5 rounded-3 d-flex flex-column justify-content-center align-items-center w-100 vh-100"
+>
+  <h2>Signup Form</h2>
+  <form
+    class="border border-2 border-black p-3 rounded-3 w-50 shadow-lg d-flex flex-column align-items-center"
+  >
+    <div class="mb-3 w-50">
+      <label for="username" class="form-label">UserName</label>
+      <input
+        formControlName="username"
+        type="text"
+        class="form-control"
+        id="username"
+        placeholder="username"
+      />
+    </div>
+    <div class="mb-3 w-50">
+      <label for="email" class="form-label">Email address</label>
+      <input
+        formControlName="email"
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="name@example.com"
+      />
+    </div>
+    <div class="mb-3 w-50">
+      <label for="password" class="form-label">Password</label>
+      <input
+        formControlName="password"
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="password"
+      />
+    </div>
+    <div class="mb-3 w-50">
+      <label for="confirmpassword" class="form-label">Confirm Password</label>
+      <input
+        formControlName="confirmpassword"
+        type="password"
+        class="form-control"
+        id="confirmpassword"
+        placeholder="confirmpassword"
+      />
+    </div>
+    <button type="submit" class="btn mt-2 btn-outline-success d-block w-50">signup</button>
+  </form>
+</div>
+
+
+

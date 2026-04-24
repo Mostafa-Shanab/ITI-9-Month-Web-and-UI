@@ -14,35 +14,10 @@
   </div>
 </div>
 
-@switch (selectedTab) {
-  @case ('all') {
-    <app-task-view
-      [tasks]="tasks"
-      view="all"
-      (delete)="deleteTask($event)"
-      (toggle)="toggleDone($event)"
-      (edit)="onEdit($event)"
-      (componentClosed)="onViewClosed($event)"
-    ></app-task-view>
-  }
-  @case ('done') {
-    <app-task-view
-      [tasks]="tasks"
-      view="done"
-      (delete)="deleteTask($event)"
-      (toggle)="toggleDone($event)"
-      (edit)="onEdit($event)"
-      (componentClosed)="onViewClosed($event)"
-    ></app-task-view>
-  }
-  @case ('notDone') {
-    <app-task-view
-      [tasks]="tasks"
-      view="notDone"
-      (delete)="deleteTask($event)"
-      (toggle)="toggleDone($event)"
-      (edit)="onEdit($event)"
-      (componentClosed)="onViewClosed($event)"
-    ></app-task-view>
-  }
-}
+<app-task-view
+  [tasks]="filteredTasks"
+  view="all"
+  (delete)="onDeleteTask($event)"
+  (toggle)="onToggleTask($event)"
+  (edit)="onEditTask($event)"
+></app-task-view>

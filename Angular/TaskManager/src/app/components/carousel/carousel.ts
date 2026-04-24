@@ -6,11 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './carousel.css',
 })
 export class CarouselComponent {
-  images: string[] = [
-    '2.jpg',
-    '3.jpg',
-    '1.jpg',
-  ];
+  images: string[] = ['2.jpg', '3.jpg', '1.jpg'];
 
   currentIndex = 0;
 

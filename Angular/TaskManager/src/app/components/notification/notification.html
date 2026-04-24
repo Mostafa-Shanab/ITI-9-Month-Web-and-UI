@@ -1,28 +1,28 @@
-@if (message) {
-  @switch (type) {
+@if (notification()) {
+  @switch (notification()?.type) {
     @case ('success') {
       <div class="notification success">
-        <p>{{ message }}</p>
+        <p>{{ notification()?.message }}</p>
       </div>
     }
     @case ('error') {
       <div class="notification error">
-        <p>{{ message }}</p>
+        <p>{{ notification()?.message }}</p>
       </div>
     }
     @case ('warning') {
       <div class="notification warning">
-        <p>{{ message }}</p>
+        <p>{{ notification()?.message }}</p>
       </div>
     }
     @case ('info') {
       <div class="notification info">
-        <p>{{ message }}</p>
+        <p>{{ notification()?.message }}</p>
       </div>
     }
     @default {
       <div class="notification info">
-        <p>{{ message }}</p>
+        <p>{{ notification()?.message }}</p>
       </div>
     }
   }

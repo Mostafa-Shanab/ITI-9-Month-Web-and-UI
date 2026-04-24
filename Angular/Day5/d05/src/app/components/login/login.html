@@ -1,0 +1,63 @@
+<div
+  class="p-5 rounded-3 d-flex flex-column justify-content-center align-items-center w-100 vh-100"
+>
+  <h2>Login Form</h2>
+  <form
+    #form="ngForm"
+    (submit)="handleSubmit(form, email, password)"
+    class="border border-2 border-black p-3 rounded-3 w-50 shadow-lg d-flex flex-column align-items-center"
+  >
+    <div class="mb-3 w-50">
+      <!-- {{emali}} -->
+      <label for="email" class="form-label">Email address</label>
+      <input
+        [(ngModel)]="emali"
+        name="email"
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="name@example.com"
+        required
+        pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$"
+        #email="ngModel"
+      />
+      @if (!email.valid && email.dirty && email.control.errors?.['required']) {
+        <p class="text-danger fw-bold">* emali is empty u need to set it</p>
+      }
+      @if (!email.valid && email.dirty && email.control.errors?.['pattern']) {
+        <p class="text-danger fw-bold">* pls write a valid email formate</p>
+      }
+    </div>
+    <div class="mb-3 w-50">
+      <label for="password" class="form-label">Password</label>
+      <input
+        ngModel
+        #password="ngModel"
+        name="password"
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="password"
+        required
+        minlength="6"
+        maxlength="12"
+      />
+      <!-- @if (!password.valid && password.dirty && password.control.errors?.['required']) { -->
+      @if (!password.valid && password.dirty && password.control.hasError("required")) {
+        <p class="text-danger fw-bold">* emali is empty u need to set it</p>
+      }
+      @if (!password.valid && password.dirty && password.control.errors?.['minlength']) {
+        <p class="text-danger fw-bold">
+          * password should be more than 6 chars and less than 12 chars
+        </p>
+      }
+    </div>
+    <button   [disabled]="!form.valid" type="submit" class="btn mt-2 btn-outline-success d-block w-50">login</button>
+
+    @if (!form.valid && form.submitted) {
+      <p class="bg-danger text-white fw-bold text-center p-3 rounded-2 mt-3">pls fill fields</p>
+    }
+  </form>
+</div>
+
+

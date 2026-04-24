@@ -1,33 +1,33 @@
 <section class="task-input-card">
   <div class="task-input-header">
     <div>
-      <h2>{{ editing ? 'Edit task' : 'Add a new task' }}</h2>
+      <h2>{{ taskId ? 'Edit task' : 'Add a new task' }}</h2>
       <p>Use the form below to save tasks and keep track of work, personal, and study items.</p>
     </div>
-    <span class="mode-chip">{{ editing ? 'Edit mode' : 'New task' }}</span>
+    <span class="mode-chip">{{ taskId ? 'Edit mode' : 'New task' }}</span>
   </div>
 
   <div class="task-input-grid">
-    <input placeholder="Task Title" [(ngModel)]="currentTask.title" />
-    <textarea placeholder="Description" [(ngModel)]="currentTask.description"></textarea>
-    <select [(ngModel)]="currentTask.priority">
-      <option>Low</option>
-      <option>Medium</option>
-      <option>High</option>
+    <input placeholder="Task Title" [(ngModel)]="title" name="title" />
+    <textarea placeholder="Description" [(ngModel)]="description" name="description"></textarea>
+    <select [(ngModel)]="priority" name="priority">
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
     </select>
-    <input type="date" [(ngModel)]="currentTask.dueDate" />
-    <select [(ngModel)]="currentTask.category">
-      <option>Work</option>
-      <option>Personal</option>
-      <option>Study</option>
+    <input type="date" [(ngModel)]="dueDate" name="dueDate" />
+    <select [(ngModel)]="category" name="category">
+      <option value="Work">Work</option>
+      <option value="Personal">Personal</option>
+      <option value="Study">Study</option>
     </select>
-    <input placeholder="Tags" [(ngModel)]="currentTask.tags" />
+    <input placeholder="Tags" [(ngModel)]="tags" name="tags" />
   </div>
 
   <div class="task-input-actions">
-    <button class="primary" (click)="addTask()">{{ editing ? 'Save changes' : 'Add task' }}</button>
-    @if (editing) {
-      <button class="secondary" (click)="cancelEdit()">Cancel edit</button>
+    <button class="primary" (click)="addTask()">{{ taskId ? 'Save changes' : 'Add task' }}</button>
+    @if (taskId) {
+      <button class="secondary" (click)="resetForm()">Cancel edit</button>
     }
   </div>
 </section>

@@ -1,0 +1,64 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <div class="auth-header">
+      <h2>Welcome Back</h2>
+      <p>Sign in to continue to your tasks</p>
+    </div>
+
+    @if (errorMessage()) {
+      <div class="error-banner">
+        {{ errorMessage() }}
+      </div>
+    }
+
+    <form #loginForm="ngForm" (ngSubmit)="onLogin()" class="auth-form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <div class="input-wrapper">
+          <input
+            type="text"
+            id="email"
+            name="email"
+            [(ngModel)]="email"
+            required
+            #emailInput="ngModel"
+            placeholder="Enter your email"
+            [class.error]="emailInput.invalid && emailInput.touched"
+          />
+        </div>
+        @if (emailInput.invalid && emailInput.touched) {
+          <div class="validation-error">
+            <small>Email is required</small>
+          </div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-wrapper">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            [(ngModel)]="password"
+            required
+            #passwordInput="ngModel"
+            placeholder="Enter your password"
+            [class.error]="passwordInput.invalid && passwordInput.touched"
+          />
+        </div>
+        @if (passwordInput.invalid && passwordInput.touched) {
+          <div class="validation-error">
+            <small>Password is required</small>
+          </div>
+        }
+      </div>
+
+      <button type="submit" [disabled]="!loginForm.valid" class="btn-primary">Sign In</button>
+
+      <div class="auth-footer">
+        <p>Don't have an account? <a routerLink="/signup">Sign up</a></p>
+      </div>
+    </form>
+  </div>
+</div>

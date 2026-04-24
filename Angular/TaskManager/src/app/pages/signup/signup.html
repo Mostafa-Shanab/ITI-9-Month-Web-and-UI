@@ -1,0 +1,120 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <div class="auth-header">
+      <h2>Create Account</h2>
+      <p>Join us and start managing your tasks</p>
+    </div>
+
+    @if (errorMessage()) {
+      <div class="error-banner">
+        {{ errorMessage() }}
+      </div>
+    }
+
+    <form [formGroup]="signupForm" (ngSubmit)="onSignup()" class="auth-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <div class="input-wrapper">
+          <input
+            type="text"
+            id="name"
+            formControlName="name"
+            placeholder="Enter your name"
+            [class.error]="signupForm.get('name')?.invalid && signupForm.get('name')?.touched"
+          />
+        </div>
+        @if (signupForm.get('name')?.invalid && signupForm.get('name')?.touched) {
+          <div class="validation-error">
+            <small>Name is required</small>
+          </div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <div class="input-wrapper">
+          <input
+            type="text"
+            id="email"
+            formControlName="email"
+            placeholder="Enter your email"
+            [class.error]="signupForm.get('email')?.invalid && signupForm.get('email')?.touched"
+          />
+        </div>
+        @if (signupForm.get('email')?.invalid && signupForm.get('email')?.touched) {
+          <div class="validation-error">
+            @if (signupForm.get('email')?.errors?.['required']) {
+              <small>Email is required</small>
+            }
+            @if (signupForm.get('email')?.errors?.['email']) {
+              <small>Please enter a valid email</small>
+            }
+          </div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-wrapper">
+          <input
+            type="password"
+            id="password"
+            formControlName="password"
+            placeholder="Create a password"
+            [class.error]="
+              signupForm.get('password')?.invalid && signupForm.get('password')?.touched
+            "
+          />
+        </div>
+        @if (signupForm.get('password')?.invalid && signupForm.get('password')?.touched) {
+          <div class="validation-error">
+            @if (signupForm.get('password')?.errors?.['required']) {
+              <small>Password is required</small>
+            }
+            @if (signupForm.get('password')?.errors?.['minlength']) {
+              <small>Password must be at least 8 characters</small>
+            }
+          </div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <div class="input-wrapper">
+          <input
+            type="password"
+            id="confirmPassword"
+            formControlName="confirmPassword"
+            placeholder="Confirm your password"
+            [class.error]="
+              (signupForm.get('confirmPassword')?.invalid ||
+                signupForm.errors?.['passwordMismatch']) &&
+              signupForm.get('confirmPassword')?.touched
+            "
+          />
+        </div>
+        @if (
+          (signupForm.get('confirmPassword')?.invalid || signupForm.errors?.['passwordMismatch']) &&
+          signupForm.get('confirmPassword')?.touched
+        ) {
+          <div class="validation-error">
+            @if (signupForm.get('confirmPassword')?.errors?.['required']) {
+              <small>Please confirm your password</small>
+            }
+            @if (signupForm.errors?.['passwordMismatch']) {
+              <small>Passwords do not match</small>
+            }
+          </div>
+        }
+      </div>
+
+      <button type="submit" [disabled]="!signupForm.valid" class="btn-primary">
+        Create Account
+      </button>
+
+      <div class="auth-footer">
+        <p>Already have an account? <a routerLink="/login">Sign in</a></p>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div>
+  @for (
+    i of [
+      { name: 'ali', id: '1' },
+      { name: 'amr', id: '2' },
+    ];
+    track $index
+  ) {
+    <div class="card" style="width: 18rem">
+      <img src="..." class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ i.id }}</h5>
+        <h5 class="card-title">{{ i.name }}</h5>
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the bulk of the card’s
+          content.
+        </p>
+        <!-- <a [routerLink]="['/users/', i.id]" class="btn btn-primary">Go somewhere</a>
+        <a routerLink="/users/{{i.id}}" class="btn btn-primary">Go somewhere</a>
+        <a [routerLink]="'/users/' + i.id" class="btn btn-primary">Go somewhere</a> -->
+        <a [routerLink]="i.id" class="btn btn-primary">Go somewhere</a>
+        <!-- <a routerLink="/users/{{ i.id }}" class="btn btn-primary">Go somewhere</a>
+        <a [routerLink]="'/users/' + i.id" class="btn btn-primary">Go somewhere</a> -->
+      </div>
+    </div>
+  }
+</div>

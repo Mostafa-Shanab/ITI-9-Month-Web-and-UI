@@ -6,8 +6,8 @@
   <button class="arrow right" (click)="next()">→</button>
 
   <div class="dots">
-    <span (click)="goTo(0)" [class.active]="currentIndex === 0"></span>
-    <span (click)="goTo(1)" [class.active]="currentIndex === 1"></span>
-    <span (click)="goTo(2)" [class.active]="currentIndex === 2"></span>
+    @for (image of images; track $index) {
+      <span (click)="goTo($index)" [class.active]="currentIndex === $index"></span>
+    }
   </div>
 </div>

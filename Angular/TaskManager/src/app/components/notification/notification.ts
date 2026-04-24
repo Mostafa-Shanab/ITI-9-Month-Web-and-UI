@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { NotificationService } from '../../services/notification.service';
 
 @Component({
   selector: 'app-notification',
@@ -6,6 +7,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './notification.css',
 })
 export class NotificationComponent {
-  @Input() message = '';
-  @Input() type = '';
+  private notificationService = inject(NotificationService);
+  notification = this.notificationService.notification;
 }

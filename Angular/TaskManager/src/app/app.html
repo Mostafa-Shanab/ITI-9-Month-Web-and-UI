@@ -1,28 +1,9 @@
 <app-header />
 
-<div class="container">
-  <app-carousel />
+<main class="container">
+  <router-outlet />
+</main>
 
-  <section class="task-grid">
-    <app-task-input
-      [editingTask]="editingTask"
-      (add)="addTask($event)"
-      (update)="updateTask($event)"
-      (cancel)="cancelEdit()"
-      (notify)="handleTaskListNotification($event)"
-    />
-
-    <app-task-list
-      [incomingTask]="taskToAdd"
-      [incomingUpdate]="taskToUpdate"
-      (taskDeleted)="clearEditingIfDeleted($event)"
-      (notify)="handleTaskListNotification($event)"
-      (edit)="startEdit($event)"
-      (viewClosed)="handleViewClosed($event)"
-    />
-  </section>
-
-  <app-notification [message]="notification.msg" [type]="notification.type" />
-</div>
+<app-notification />
 
 <app-footer />

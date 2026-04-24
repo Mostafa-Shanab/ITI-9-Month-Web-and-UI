@@ -5,77 +5,81 @@ import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-task-input',
+  standalone: true,
   imports: [FormsModule],
   templateUrl: './task-input.html',
   styleUrl: './task-input.css',
 })
 export class TaskInputComponent {
+  private _editingTask: Task | undefined;
 
   @Input()
   set editingTask(task: Task | undefined) {
+    this._editingTask = task;
     if (task) {
-      this.currentTask = { ...task };
-      this.editing = true;
-    } else {
-      this.resetForm();
+      this.title = task.title;
+      this.description = task.description;
+      this.priority = task.priority;
+      this.dueDate = task.dueDate;
+      this.category = task.category;
+      this.tags = task.tags;
+      this.done = task.done;
+      this.taskId = task.id;
     }
   }
 
+  get editingTask(): Task | undefined {
+    return this._editingTask;
+  }
 
   @Output() add = new EventEmitter<Task>();
   @Output() update = new EventEmitter<Task>();
-  @Output() cancel = new EventEmitter<void>();
   @Output() notify = new EventEmitter<{ msg: string; type: string }>();
 
-  currentTask: Task = this.emptyTask();
-  editing = false;
+  // Simple form fields using ngModel
+  title = '';
+  description = '';
+  priority: 'Low' | 'Medium' | 'High' = 'Low';
+  dueDate = '';
+  category: 'Work' | 'Personal' | 'Study' = 'Work';
+  tags = '';
+  done = false;
+  taskId = '';
 
   addTask(): void {
-    const updatedTask: Task = {
-      ...this.currentTask,
-      id: this.editing && this.currentTask.id ? this.currentTask.id : uuidv4(),
+    if (!this.title.trim()) {
+      this.notify.emit({ msg: 'Please enter a title', type: 'warning' });
+      return;
+    }
+
+    const task: Task = {
+      id: this.taskId || uuidv4(),
+      title: this.title,
+      description: this.description,
+      priority: this.priority,
+      dueDate: this.dueDate,
+      category: this.category,
+      tags: this.tags,
+      done: this.done,
     };
 
-    for (const p in updatedTask) {
-      const key = p as keyof Task;
-      if (updatedTask[key] === '') {
-        this.notify.emit({
-          msg: `Please fill required fields: ${key.toUpperCase()}`,
-          type: 'warning',
-        });
-        return;
-      }
-    }
-
-    if (this.editing) {
-      this.update.emit(updatedTask);
+    if (this.taskId) {
+      this.update.emit(task);
     } else {
-      this.add.emit(updatedTask);
+      this.add.emit(task);
     }
 
-    this.resetForm();
-  }
-
-  cancelEdit(): void {
-    this.cancel.emit();
     this.resetForm();
   }
 
   resetForm(): void {
-    this.currentTask = this.emptyTask();
-    this.editing = false;
-  }
-
-  private emptyTask(): Task {
-    return {
-      id: '',
-      title: '',
-      description: '',
-      priority: 'Low',
-      dueDate: '',
-      category: 'Work',
-      tags: '',
-      done: false,
-    };
+    this.title = '';
+    this.description = '';
+    this.priority = 'Low';
+    this.dueDate = '';
+    this.category = 'Work';
+    this.tags = '';
+    this.done = false;
+    this.taskId = '';
   }
 }

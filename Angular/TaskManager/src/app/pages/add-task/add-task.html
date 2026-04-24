@@ -1,0 +1,7 @@
+<app-notification />
+<app-task-input
+  [editingTask]="editingTask()"
+  (notify)="onNotify($event)"
+  (add)="onTaskAdd($event)"
+  (update)="onTaskUpdate($event)"
+/>

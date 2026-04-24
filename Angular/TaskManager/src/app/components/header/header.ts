@@ -1,23 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-header',
+  standalone: true,
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
 export class HeaderComponent {
-  timer = 0;
-  private intervalId?: number;
+  private router = inject(Router);
+  private apiService = inject(ApiService);
+
+  isLoggedIn = signal(this.apiService.isLoggedIn());
 
   ngOnInit(): void {
-    this.intervalId = window.setInterval(() => {
-      this.timer += 1;
-    }, 1000);
+    this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
+      this.isLoggedIn.set(this.apiService.isLoggedIn());
+    });
   }
 
-  ngOnDestroy(): void {
-    if (this.intervalId !== undefined) {
-      window.clearInterval(this.intervalId);
-    }
+  logout(): void {
+    this.apiService.logout();
+    this.isLoggedIn.set(false);
+    this.router.navigate(['/login']);
   }
 }

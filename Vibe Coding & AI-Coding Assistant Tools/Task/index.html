@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuickSort Visualizer</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .container {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 40px;
+        max-width: 600px;
+        width: 100%;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      }
+
+      h1 {
+        color: #fff;
+        text-align: center;
+        margin-bottom: 10px;
+        font-size: 2rem;
+      }
+
+      .subtitle {
+        color: #aaa;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 0.9rem;
+      }
+
+      .input-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        color: #fff;
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      input[type="text"]:focus {
+        outline: none;
+        border-color: #4ecdc4;
+        box-shadow: 0 0 20px rgba(78, 205, 196, 0.3);
+      }
+
+      input[type="text"]::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .hint {
+        color: #888;
+        font-size: 0.85rem;
+        margin-top: 8px;
+      }
+
+      button {
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+        border: none;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-bottom: 20px;
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(78, 205, 196, 0.4);
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+
+      .result-box {
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 15px;
+        padding: 20px;
+        min-height: 100px;
+      }
+
+      .result-title {
+        color: #4ecdc4;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .result-content {
+        color: #fff;
+        font-size: 1.2rem;
+        word-break: break-all;
+        line-height: 1.8;
+      }
+
+      .original-array {
+        color: #888;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+      }
+
+      .sorted-array {
+        color: #4ecdc4;
+        font-weight: 600;
+      }
+
+      .error {
+        color: #ff6b6b;
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      .steps {
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .step {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 10px 15px;
+        border-radius: 8px;
+        margin-bottom: 8px;
+        color: #aaa;
+        font-size: 0.85rem;
+      }
+
+      .step span {
+        color: #4ecdc4;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🚀 QuickSort Visualizer</h1>
+      <p class="subtitle">Sort your numbers with lightning speed</p>
+
+      <div class="input-group">
+        <label for="numberInput">Enter Numbers</label>
+        <input
+          type="text"
+          id="numberInput"
+          placeholder="e.g., 64, 34, 25, 12, 22, 11, 90"
+        />
+        <p class="hint">💡 Separate numbers with commas or spaces</p>
+      </div>
+
+      <button onclick="runQuickSort()">⚡ Sort Now</button>
+
+      <div class="result-box">
+        <div class="result-title">Result</div>
+        <div id="resultContent" class="result-content">
+          Enter numbers and click "Sort Now" to see the magic! ✨
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // QuickSort Algorithm Implementation
+      function quickSort(arr) {
+        if (arr.length <= 1) {
+          return arr;
+        }
+        const pivot = arr[Math.floor(arr.length / 2)];
+        const left = [];
+        const right = [];
+        const equal = [];
+
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] < pivot) {
+            left.push(arr[i]);
+          } else if (arr[i] > pivot) {
+            right.push(arr[i]);
+          } else {
+            equal.push(arr[i]);
+          }
+        }
+
+        return [...quickSort(left), ...equal, ...quickSort(right)];
+      }
+
+      // Parse input string to array of numbers
+      function parseInput(input) {
+        // Handle both comma and space separated input
+        const numbers = input
+          .split(/[,\s]+/) // Split by comma or whitespace
+          .map((num) => num.trim())
+          .filter((num) => num !== "") // Remove empty strings
+          .map((num) => {
+            const parsed = parseFloat(num);
+            if (isNaN(parsed)) {
+              throw new Error(`"${num}" is not a valid number`);
+            }
+            return parsed;
+          });
+
+        if (numbers.length === 0) {
+          throw new Error("Please enter at least one number");
+        }
+
+        return numbers;
+      }
+
+      // Main function to run QuickSort
+      function runQuickSort() {
+        const input = document.getElementById("numberInput").value;
+        const resultContent = document.getElementById("resultContent");
+
+        try {
+          // Parse input
+          const numbers = parseInput(input);
+
+          // Run QuickSort
+          const sorted = quickSort([...numbers]);
+
+          // Display results
+          resultContent.innerHTML = `
+          <div class="original-array">📊 Original: [${numbers.join(", ")}]</div>
+          <div class="sorted-array">✅ Sorted: [${sorted.join(", ")}]</div>
+        `;
+        } catch (error) {
+          resultContent.innerHTML = `
+          <div class="error">❌ ${error.message}</div>
+        `;
+        }
+      }
+
+      // Allow Enter key to trigger sort
+      document
+        .getElementById("numberInput")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            runQuickSort();
+          }
+        });
+    </script>
+  </body>
+</html>

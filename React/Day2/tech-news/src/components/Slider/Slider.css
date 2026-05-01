@@ -1,0 +1,74 @@
+.carousel-wrapper {
+  text-align: center;
+  padding: 2rem;
+  font-family: sans-serif;
+}
+
+.carousel-track {
+  position: relative;
+  display: inline-block;
+}
+
+.carousel-image {
+  width: 600px;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.carousel-btn-left {
+  left: 10px;
+}
+
+.carousel-btn-right {
+  right: 10px;
+}
+
+.carousel-dots {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ccc;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s;
+}
+
+.carousel-dot.active {
+  width: 24px;
+  border-radius: 4px;
+  background: #333;
+}
+
+.carousel-dot:hover:not(.active) {
+  width: 10px;
+  border-radius: 55%;
+  background: #333;
+}

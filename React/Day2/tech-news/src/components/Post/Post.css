@@ -1,0 +1,33 @@
+/* Card container */
+.tech-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  border: 1px solid #f1f1f1;
+  max-width: 601px;
+  margin-block-end: 15px;
+}
+
+/* Hover effect */
+.tech-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Title */
+.tech-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+/* Description */
+.tech-card-desc {
+  font-size: 15px;
+  color: #6b7280;
+  line-height: 1.6;
+}

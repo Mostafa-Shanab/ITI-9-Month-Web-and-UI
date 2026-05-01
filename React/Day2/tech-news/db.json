@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Understanding REST APIs in Backend Development",
+      "desc": "Learn how REST APIs work, why they are important, and how to design scalable backend services using best practices."
+    },
+    {
+      "id": 2,
+      "title": "Introduction to React Class Components",
+      "desc": "Explore the structure of React class components, lifecycle methods, and how they differ from functional components."
+    },
+    {
+      "id": 3,
+      "title": "CSS Flexbox vs Grid: When to Use Each",
+      "desc": "A practical guide to understanding the differences between Flexbox and Grid, with real-world layout examples."
+    },
+    {
+      "id": 4,
+      "title": "Getting Started with Node.js and Express",
+      "desc": "Build your first backend server using Node.js and Express, handle routes, middleware, and connect to a database."
+    },
+    {
+      "id": 5,
+      "title": "JavaScript Promises and Async/Await Explained",
+      "desc": "Understand asynchronous JavaScript with Promises and async/await syntax through clear and simple examples."
+    }
+  ]
+}

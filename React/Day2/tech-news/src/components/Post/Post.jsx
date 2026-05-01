@@ -1,4 +1,6 @@
 import { Component } from "react";
+import Like from "../Like/Like";
+import Dislike from "../Dislike/Dislike";
 import "./Post.css";
 
 class Post extends Component {
@@ -21,6 +23,10 @@ class Post extends Component {
       <div className="tech-card">
         <h3 className="tech-card-title">{title}</h3>
         <p className="tech-card-desc">{desc}</p>
+        <div className="post-actions">
+          <Like />
+          <Dislike />
+        </div>
       </div>
     );
   }

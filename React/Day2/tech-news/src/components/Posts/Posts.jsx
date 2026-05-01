@@ -2,16 +2,6 @@ import { Component } from "react";
 import Post from "../Post/Post";
 
 class Posts extends Component {
-  // render() {
-  //   return (
-  //     <>
-  //       <Post></Post>
-  //       <Post></Post>
-  //       <Post></Post>
-  //     </>
-  //   );
-  // }
-
   state = {
     posts: [],
     loading: true,
@@ -24,8 +14,19 @@ class Posts extends Component {
         if (!res.ok) throw new Error("Failed to fetch posts");
         return res.json();
       })
-      .then((data) => this.setState({ posts: data, loading: false }))
+      .then((data) => {
+        const allPosts = [...this.props.initialPosts, ...data];
+        this.setState({ posts: allPosts, loading: false });
+      })
       .catch((err) => this.setState({ error: err.message, loading: false }));
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.initialPosts !== this.props.initialPosts) {
+      this.setState({
+        posts: [...this.props.initialPosts, ...this.state.posts],
+      });
+    }
   }
 
   render() {
@@ -43,15 +44,5 @@ class Posts extends Component {
     );
   }
 }
-
-// function Posts() {
-//   return (
-//     <>
-//       <Post></Post>
-//       <Post></Post>
-//       <Post></Post>
-//     </>
-//   );
-// }
 
 export default Posts;

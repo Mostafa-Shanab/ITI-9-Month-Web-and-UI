@@ -1,6 +1,17 @@
 // ⚠️ IMPORTANT: In a real app, NEVER expose your API key in frontend code.
 // For this lab assignment only, we use it directly for simplicity.
 
+// const API_KEY =
+//   "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"; // 🔑 Paste your OpenAI key here
+
+// const API_KEY =
+//   "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"; // 🔑 Paste your OpenAI key here
+// const API_URL = "https://api.openai.com/v1/chat/completions";
+// const MODEL = "gpt-4o-mini";
+
+const API_KEY = "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";
+const API_URL = "https://models.inference.ai.azure.com/chat/completions";
+const MODEL = "Phi-4-mini-instruct";
 
 // This array holds the full conversation history sent to the API
 let conversationHistory = [

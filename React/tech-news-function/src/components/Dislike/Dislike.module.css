@@ -1,0 +1,19 @@
+.dislike-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #f44336;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.dislike-btn:hover {
+  background-color: #da190b;
+}
+
+.dislike-btn:active {
+  transform: scale(0.95);
+}

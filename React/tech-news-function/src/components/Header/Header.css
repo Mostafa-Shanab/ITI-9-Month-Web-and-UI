@@ -1,0 +1,24 @@
+header {
+  background-color: #212623;
+  color: #ffffff;
+  padding: 15px 55px;
+  font-size: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+header ul a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+header ul a:hover {
+  text-decoration: underline;
+}

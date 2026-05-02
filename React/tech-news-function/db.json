@@ -1,0 +1,68 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "Understanding REST APIs in Backend Development",
+      "desc": "Learn how REST APIs work, why they are important, and how to design scalable backend services using best practices.",
+      "image": "src\\assets\\1.jpg",
+      "tags": [
+        "React",
+        "API",
+        "Backend"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Introduction to React Class Components",
+      "desc": "Explore the structure of React class components, lifecycle methods, and how they differ from functional components.",
+      "image": "src\\assets\\2.jpg",
+      "tags": [
+        "React",
+        "JavaScript"
+      ]
+    },
+    {
+      "id": "3",
+      "title": "CSS Flexbox vs Grid: When to Use Each",
+      "desc": "A practical guide to understanding the differences between Flexbox and Grid, with real-world layout examples.",
+      "image": "src\\assets\\3.jpg",
+      "tags": [
+        "CSS",
+        "Flexbox",
+        "Grid"
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Getting Started with Node.js and Express",
+      "desc": "Build your first backend server using Node.js and Express, handle routes, middleware, and connect to a database.",
+      "image": "src\\assets\\4.jpg",
+      "tags": [
+        "Node.js",
+        "Express",
+        "Backend"
+      ]
+    },
+    {
+      "id": "5",
+      "title": "JavaScript Promises and Async/Await Explained",
+      "desc": "Understand asynchronous JavaScript with Promises and async/await syntax through clear and simple examples.",
+      "image": "src\\assets\\5.jpg",
+      "tags": [
+        "JavaScript",
+        "Async"
+      ]
+    },
+    {
+      "id": "60KB2cFmFvg",
+      "title": "hsdf",
+      "desc": "asd",
+      "image": "src\\assets\\6.jpg",
+      "tags": [
+        "react",
+        "as"
+      ]
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

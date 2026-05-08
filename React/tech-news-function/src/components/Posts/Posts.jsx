@@ -6,6 +6,7 @@ function Posts({ posts }) {
       {posts.map((post) => (
         <Post
           key={post.id}
+          id={post.id}
           title={post.title}
           desc={post.desc}
           image={post.image}

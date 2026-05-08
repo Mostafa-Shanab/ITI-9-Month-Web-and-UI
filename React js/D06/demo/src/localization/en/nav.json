@@ -1,0 +1,14 @@
+{
+  "home": "Home",
+  "about": "About",
+  "profile": "Profile",
+  "users": "Users",
+  "task": "Task",
+  "tech": "Tech",
+  "addUser": "Add User",
+  "role": {
+    "Admin": "Admin",
+    "Student": "Student",
+    "Instuctor": "Instuctor"
+  }
+}

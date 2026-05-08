@@ -1,0 +1,7 @@
+{
+  "Name": "Name",
+  "Age": "Age",
+  "userAge": "user age",
+  "userName": "user name {name}",
+  "Add": "Add"
+}

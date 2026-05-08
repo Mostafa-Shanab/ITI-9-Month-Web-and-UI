@@ -7,7 +7,7 @@
   font-weight: bold;
   background-color: #f44336;
   color: white;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .dislike-btn:hover {
@@ -16,4 +16,9 @@
 
 .dislike-btn:active {
   transform: scale(0.95);
+}
+
+.dislike-btn.active {
+  background-color: #ff9800;
+  box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
 }

@@ -1,8 +1,9 @@
 import { useState, useCallback, useMemo } from "react";
+import { toast } from "react-toastify";
 import { v4 as uuidv4 } from "uuid";
 import "./Form.css";
 
-function Form({ onPostAdded }) {
+function Form({ onPostAdded, onSuccess }) {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [image, setImage] = useState("");
@@ -24,6 +25,7 @@ function Form({ onPostAdded }) {
 
       if (!title.trim() || !desc.trim()) {
         setError("Please fill all fields");
+        toast.error("Please fill in all required fields!");
         return;
       }
 
@@ -54,23 +56,28 @@ function Form({ onPostAdded }) {
           throw new Error("Failed to add post");
         }
 
-        // Immediately show the post
         if (onPostAdded) {
           onPostAdded(newPost);
         }
+        toast.success("✨ Post created successfully!");
         setTitle("");
         setDesc("");
         setImage("");
         setTags("");
         setLoading(false);
         setError(null);
+
+        if (onSuccess) {
+          onSuccess();
+        }
       } catch (error) {
         setLoading(false);
         setError(error.message);
+        toast.error("Failed to create post!");
         console.error("Error:", error);
       }
     },
-    [title, desc, image, tags, onPostAdded],
+    [title, desc, image, tags, onPostAdded, onSuccess],
   );
 
   const isSubmitDisabled = useMemo(() => loading, [loading]);

@@ -54,14 +54,72 @@
       ]
     },
     {
-      "id": "60KB2cFmFvg",
-      "title": "hsdf",
-      "desc": "asd",
+      "id": "KfIdopcTntk",
+      "title": "My First Blog Post",
+      "desc": "This is a test post to verify the create post functionality with authentication and toast notifications.",
+      "image": "",
+      "tags": []
+    },
+    {
+      "id": "JIzKbBFhsG4",
+      "title": "TEST Title",
+      "desc": "TESTTESTTESTTESTTEST TESTTESTTEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST vTESTTEST TEST TEST TEST TEST TEST TEST TEST TEST TEST v TESTTESTTESTTESTTESTTESTTEST TEST TEST TEST TEST TEST TESTTESTTEST TESTTEST TEST TESTTESTTESTTEST TEST TEST vTESTTEST vTEST TEST",
+      "image": "src\\assets\\1.jpg",
+      "tags": [
+        "TEST",
+        "TEST",
+        "TEST",
+        "TEST",
+        "TEST"
+      ]
+    },
+    {
+      "id": "ckOojdnfT6Q",
+      "title": "Test without Image",
+      "desc": "TESTTESTTESTTESTTEST TESTTESTTEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST vTESTTEST TEST TEST TEST TEST TEST TEST TEST TEST TEST v TESTTESTTESTTESTTESTTESTTEST TEST TEST TEST TEST TEST TESTTESTTEST TESTTEST TEST TESTTESTTESTTEST TEST TEST vTESTTEST vTEST TEST",
+      "image": "",
+      "tags": [
+        "test",
+        "test"
+      ]
+    },
+    {
+      "id": "amFXf3EqrHs",
+      "title": "tyayay",
+      "desc": "TESTTESTTESTTESTTEST TESTTESTTEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST vTESTTEST TEST TEST TEST TEST TEST TEST TEST TEST TEST v TESTTESTTESTTESTTESTTESTTEST TEST TEST TEST TEST TEST TESTTESTTEST TESTTEST TEST TESTTESTTESTTEST TEST TEST vTESTTEST vTEST TEST",
       "image": "src\\assets\\6.jpg",
       "tags": [
-        "react",
-        "as"
+        "has"
       ]
+    },
+    {
+      "id": "H7jlVAaL4ps",
+      "title": "gah",
+      "desc": "Hello",
+      "image": "",
+      "tags": [
+        "react gasd"
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "demo",
+      "email": "demo@example.com",
+      "password": "demo123"
+    },
+    {
+      "id": "2",
+      "username": "testuser",
+      "email": "test@example.com",
+      "password": "test123"
+    },
+    {
+      "id": "S9fns8UDeRw",
+      "username": "testuser2",
+      "email": "testuser2@example.com",
+      "password": "test123"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

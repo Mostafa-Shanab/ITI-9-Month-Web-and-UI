@@ -7,12 +7,8 @@
   font-weight: bold;
   background-color: #4caf50;
   color: white;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
-
-/* .shhabnaz {
-  color: red;
-} */
 
 .like-btn:hover {
   background-color: #45a049;
@@ -20,4 +16,9 @@
 
 .like-btn:active {
   transform: scale(0.95);
+}
+
+.like-btn.active {
+  background-color: #2196f3;
+  box-shadow: 0 0 10px rgba(33, 150, 243, 0.5);
 }

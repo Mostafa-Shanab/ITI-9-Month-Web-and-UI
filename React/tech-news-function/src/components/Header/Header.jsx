@@ -1,41 +1,54 @@
-// import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
+import { toast } from "react-toastify";
 import "./Header.css";
 
-// class Header extends React.Component {
-//   render() {
-//     return (
-//       <header>
-//         <h2>TechShanab</h2>
-//         <ul>
-//           <li>
-//             <a href="#home">Home</a>
-//           </li>
-//           <li>
-//             <a href="#about">About</a>
-//           </li>
-//           <li>
-//             <a href="#contact">Contact</a>
-//           </li>
-//         </ul>
-//       </header>
-//     );
-//   }
-// }
-
 function Header() {
+  const { user, logout, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    toast.success("Logged out successfully!");
+    navigate("/login");
+  };
+
   return (
     <header>
-      <h2>TechShanab</h2>
+      <Link to="/" className="logo">
+        <h2>TechShanab</h2>
+      </Link>
       <ul>
-        <li>
-          <a href="#home">Home</a>
-        </li>
-        <li>
-          <a href="#about">About</a>
-        </li>
-        <li>
-          <a href="#contact">Contact</a>
-        </li>
+        {isAuthenticated ? (
+          <>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/posts">Posts</Link>
+            </li>
+            <li>
+              <Link to="/add-post">Add Post</Link>
+            </li>
+            <li>
+              <span className="user-info">Welcome, {user?.username}!</span>
+            </li>
+            <li>
+              <button onClick={handleLogout} className="logout-btn">
+                Logout
+              </button>
+            </li>
+          </>
+        ) : (
+          <>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+            <li>
+              <Link to="/signup">Sign Up</Link>
+            </li>
+          </>
+        )}
       </ul>
     </header>
   );

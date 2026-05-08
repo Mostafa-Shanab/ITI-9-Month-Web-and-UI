@@ -1,4 +1,5 @@
 // import React from "react";
+import { useTranslation } from "react-i18next";
 import "./Footer.css";
 
 // class Footer extends React.Component {
@@ -12,9 +13,11 @@ import "./Footer.css";
 // }
 
 function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer>
-      <p>&copy; 2026 Tech News. All rights reserved. Developed By Shanab</p>
+      <p>{t("footer.copyright")} Developed By Shanab</p>
     </footer>
   );
 }

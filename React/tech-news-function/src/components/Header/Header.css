@@ -1,12 +1,15 @@
 header {
-  background-color: #212623;
-  color: #ffffff;
+  background-color: var(--header-bg);
+  color: var(--header-text);
   padding: 15px 55px;
   font-size: 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px var(--shadow-color);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 header h2 {
@@ -34,7 +37,7 @@ header ul {
 }
 
 header ul a {
-  color: #ffffff;
+  color: var(--header-text);
   text-decoration: none;
   transition: all 0.3s ease;
   font-size: 16px;
@@ -46,14 +49,14 @@ header ul a:hover {
 }
 
 .user-info {
-  color: #90ee90;
+  color: var(--success-color);
   font-size: 14px;
   font-weight: 600;
 }
 
 .logout-btn {
   padding: 8px 16px;
-  background-color: #ff6b6b;
+  background-color: var(--error-color);
   color: white;
   border: none;
   border-radius: 5px;
@@ -67,6 +70,24 @@ header ul a:hover {
   background-color: #ff5252;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(255, 107, 107, 0.3);
+}
+
+.theme-btn,
+.language-btn {
+  padding: 8px 12px;
+  background-color: transparent;
+  border: 2px solid var(--header-text);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  color: var(--header-text);
+}
+
+.theme-btn:hover,
+.language-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
 }
 
 @media (max-width: 768px) {

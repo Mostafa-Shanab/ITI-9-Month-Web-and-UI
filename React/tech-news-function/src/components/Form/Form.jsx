@@ -1,9 +1,11 @@
 import { useState, useCallback, useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
 import { v4 as uuidv4 } from "uuid";
 import "./Form.css";
 
 function Form({ onPostAdded, onSuccess }) {
+  const { t } = useTranslation();
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [image, setImage] = useState("");
@@ -59,7 +61,7 @@ function Form({ onPostAdded, onSuccess }) {
         if (onPostAdded) {
           onPostAdded(newPost);
         }
-        toast.success("✨ Post created successfully!");
+        toast.success(t("addPost.successMessage"));
         setTitle("");
         setDesc("");
         setImage("");
@@ -73,17 +75,17 @@ function Form({ onPostAdded, onSuccess }) {
       } catch (error) {
         setLoading(false);
         setError(error.message);
-        toast.error("Failed to create post!");
+        toast.error(t("addPost.errorMessage"));
         console.error("Error:", error);
       }
     },
-    [title, desc, image, tags, onPostAdded, onSuccess],
+    [title, desc, image, tags, onPostAdded, onSuccess, t],
   );
 
   const isSubmitDisabled = useMemo(() => loading, [loading]);
   const buttonLabel = useMemo(
-    () => (loading ? "Submitting..." : "Submit"),
-    [loading],
+    () => (loading ? `${t("common.loading")}...` : t("addPost.submit")),
+    [loading, t],
   );
 
   return (
@@ -92,7 +94,7 @@ function Form({ onPostAdded, onSuccess }) {
         <input
           type="text"
           className="input-field"
-          placeholder="Title"
+          placeholder={t("addPost.titleLabel")}
           name="title"
           value={title}
           onChange={handleChange}
@@ -100,7 +102,7 @@ function Form({ onPostAdded, onSuccess }) {
         <input
           type="text"
           className="input-field"
-          placeholder="Description"
+          placeholder={t("addPost.descriptionLabel")}
           name="desc"
           value={desc}
           onChange={handleChange}
@@ -108,7 +110,7 @@ function Form({ onPostAdded, onSuccess }) {
         <input
           type="text"
           className="input-field"
-          placeholder="Image URL"
+          placeholder={t("addPost.imageUrlLabel")}
           name="image"
           value={image}
           onChange={handleChange}

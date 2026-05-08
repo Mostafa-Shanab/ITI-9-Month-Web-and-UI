@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
-import { useAuth } from "../../hooks/useAuth";
+import { signup as signupAction } from "../../store/slices/authSlice";
 import "./SignUp.css";
 
 function SignUp() {
@@ -12,7 +13,7 @@ function SignUp() {
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
-  const { signup } = useAuth();
+  const dispatch = useDispatch();
 
   const validateForm = () => {
     const newErrors = {};
@@ -90,7 +91,7 @@ function SignUp() {
           username,
           email,
         };
-        signup(userData);
+        dispatch(signupAction(userData));
         toast.success(`Welcome, ${username}! Account created successfully!`);
         navigate("/");
       } else {

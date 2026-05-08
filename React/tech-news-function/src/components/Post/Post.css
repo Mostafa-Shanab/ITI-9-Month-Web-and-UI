@@ -1,11 +1,11 @@
 /* Card container */
 .tech-card {
-  background: #ffffff;
+  background: var(--card-bg);
   border-radius: 14px;
   padding: 20px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 20px var(--shadow-color);
   transition: all 0.3s ease;
-  border: 1px solid #f1f1f1;
+  border: 1px solid var(--border-color);
   max-width: 601px;
   margin-block-end: 15px;
 }
@@ -13,7 +13,7 @@
 /* Hover effect */
 .tech-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 30px var(--shadow-color);
 }
 
 /* Post image */
@@ -29,7 +29,7 @@
 .tech-card-title {
   font-size: 20px;
   font-weight: 700;
-  color: #111827;
+  color: var(--text-color);
   margin-bottom: 10px;
   line-height: 1.4;
 }
@@ -37,7 +37,8 @@
 /* Description */
 .tech-card-desc {
   font-size: 15px;
-  color: #6b7280;
+  color: var(--text-color);
+  opacity: 0.7;
   line-height: 1.6;
 }
 
@@ -51,12 +52,18 @@
 }
 
 .tag {
-  background: #e3f2fd;
-  color: #1976d2;
+  background: var(--link-color);
+  color: #ffffff;
+  opacity: 0.3;
   padding: 4px 8px;
   border-radius: 12px;
   font-size: 12px;
   font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.tag:hover {
+  opacity: 0.5;
 }
 
 /* Post actions container */

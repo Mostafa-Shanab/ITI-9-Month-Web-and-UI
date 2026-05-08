@@ -1,33 +1,27 @@
-import { useContext } from "react";
-import { PostReactionContext } from "../context/PostReactionContext";
+import { useSelector, useDispatch } from "react-redux";
+import { setReaction } from "../store/slices/reactionsSlice";
 
 export function usePostReaction(postId) {
-  const contextValue = useContext(PostReactionContext);
+  const dispatch = useDispatch();
+  const reactions = useSelector((state) => state.reactions.reactions);
 
-  if (!contextValue) {
-    throw new Error(
-      "usePostReaction must be used within a PostReactionProvider",
-    );
-  }
-
-  const { reactions, setReaction, getReaction } = contextValue;
-  const reaction = getReaction(postId);
+  const reaction = reactions[postId] || null;
 
   const setLike = () => {
     const currentReaction = reaction;
     if (currentReaction === "like") {
-      setReaction(postId, null);
+      dispatch(setReaction({ postId, reaction: null }));
     } else {
-      setReaction(postId, "like");
+      dispatch(setReaction({ postId, reaction: "like" }));
     }
   };
 
   const setDislike = () => {
     const currentReaction = reaction;
     if (currentReaction === "dislike") {
-      setReaction(postId, null);
+      dispatch(setReaction({ postId, reaction: null }));
     } else {
-      setReaction(postId, "dislike");
+      dispatch(setReaction({ postId, reaction: "dislike" }));
     }
   };
 

@@ -1,0 +1,96 @@
+{
+  "header": {
+    "home": "الرئيسية",
+    "posts": "المنشورات",
+    "addPost": "إضافة منشور",
+    "logout": "تسجيل الخروج",
+    "login": "تسجيل الدخول",
+    "signup": "إنشاء حساب",
+    "theme": "المظهر",
+    "language": "اللغة"
+  },
+  "home": {
+    "title": "أخبار التكنولوجيا",
+    "welcomeMessage": "مرحبا بك في أخبار التكنولوجيا",
+    "loadMore": "تحميل المزيد",
+    "noNews": "لا توجد أخبار متاحة"
+  },
+  "posts": {
+    "title": "المنشورات",
+    "noPost": "لا توجد منشورات متاحة",
+    "emptyState": "لم يتم العثور على منشورات",
+    "addNew": "إضافة منشور جديد"
+  },
+  "login": {
+    "title": "تسجيل الدخول",
+    "subtitle": "مرحبا بك في TechShanab",
+    "email": "عنوان البريد الإلكتروني",
+    "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "password": "كلمة المرور",
+    "passwordPlaceholder": "أدخل كلمة المرور الخاصة بك",
+    "submit": "تسجيل الدخول",
+    "signupLink": "ليس لديك حساب؟ إنشاء حساب",
+    "invalidCredentials": "بريد إلكتروني أو كلمة مرور غير صحيحة",
+    "error": "حدث خطأ أثناء تسجيل الدخول",
+    "success": "مرحبا بك!"
+  },
+  "signup": {
+    "title": "إنشاء حساب",
+    "subtitle": "إنشاء حساب جديد",
+    "username": "اسم المستخدم",
+    "usernamePlaceholder": "أدخل اسم المستخدم",
+    "email": "عنوان البريد الإلكتروني",
+    "emailPlaceholder": "أدخل بريدك الإلكتروني",
+    "password": "كلمة المرور",
+    "passwordPlaceholder": "أدخل كلمة المرور الخاصة بك",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "confirmPasswordPlaceholder": "أكد كلمة المرور الخاصة بك",
+    "submit": "إنشاء الحساب",
+    "loginLink": "هل لديك حساب بالفعل؟ تسجيل الدخول",
+    "emailExists": "البريد الإلكتروني مسجل بالفعل",
+    "error": "فشل في إنشاء الحساب",
+    "success": "تم إنشاء الحساب بنجاح!"
+  },
+  "addPost": {
+    "title": "إضافة منشور جديد",
+    "titleLabel": "العنوان",
+    "descriptionLabel": "الوصف",
+    "imageUrlLabel": "رابط الصورة",
+    "submit": "إضافة المنشور",
+    "cancel": "إلغاء",
+    "successMessage": "تمت إضافة المنشور بنجاح",
+    "errorMessage": "خطأ في إضافة المنشور"
+  },
+  "article": {
+    "title": "المقال",
+    "back": "رجوع",
+    "readMore": "اقرأ المزيد",
+    "notFound": "المقال غير موجود"
+  },
+  "reactions": {
+    "like": "إعجاب",
+    "dislike": "عدم إعجاب"
+  },
+  "footer": {
+    "copyright": "© 2026 أخبار التكنولوجيا. جميع الحقوق محفوظة.",
+    "about": "حول",
+    "contact": "اتصل",
+    "privacy": "سياسة الخصوصية"
+  },
+  "common": {
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "success": "نجاح",
+    "warning": "تحذير",
+    "info": "معلومات",
+    "search": "بحث",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "save": "حفظ",
+    "close": "إغلاق",
+    "yes": "نعم",
+    "no": "لا",
+    "confirm": "تأكيد",
+    "cancel": "إلغاء"
+  }
+}

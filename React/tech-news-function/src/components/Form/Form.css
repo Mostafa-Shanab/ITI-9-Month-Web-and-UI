@@ -8,35 +8,39 @@ form {
   width: 100%;
   padding: 12px 14px;
   font-size: 16px;
-  border: 1.5px solid #d1d5db;
+  border: 1.5px solid var(--input-border);
   border-radius: 10px;
   outline: none;
-  background-color: #f9fafb;
+  background-color: var(--input-bg);
+  color: var(--text-color);
   transition: all 0.3s ease;
   box-sizing: border-box;
 }
 
 /* Placeholder */
 .input-field::placeholder {
-  color: #9ca3af;
+  color: var(--text-color);
+  opacity: 0.5;
 }
 
 /* Focus state */
 .input-field:focus {
-  border-color: #6366f1;
-  background-color: #fff;
+  border-color: var(--link-color);
+  background-color: var(--bg-color);
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
 }
 
 /* Hover */
 .input-field:hover {
-  border-color: #9ca3af;
+  border-color: var(--text-color);
+  opacity: 0.8;
 }
 
 /* Error state */
 .input-error {
-  border-color: #ef4444;
-  background-color: #fef2f2;
+  border-color: var(--error-color);
+  background-color: var(--error-color);
+  opacity: 0.1;
 }
 
 .input-error:focus {
@@ -45,8 +49,9 @@ form {
 
 /* Success state */
 .input-success {
-  border-color: #22c55e;
-  background-color: #f0fdf4;
+  border-color: var(--success-color);
+  background-color: var(--success-color);
+  opacity: 0.1;
 }
 
 .input-success:focus {
@@ -55,7 +60,7 @@ form {
 
 /* Disabled */
 .input-field:disabled {
-  background-color: #e5e7eb;
+  background-color: var(--border-color);
   cursor: not-allowed;
   opacity: 0.7;
 }

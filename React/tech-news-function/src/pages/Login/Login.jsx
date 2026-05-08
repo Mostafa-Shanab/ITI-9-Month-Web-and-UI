@@ -1,16 +1,19 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { toast } from "react-toastify";
-import { useAuth } from "../../hooks/useAuth";
+import { login as loginAction } from "../../store/slices/authSlice";
 import "./Login.css";
 
 function Login() {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const dispatch = useDispatch();
 
   const validateForm = () => {
     const newErrors = {};
@@ -56,15 +59,15 @@ function Login() {
           username: foundUser.username,
           email: foundUser.email,
         };
-        login(userData);
-        toast.success(`Welcome back, ${foundUser.username}!`);
+        dispatch(loginAction(userData));
+        toast.success(`${t("login.success")} ${foundUser.username}!`);
         navigate("/");
       } else {
-        toast.error("Invalid email or password");
+        toast.error(t("login.invalidCredentials"));
       }
     } catch (error) {
       console.error("Login error:", error);
-      toast.error("An error occurred during login");
+      toast.error(t("login.error"));
     } finally {
       setLoading(false);
     }
@@ -74,19 +77,19 @@ function Login() {
     <div className="auth-page">
       <div className="auth-container">
         <div className="auth-card">
-          <h1 className="auth-title">Login</h1>
-          <p className="auth-subtitle">Welcome back to TechShanab</p>
+          <h1 className="auth-title">{t("login.title")}</h1>
+          <p className="auth-subtitle">{t("login.subtitle")}</p>
 
           <form onSubmit={handleSubmit} className="auth-form">
             <div className="form-group">
               <label htmlFor="email" className="form-label">
-                Email Address
+                {t("login.email")}
               </label>
               <input
                 type="email"
                 id="email"
                 className={`form-input ${errors.email ? "error" : ""}`}
-                placeholder="Enter your email"
+                placeholder={t("login.emailPlaceholder")}
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -102,13 +105,13 @@ function Login() {
 
             <div className="form-group">
               <label htmlFor="password" className="form-label">
-                Password
+                {t("login.password")}
               </label>
               <input
                 type="password"
                 id="password"
                 className={`form-input ${errors.password ? "error" : ""}`}
-                placeholder="Enter your password"
+                placeholder={t("login.passwordPlaceholder")}
                 value={password}
                 onChange={(e) => {
                   setPassword(e.target.value);
@@ -123,13 +126,13 @@ function Login() {
             </div>
 
             <button type="submit" className="submit-btn" disabled={loading}>
-              {loading ? "Logging in..." : "Login"}
+              {loading ? `${t("common.loading")}...` : t("login.submit")}
             </button>
           </form>
 
           <div className="auth-footer">
             <p>
-              Don't have an account?{" "}
+              {t("login.signupLink")}{" "}
               <a href="/signup" className="auth-link">
                 Sign up here
               </a>

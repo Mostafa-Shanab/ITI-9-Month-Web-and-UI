@@ -1,0 +1,15 @@
+D:\iTi Learn\SOLID\task\bin\Debug\net10.0\task.exe
+D:\iTi Learn\SOLID\task\bin\Debug\net10.0\task.deps.json
+D:\iTi Learn\SOLID\task\bin\Debug\net10.0\task.runtimeconfig.json
+D:\iTi Learn\SOLID\task\bin\Debug\net10.0\task.dll
+D:\iTi Learn\SOLID\task\bin\Debug\net10.0\task.pdb
+D:\iTi Learn\SOLID\task\obj\Debug\net10.0\task.GeneratedMSBuildEditorConfig.editorconfig
+D:\iTi Learn\SOLID\task\obj\Debug\net10.0\task.AssemblyInfoInputs.cache
+D:\iTi Learn\SOLID\task\obj\Debug\net10.0\task.AssemblyInfo.cs
+D:\iTi Learn\SOLID\task\obj\Debug\net10.0\task.csproj.CoreCompileInputs.cache
+D:\iTi Learn\SOLID\task\obj\Debug\net10.0\task.sourcelink.json
+D:\iTi Learn\SOLID\task\obj\Debug\net10.0\task.dll
+D:\iTi Learn\SOLID\task\obj\Debug\net10.0\refint\task.dll
+D:\iTi Learn\SOLID\task\obj\Debug\net10.0\task.pdb
+D:\iTi Learn\SOLID\task\obj\Debug\net10.0\task.genruntimeconfig.cache
+D:\iTi Learn\SOLID\task\obj\Debug\net10.0\ref\task.dll

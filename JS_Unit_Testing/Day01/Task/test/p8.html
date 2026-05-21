@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Problem 8 - Tests in browser</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.min.css"
+    />
+  </head>
+  <body>
+    <h1>Unit test results</h1>
+    <p>All problems running in the browser via Mocha + Chai</p>
+
+    <div id="mocha"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.3.7/chai.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.min.js"></script>
+
+    <script>
+      mocha.setup("bdd");
+      mocha.timeout(10000);
+      const { expect, assert } = chai;
+      chai.should();
+
+      // ─────────────────────────────────────────
+      // all functions from index.js
+      // ─────────────────────────────────────────
+      const capitalizeText = (input) => {
+        if (typeof input !== "string")
+          throw new TypeError("parameter should be string");
+        return input.toUpperCase();
+      };
+
+      const createArray = (number) => Array.from(Array(number).keys());
+
+      let obj = { id: 1 };
+      let obj1 = { x: obj };
+      let obj2 = { x: obj };
+
+      function CheckPositivity(x) {
+        return x > 0 ? true : false;
+      }
+
+      function Mult(x) {
+        return x * 2;
+      }
+
+      let obj3 = { a: { b: [{ x: 1 }] } };
+
+      // ─────────────────────────────────────────
+      // problem 1 — capitalizeText
+      // ─────────────────────────────────────────
+      describe("Problem 1 — capitalizeText", () => {
+        it("returns a string", () => {
+          expect(capitalizeText("hello")).to.be.a("string");
+        });
+
+        it("capitalizes the input", () => {
+          expect(capitalizeText("hamada")).to.equal("HAMADA");
+        });
+
+        it("throws TypeError for non-string input", () => {
+          expect(() => capitalizeText(12)).to.throw(TypeError);
+        });
+
+        it("function accepts only one parameter", () => {
+          expect(capitalizeText.length).to.equal(1);
+        });
+      });
+
+      // ─────────────────────────────────────────
+      // problem 2 — createArray
+      // ─────────────────────────────────────────
+      describe("Problem 2 — createArray", () => {
+        it("return value is an array", () => {
+          expect(createArray(3)).to.be.an("array");
+        });
+
+        it("length is 3 and includes 1", () => {
+          expect(createArray(3)).to.have.lengthOf(3);
+          expect(createArray(3)).to.include(1);
+        });
+
+        it("works after 5 second delay", (done) => {
+          setTimeout(() => {
+            assert.deepEqual(createArray(3), [0, 1, 2]);
+            done();
+          }, 5000);
+        });
+
+        it("correct output — expect", () => {
+          expect(createArray(5)).to.deep.equal([0, 1, 2, 3, 4]);
+        });
+
+        it("correct output — should", () => {
+          createArray(5).should.deep.equal([0, 1, 2, 3, 4]);
+        });
+
+        it("correct output — assert", () => {
+          assert.deepEqual(createArray(5), [0, 1, 2, 3, 4]);
+        });
+
+        it("should handle when 0 is passed");
+        it("should handle negative numbers");
+      });
+
+      // ─────────────────────────────────────────
+      // problem 3 — deep equality
+      // ─────────────────────────────────────────
+      describe("Problem 3 — obj1 equals obj2", () => {
+        it("deeply equal — expect", () => {
+          expect(obj1).to.deep.equal(obj2);
+        });
+
+        it("deeply equal — should", () => {
+          obj1.should.deep.equal(obj2);
+        });
+
+        it("deeply equal — assert", () => {
+          assert.deepEqual(obj1, obj2);
+        });
+      });
+
+      // ─────────────────────────────────────────
+      // problem 4 — CheckPositivity
+      // ─────────────────────────────────────────
+      describe("Problem 4 — CheckPositivity", () => {
+        describe("when x = 4", () => {
+          it("returns true — expect", () => {
+            expect(CheckPositivity(4)).to.be.true;
+          });
+          it("returns true — should", () => {
+            CheckPositivity(4).should.be.true;
+          });
+          it("returns true — assert", () => {
+            assert.isTrue(CheckPositivity(4));
+          });
+        });
+
+        describe("when x = -1", () => {
+          it("returns false — expect", () => {
+            expect(CheckPositivity(-1)).to.be.false;
+          });
+          it("returns false — should", () => {
+            CheckPositivity(-1).should.be.false;
+          });
+          it("returns false — assert", () => {
+            assert.isFalse(CheckPositivity(-1));
+          });
+        });
+
+        describe("when x = 0", () => {
+          it("returns false — expect", () => {
+            expect(CheckPositivity(0)).to.be.false;
+          });
+          it("returns false — should", () => {
+            CheckPositivity(0).should.be.false;
+          });
+          it("returns false — assert", () => {
+            assert.isFalse(CheckPositivity(0));
+          });
+        });
+      });
+
+      // ─────────────────────────────────────────
+      // problem 5 — Mult
+      // ─────────────────────────────────────────
+      describe("Problem 5 — Mult", () => {
+        it("x is above zero", () => {
+          const x = 4;
+          assert.isAbove(x, 0);
+        });
+
+        it("returned value is above zero", () => {
+          assert.isAbove(Mult(4), 0);
+        });
+      });
+
+      // ─────────────────────────────────────────
+      // problem 6 — nested object
+      // ─────────────────────────────────────────
+      describe("Problem 6 — obj3 nested value", () => {
+        it("a.b[0] deeply equals { x: 1 }", () => {
+          assert.deepEqual(obj3.a.b[0], { x: 1 });
+        });
+      });
+
+      mocha.run();
+    </script>
+  </body>
+</html>

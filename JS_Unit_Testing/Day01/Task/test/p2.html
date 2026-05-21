@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Mocha Tests</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.min.css"
+    />
+  </head>
+  <body>
+    <div id="mocha"></div>
+    <!-- Mocha puts results here -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.3.7/chai.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.min.js"></script>
+
+    <script>
+      mocha.setup("bdd"); // 'bdd' means we can use describe() and it()
+      const { expect, should, assert } = chai;
+      should();
+
+      // ---- paste your function here ----
+      const createArray = (number) => {
+        return Array.from(Array(number).keys());
+      };
+
+      // ---- paste your tests here ----
+      describe("createArray", () => {
+        it("return value is an array", () => {
+          expect(createArray(3)).to.be.an("array");
+        });
+
+        it("returns correct array for input 3", () => {
+          expect(createArray(3)).to.deep.equal([0, 1, 2]);
+        });
+
+        it("should handle edge cases"); // pending
+      });
+
+      mocha.run(); // starts the tests and displays results
+    </script>
+  </body>
+</html>

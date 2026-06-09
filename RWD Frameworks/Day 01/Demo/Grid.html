@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="./output.css" rel="stylesheet" />
+  </head>
+
+  <!-- 
+  child=> col-span
+  child=> lg:col-span
+  child=> col-span-full
+  child=> row-span-full
+  comment & show empty rows
+  parent=> grid-rows-2 & implicit grid
+  parent=> grid-flow-col
+  parent=> grid-flow-row
+  parent=> auto-cols-min with grid-flow-col => adjust width of implicit grid to the biggest word
+  parent=> auto-cols-max => adjust width of implicit grid to the biggest sentence that have white spaces
+  parent=> auto-cols-fr => adjust width of implicit grid like the explicit grid
+  parent=> auto-rows-fr => adjust height of implicit grid like the explicit grid
+ -->
+
+  <body>
+    <div class="flex justify-center items-center min-h-screen bg-indigo-500">
+      <div class="flex-1 max-w-5xl p-16">
+        <div class="grid grid-cols-2 grid-rows-2 gap-4 auto-rows-fr">
+          <div
+            class="p-4 pr-6 bg-white border-l-8 border-transparent rounded-md shadow-md space-y-2"
+          >
+            <h2 class="text-lg font-semibold leading-6">Home renovations</h2>
+            <p class="text-gray-600">
+              A place to keep track of all renovations goind around the house.
+            </p>
+          </div>
+          <div
+            class="p-4 pr-6 bg-white border-l-8 border-transparent rounded-md shadow-md space-y-2"
+          >
+            <h2 class="text-lg font-semibold leading-6">Financial planning</h2>
+            <p class="text-gray-600">
+              Making sure we're not spending more than we're earning!
+            </p>
+          </div>
+          <div
+            class="p-4 pr-6 bg-white border-l-8 border-green-400 rounded-md shadow-md space-y-2"
+          >
+            <h2 class="text-lg font-semibold leading-6">
+              Fitness & nutrition program
+            </h2>
+            <p class="text-gray-600">Gotta try stay in shape!</p>
+          </div>
+          <div
+            class="p-4 pr-6 bg-white border-l-8 border-transparent rounded-md shadow-md space-y-2"
+          >
+            <h2 class="text-lg font-semibold leading-6">Side business ideas</h2>
+            <p class="text-gray-600">
+              A place to gather all these questionable ideas I have while
+              sleeping.
+            </p>
+          </div>
+          <div
+            class="p-4 pr-6 bg-white border-l-8 border-transparent rounded-md shadow-md space-y-2"
+          >
+            <h2 class="text-lg font-semibold leading-6">Euro trip 2025</h2>
+            <p class="text-gray-600">Update: is that even a thing anymore?</p>
+          </div>
+          <div
+            class="p-4 pr-6 bg-white border-l-8 border-transparent rounded-md shadow-md space-y-2"
+          >
+            <h2 class="text-lg font-semibold leading-6">
+              Personal development
+            </h2>
+            <p class="text-gray-600">
+              Anything related to getting better, as a person.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

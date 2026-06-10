@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task2 Tailwind</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+
+  <body
+    class="bg-white dark:bg-bg-dark text-gray-800 dark:text-gray-100 transition-colors duration-300"
+  >
+    <div class="toggle-theme fixed top-4 right-4 z-50">
+      <button
+        onclick="toggleDark()"
+        class="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-100 border border-gray-300 dark:border-gray-600 shadow-md hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer"
+      >
+        <span id="toggleText"></span>
+        <span id="toggleIcon"></span>
+      </button>
+    </div>
+
+    <header
+      class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 items-center ps-10 pe-10 lg:pe-0 bg-white dark:bg-card-dark transition-colors duration-300"
+    >
+      <div
+        class="flex flex-col gap-6 items-start order-2 py-10 lg:py-0 lg:order-1"
+      >
+        <img width="400" src="images/logo-brand.svg" alt="Logo" />
+
+        <h2 class="text-2xl font-semibold text-gray-900 dark:text-white">
+          You can work from anywhere.<br />
+          <span class="text-primary">Take advantage of it</span>
+        </h2>
+
+        <p class="text-gray-600 dark:text-gray-300">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Est nostrum
+          amet simili voluptatum nostrum. Temporibus cumque animi maiores facere
+          rerum minima et quaerat commodi?
+        </p>
+
+        <button
+          class="bg-primary text-white py-2 px-6 rounded-full font-medium hover:bg-primary-hover transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-lg cursor-pointer"
+        >
+          Book Your Escape
+        </button>
+      </div>
+
+      <div class="xl:col-span-2 order-1">
+        <img src="images/beach-work.jpg" class="w-full h-100 object-cover" />
+      </div>
+    </header>
+
+    <main
+      class="bg-bg-light dark:bg-bg-dark py-10 transition-colors duration-300"
+    >
+      <div class="w-3/4 mx-auto">
+        <p class="text-2xl font-semibold mb-3 text-gray-900 dark:text-white">
+          Popular destinations
+        </p>
+        <p class="text-gray-500 dark:text-gray-400">
+          A selection of our most popular destinations.
+        </p>
+
+        <div
+          class="places grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mt-10 gap-10"
+        >
+          <div
+            class="place bg-white dark:bg-card-dark flex h-30 w-full rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer"
+          >
+            <div class="flex-1">
+              <img
+                src="images/toronto.jpg"
+                alt="Toronto"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-4 flex flex-col justify-between flex-2">
+              <div>
+                <h3 class="font-semibold text-gray-900 dark:text-white">
+                  Toronto
+                </h3>
+                <p class="text-gray-500 dark:text-gray-400 text-sm">
+                  $305 / night average
+                </p>
+              </div>
+              <div>
+                <a
+                  href=""
+                  class="text-primary hover:text-primary-hover transition-colors duration-200"
+                  >Explore 237 Properties</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="place bg-white dark:bg-card-dark flex h-30 w-full rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer"
+          >
+            <div class="flex-1">
+              <img
+                src="images/chicago.jpg"
+                alt="Chicago"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-4 flex flex-col justify-between flex-2">
+              <div>
+                <h3 class="font-semibold text-gray-900 dark:text-white">
+                  Chicago
+                </h3>
+                <p class="text-gray-500 dark:text-gray-400 text-sm">
+                  $9233 / night average
+                </p>
+              </div>
+              <div>
+                <a
+                  href=""
+                  class="text-primary hover:text-primary-hover transition-colors duration-200"
+                  >Explore 834 Properties</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="place bg-white dark:bg-card-dark flex h-30 w-full rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer"
+          >
+            <div class="flex-1">
+              <img
+                src="images/colorado.jpg"
+                alt="Colorado"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-4 flex flex-col justify-between flex-2">
+              <div>
+                <h3 class="font-semibold text-gray-900 dark:text-white">
+                  Colorado
+                </h3>
+                <p class="text-gray-500 dark:text-gray-400 text-sm">
+                  $934 / night average
+                </p>
+              </div>
+              <div>
+                <a
+                  href=""
+                  class="text-primary hover:text-primary-hover transition-colors duration-200"
+                  >Explore 354 Properties</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="place bg-white dark:bg-card-dark flex h-30 w-full rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer"
+          >
+            <div class="flex-1">
+              <img
+                src="images/malibu.jpg"
+                alt="Malibu"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-4 flex flex-col justify-between flex-2">
+              <div>
+                <h3 class="font-semibold text-gray-900 dark:text-white">
+                  Malibu
+                </h3>
+                <p class="text-gray-500 dark:text-gray-400 text-sm">
+                  $945 / night average
+                </p>
+              </div>
+              <div>
+                <a
+                  href=""
+                  class="text-primary hover:text-primary-hover transition-colors duration-200"
+                  >Explore 835 Properties</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="place bg-white dark:bg-card-dark flex h-30 w-full rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer"
+          >
+            <div class="flex-1">
+              <img
+                src="images/miami.jpg"
+                alt="Miami"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-4 flex flex-col justify-between flex-2">
+              <div>
+                <h3 class="font-semibold text-gray-900 dark:text-white">
+                  Miami
+                </h3>
+                <p class="text-gray-500 dark:text-gray-400 text-sm">
+                  $723 / night average
+                </p>
+              </div>
+              <div>
+                <a
+                  href=""
+                  class="text-primary hover:text-primary-hover transition-colors duration-200"
+                  >Explore 72 Properties</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="place bg-white dark:bg-card-dark flex h-30 w-full rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer"
+          >
+            <div class="flex-1">
+              <img
+                src="images/seattle.jpg"
+                alt="Seattle"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-4 flex flex-col justify-between flex-2">
+              <div>
+                <h3 class="font-semibold text-gray-900 dark:text-white">
+                  Seattle
+                </h3>
+                <p class="text-gray-500 dark:text-gray-400 text-sm">
+                  $330 / night average
+                </p>
+              </div>
+              <div>
+                <a
+                  href=""
+                  class="text-primary hover:text-primary-hover transition-colors duration-200"
+                  >Explore 22 Properties</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+
+  <script>
+    document.documentElement.classList.toggle(
+      "dark",
+      localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches),
+    );
+
+    const toggleThemeButtonText = document.getElementById("toggleText");
+    const toggleThemeButtonIcon = document.getElementById("toggleIcon");
+
+    function syncButton() {
+      const isDark = document.documentElement.classList.contains("dark");
+      toggleThemeButtonText.textContent = isDark ? "Light Mode" : "Dark Mode";
+      toggleThemeButtonIcon.textContent = isDark ? "☀️" : "🌙";
+    }
+
+    function toggleDark() {
+      const isDark = document.documentElement.classList.contains("dark");
+      document.documentElement.classList.toggle("dark");
+      localStorage.theme = isDark ? "light" : "dark";
+      syncButton();
+    }
+
+    syncButton();
+  </script>
+</html>

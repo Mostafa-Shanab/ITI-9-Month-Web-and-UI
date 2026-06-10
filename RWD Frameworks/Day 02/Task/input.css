@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-my-primary-color: #0fa9e6;
+  --color-my-bg-color: #e5e7eb;
+  --color-primary: #13a4de;
+  --color-primary-hover: #0e8bc2;
+  --color-bg-light: #f0f4f8;
+  --color-bg-dark: #0f172a;
+  --color-card-dark: #1e293b;
+}

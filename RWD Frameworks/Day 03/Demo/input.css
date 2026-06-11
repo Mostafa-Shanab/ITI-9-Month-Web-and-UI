@@ -1,0 +1,52 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: all;
+}
+@custom-variant dark (&:where(.dark, .dark *));
+@layer base {
+  h1 {
+    font-size: 32px;
+    font-weight: 600;
+    @variant dark {
+      @apply text-white;
+    }
+  }
+  * {
+    @variant dark {
+      @apply text-white;
+    }
+  }
+}
+
+@layer components {
+  .navbar {
+    @apply flex myColor min-h-16 items-center justify-around;
+  }
+  .nav-link {
+    @variant hover {
+      @apply text-blue-400 underline underline-offset-2 decoration-blue-400 transition-all;
+    }
+  }
+
+  .btn {
+    @apply py-1 px-6 rounded-sm cursor-pointer;
+  }
+
+  .btn-blue {
+    @apply bg-blue-600 hover:bg-blue-700 transition-colors;
+  }
+
+  .btn-green {
+    @apply bg-green-600 hover:bg-green-700 transition-colors;
+  }
+}
+
+@utility myColor {
+  background-image: linear-gradient(to right, #b7b5b5, #170101);
+}
+
+@layer utilities {
+  .text-red-500 {
+    @apply text-green-500;
+  }
+}

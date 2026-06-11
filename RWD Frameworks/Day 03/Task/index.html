@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task3 Tailwind</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+
+  <body class="page-body">
+    <div class="my-navbar">
+      <div class="navbar-start">
+        <img width="160" src="images/logo-brand.svg" alt="Logo" />
+      </div>
+
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1 gap-1">
+          <li>
+            <a
+              class="text-gray-600 dark:text-gray-300 hover:text-my-primary transition-colors"
+              >Destinations</a
+            >
+          </li>
+          <li>
+            <a
+              class="text-gray-600 dark:text-gray-300 hover:text-my-primary transition-colors"
+              >How It Works</a
+            >
+          </li>
+          <li>
+            <a
+              class="text-gray-600 dark:text-gray-300 hover:text-my-primary transition-colors"
+              >Pricing</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <div class="navbar-end flex gap-3">
+        <button
+          onclick="toggleDark()"
+          class="btn text-gray-100 dark:bg-white dark:text-gray-900"
+          title="Toggle theme"
+        >
+          <span id="navToggleIcon"></span>
+          <span id="navToggleText"></span>
+        </button>
+
+        <button
+          onclick="document.getElementById('register_modal').showModal()"
+          class="btn-primary-custom"
+        >
+          Sign In
+        </button>
+      </div>
+    </div>
+
+    <dialog id="register_modal" class="modal">
+      <div class="modal-box bg-white dark:bg-card-dark max-w-md">
+        <form method="dialog">
+          <button
+            class="btn btn-sm btn-circle btn-ghost absolute right-3 top-3 text-gray-500"
+          >
+            ✕
+          </button>
+
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-1">
+            Create your account
+          </h3>
+          <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">
+            Start finding your perfect remote workspace.
+          </p>
+
+          <div class="flex flex-col gap-4">
+            <div>
+              <label class="form-label" for="reg-name">Full Name</label>
+              <input
+                id="reg-name"
+                type="text"
+                placeholder="John Smith"
+                class="input input-bordered w-full bg-white text-black dark:bg-bg-dark dark:text-white border-gray-600"
+              />
+            </div>
+
+            <div>
+              <label class="form-label" for="reg-email">Email Address</label>
+              <input
+                id="reg-email"
+                type="email"
+                placeholder="john@example.com"
+                class="input input-bordered w-full bg-white text-black dark:bg-bg-dark dark:text-white border-gray-600"
+              />
+            </div>
+
+            <div>
+              <label class="form-label" for="reg-pass">Password</label>
+              <input
+                id="reg-pass"
+                type="password"
+                placeholder="At least 8 characters"
+                class="input input-bordered w-full bg-white text-black dark:bg-bg-dark dark:text-white border-gray-600"
+              />
+            </div>
+
+            <div>
+              <label class="form-label" for="reg-confirm"
+                >Confirm Password</label
+              >
+              <input
+                id="reg-confirm"
+                type="password"
+                placeholder="Repeat your password"
+                class="input input-bordered w-full bg-white text-black dark:bg-bg-dark dark:text-white border-gray-600"
+              />
+            </div>
+
+            <button class="btn-primary-custom w-full text-center mt-2">
+              Create Account
+            </button>
+
+            <p class="text-center text-sm text-gray-500 dark:text-gray-400">
+              Already have an account?
+              <a
+                href="#"
+                class="text-my-primary hover:text-primary-hover font-medium"
+                >Log in</a
+              >
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
+
+    <header class="site-header">
+      <div class="hero-text">
+        <img width="400" src="images/logo-brand.svg" alt="Logo" />
+        <h2 class="hero-heading">
+          You can work from anywhere.<br />
+          <span class="text-my-primary">Take advantage of it</span>
+        </h2>
+        <p class="hero-body">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Est nostrum
+          amet simili voluptatum nostrum. Temporibus cumque animi maiores facere
+          rerum minima et quaerat commodi?
+        </p>
+        <button class="btn-primary-custom">Book Your Escape</button>
+      </div>
+
+      <div class="hero-image">
+        <img src="images/beach-work.jpg" class="w-full h-100 object-cover" />
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="section-inner">
+        <p class="section-title">Popular destinations</p>
+        <p class="section-subtitle">
+          A selection of our most popular destinations.
+        </p>
+
+        <div class="places-grid">
+          <div class="place-card">
+            <div class="place-card-image">
+              <img
+                src="images/toronto.jpg"
+                alt="Toronto"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="place-card-body">
+              <div>
+                <h3 class="place-card-title">Toronto</h3>
+                <p class="place-card-price">$305 / night average</p>
+              </div>
+              <a href="" class="place-card-link">Explore 237 Properties</a>
+            </div>
+          </div>
+
+          <div class="place-card">
+            <div class="place-card-image">
+              <img
+                src="images/chicago.jpg"
+                alt="Chicago"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="place-card-body">
+              <div>
+                <h3 class="place-card-title">Chicago</h3>
+                <p class="place-card-price">$9233 / night average</p>
+              </div>
+              <a href="" class="place-card-link">Explore 834 Properties</a>
+            </div>
+          </div>
+
+          <div class="place-card">
+            <div class="place-card-image">
+              <img
+                src="images/colorado.jpg"
+                alt="Colorado"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="place-card-body">
+              <div>
+                <h3 class="place-card-title">Colorado</h3>
+                <p class="place-card-price">$934 / night average</p>
+              </div>
+              <a href="" class="place-card-link">Explore 354 Properties</a>
+            </div>
+          </div>
+
+          <div class="place-card">
+            <div class="place-card-image">
+              <img
+                src="images/malibu.jpg"
+                alt="Malibu"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="place-card-body">
+              <div>
+                <h3 class="place-card-title">Malibu</h3>
+                <p class="place-card-price">$945 / night average</p>
+              </div>
+              <a href="" class="place-card-link">Explore 835 Properties</a>
+            </div>
+          </div>
+
+          <div class="place-card">
+            <div class="place-card-image">
+              <img
+                src="images/miami.jpg"
+                alt="Miami"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="place-card-body">
+              <div>
+                <h3 class="place-card-title">Miami</h3>
+                <p class="place-card-price">$723 / night average</p>
+              </div>
+              <a href="" class="place-card-link">Explore 72 Properties</a>
+            </div>
+          </div>
+
+          <div class="place-card">
+            <div class="place-card-image">
+              <img
+                src="images/seattle.jpg"
+                alt="Seattle"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="place-card-body">
+              <div>
+                <h3 class="place-card-title">Seattle</h3>
+                <p class="place-card-price">$330 / night average</p>
+              </div>
+              <a href="" class="place-card-link">Explore 22 Properties</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      document.documentElement.classList.toggle(
+        "dark",
+        localStorage.theme === "dark" ||
+          (!("theme" in localStorage) &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches),
+      );
+
+      const navIcon = document.getElementById("navToggleIcon");
+      const navToggleText = document.getElementById("navToggleText");
+
+      function syncButton() {
+        const isDark = document.documentElement.classList.contains("dark");
+        navIcon.textContent = isDark ? "☀️" : "🌙";
+        navToggleText.textContent = isDark ? "Light Mode" : "Dark Mode";
+      }
+
+      function toggleDark() {
+        const isDark = document.documentElement.classList.contains("dark");
+        document.documentElement.classList.toggle("dark");
+        localStorage.theme = isDark ? "light" : "dark";
+        syncButton();
+      }
+
+      syncButton();
+    </script>
+  </body>
+</html>

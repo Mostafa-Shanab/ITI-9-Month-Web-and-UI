@@ -1,0 +1,97 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-my-primary: #0fa9e6;
+  --color-primary-hover: #0e8bc2;
+  --color-bg-light: #f0f4f8;
+  --color-bg-dark: #0f172a;
+  --color-card-dark: #1e293b;
+}
+
+@layer components {
+  .page-body {
+    @apply bg-white dark:bg-bg-dark text-gray-800 dark:text-gray-100 transition-colors duration-300;
+  }
+
+  .my-navbar {
+    @apply navbar bg-white dark:bg-card-dark shadow-sm sticky top-0 z-50 transition-colors duration-300 px-6;
+  }
+
+  .site-header {
+    @apply grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-10 items-center ps-10 pe-10 lg:pe-0 bg-white dark:bg-card-dark transition-colors duration-300;
+  }
+
+  .hero-text {
+    @apply flex flex-col gap-6 items-start order-2 py-10 lg:py-0 lg:order-1;
+  }
+
+  .hero-heading {
+    @apply text-2xl font-semibold text-gray-900 dark:text-white;
+  }
+
+  .hero-body {
+    @apply text-gray-600 dark:text-gray-300;
+  }
+
+  .btn-primary-custom {
+    @apply bg-my-primary text-white py-2 px-6 rounded-full font-medium transition-all duration-300 active:scale-95  cursor-pointer;
+    @variant hover {
+      @apply shadow-lg scale-105 bg-primary-hover;
+    }
+  }
+
+  .hero-image {
+    @apply xl:col-span-2 order-1;
+  }
+
+  .main-content {
+    @apply bg-bg-light dark:bg-bg-dark py-10 transition-colors duration-300;
+  }
+
+  .section-inner {
+    @apply w-3/4 mx-auto;
+  }
+
+  .section-title {
+    @apply text-2xl font-semibold mb-3 text-gray-900 dark:text-white;
+  }
+
+  .section-subtitle {
+    @apply text-gray-500 dark:text-gray-400;
+  }
+
+  .places-grid {
+    @apply grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 mt-10 gap-10;
+  }
+
+  .place-card {
+    @apply bg-white dark:bg-card-dark flex h-30 w-full rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer;
+  }
+
+  .place-card-image {
+    @apply flex-1;
+  }
+
+  .place-card-body {
+    @apply p-4 flex flex-col justify-between flex-2;
+  }
+
+  .place-card-title {
+    @apply font-semibold text-gray-900 dark:text-white;
+  }
+
+  .place-card-price {
+    @apply text-gray-500 dark:text-gray-400 text-sm;
+  }
+
+  .place-card-link {
+    @apply text-my-primary hover:text-primary-hover transition-colors duration-200;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1;
+  }
+}

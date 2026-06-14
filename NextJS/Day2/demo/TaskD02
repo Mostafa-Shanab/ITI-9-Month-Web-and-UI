@@ -1,0 +1,6 @@
+1- implement news/quotes toasts using ssr 
+2- implement all the crud operations using api folder and mongoose
+3- add filtration / search + sort [price + top rating]
+4- Search ==> useTransition / useOptimistic / useDeferredValue  [Bonus]
+5- handle form [post + put] => useActionState [Bonus]
+6- implement dark theme 

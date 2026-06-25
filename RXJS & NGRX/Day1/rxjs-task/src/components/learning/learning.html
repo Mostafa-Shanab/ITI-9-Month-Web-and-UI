@@ -1,0 +1,15 @@
+<h2>Learning Platform</h2>
+
+<button #login>Login</button>
+
+<button #logout>Logout</button>
+
+<button #enroll>Enroll Course</button>
+
+<h3>Activity Feed</h3>
+
+@for (activity of activities(); track $index) {
+  <p>
+    {{ activity }}
+  </p>
+}

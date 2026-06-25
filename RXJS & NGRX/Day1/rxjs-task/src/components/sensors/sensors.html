@@ -1,0 +1,19 @@
+<h2>City Sensor Dashboard</h2>
+
+<p>
+  Temperature:
+
+  {{ temperature() }}
+</p>
+
+<p>
+  Traffic:
+
+  {{ traffic() }}
+</p>
+
+@if (status()) {
+  <h3>
+    {{ status() }}
+  </h3>
+}

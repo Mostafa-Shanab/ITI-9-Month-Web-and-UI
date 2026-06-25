@@ -1,0 +1,24 @@
+<h2>Airport Dashboard</h2>
+
+@if (loading) {
+  <p>Loading...</p>
+}
+
+@if (dashboard) {
+  <h1>Dashboard Ready</h1>
+
+  <p>
+    Flight:
+    {{ dashboard.flight.status }}
+  </p>
+
+  <p>
+    Weather:
+    {{ dashboard.weather.temperature }}
+  </p>
+
+  <p>
+    Gate:
+    {{ dashboard.gate.number }}
+  </p>
+}

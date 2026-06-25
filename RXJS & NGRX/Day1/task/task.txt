@@ -1,0 +1,61 @@
+An e-commerce company receives products from multiple warehouses.
+
+Requirements
+
+ Create three independent product sources.
+ Each source should provide a list of products.
+ Display all incoming products in a single product feed.
+ Products should appear as they arrive from their respective sources.
+
+Expected Output
+
+A unified list showing products coming from all warehouses.
+=================================================================
+An airport dashboard needs information from several services before it can be displayed.
+
+Requirements
+
+Simulate three services:
+
+  Flight Status
+  Weather Information
+  Gate Information
+
+The dashboard should wait until all services have completed successfully.
+Display a "Dashboard Ready" message once all data is available.
+Handle success, completion, and failure scenarios appropriately.
+
+Expected Output
+
+A dashboard that appears only after all required information has been loaded.
+=================================================================
+A city operations center monitors live sensor data.
+
+Requirements
+
+ Simulate a Temperature Sensor.
+ Simulate a Traffic Sensor.
+ Display the latest values from both sensors on the dashboard.
+ Update the dashboard whenever any sensor value changes.
+ Stop monitoring after a specified period and display a status message.
+
+Expected Output
+
+A live dashboard showing continuously updated sensor information.
+=================================================================
+An online learning platform tracks user interactions and onboarding activities.
+
+ Requirements
+
+ Create buttons for:
+
+   Login
+   Logout
+   Enroll in Course
+ Display user activities as they occur.
+ Implement an onboarding workflow that executes a sequence of actions after login.
+ Demonstrate the difference between two types of observable behaviors by showing how multiple subscribers receive emitted values.
+
+ Expected Output
+
+An activity feed showing user actions and onboarding progress.

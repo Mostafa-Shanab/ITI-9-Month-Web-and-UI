@@ -135,6 +135,7 @@
 <script>
 export default {
   name: "ProductForm",
+  emits: ["submit"],
   props: {
     product: {
       type: Object,

@@ -6,7 +6,7 @@
           to="/"
           class="text-xl font-bold tracking-wider hover:opacity-90 transition-opacity"
         >
-          VueStore
+          Shanab
         </router-link>
 
         <div class="hidden md:flex space-x-2">

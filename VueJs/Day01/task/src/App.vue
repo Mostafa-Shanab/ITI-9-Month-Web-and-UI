@@ -27,22 +27,13 @@
 
     <main class="main-content">
       <transition name="fade" mode="out-in">
-        <UserForm
-          v-if="page === 'form'"
+        <component
+          :is="currentComponent"
+          :key="page"
+          v-bind="currentProps"
           @addPerson="addPerson"
-          :theme="themes[themeIndex]"
-        />
-        <UsersTable
-          v-else-if="page === 'users'"
-          :users="users"
           @deleteUser="deleteUser"
-          :theme="themes[themeIndex]"
-        />
-        <AdminsTable
-          v-else-if="page === 'admins'"
-          :admins="admins"
           @deleteAdmin="deleteAdmin"
-          :theme="themes[themeIndex]"
         />
       </transition>
     </main>
@@ -53,6 +44,12 @@
 import UserForm from "./components/UserForm.vue";
 import UsersTable from "./components/UsersTable.vue";
 import AdminsTable from "./components/AdminsTable.vue";
+
+const pageMap = {
+  form: "UserForm",
+  users: "UsersTable",
+  admins: "AdminsTable",
+};
 
 export default {
   components: { UserForm, UsersTable, AdminsTable },
@@ -102,7 +99,21 @@ export default {
       ],
     };
   },
-
+  computed: {
+    currentComponent() {
+      return pageMap[this.page] || "UserForm";
+    },
+    currentProps() {
+      const theme = this.themes[this.themeIndex];
+      if (this.page === "users") {
+        return { users: this.users, theme };
+      }
+      if (this.page === "admins") {
+        return { admins: this.admins, theme };
+      }
+      return { theme };
+    },
+  },
   methods: {
     addPerson(person) {
       if (person.role === "user") {

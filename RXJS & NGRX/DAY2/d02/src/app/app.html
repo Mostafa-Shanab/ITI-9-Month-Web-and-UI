@@ -1,0 +1,28 @@
+<!-- @if (loading()) {
+  <p>loading.....</p>
+} @else { -->
+<!-- } -->
+
+<!-- <input #input type="text" />
+<button #btn>Fetch</button> -->
+
+<!-- <app-subjects /> -->
+
+<div class="container">
+  <button (click)="switch()">kill navbar</button>
+  @if (swtichDis) {
+    <app-navbar></app-navbar>
+  }
+  <div class="content">
+    <div class="left-panel">
+      <app-sender></app-sender>
+    </div>
+
+    <div class="right-panel">
+      @if (swtichDis) {
+        <app-toast></app-toast>
+        <app-history></app-history>
+      }
+    </div>
+  </div>
+</div>

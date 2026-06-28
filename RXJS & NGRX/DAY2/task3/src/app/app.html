@@ -1,0 +1,87 @@
+<div class="app-container">
+  <!-- Header Section -->
+  <header class="app-header">
+    <div class="header-logo">
+      <span class="logo-emoji">🎬</span>
+      <div class="brand-details">
+        <h1>CineSearch</h1>
+        <p class="brand-tagline">RxJS Reactive Movie Search Engine</p>
+      </div>
+    </div>
+    <div class="header-status">
+      <span class="pulse-indicator"></span>
+      <span class="status-text">RxJS Active Pipeline</span>
+    </div>
+  </header>
+
+  <!-- Main Search Panel -->
+  <main class="dashboard-content">
+    <!-- Component 1: Search Input (Triggers RxJS Pipeline) -->
+    <app-search-bar></app-search-bar>
+
+    <!-- Component 2: Movie Search Statistics (Accesses Shared Service State) -->
+    <app-movie-stats></app-movie-stats>
+
+    <!-- Success Messages Notification -->
+    @if (success && !loading && !error) {
+      <div class="notification notification-success animate-fade-in">
+        <span class="notification-icon">✨</span>
+        <div class="notification-text">{{ success }}</div>
+      </div>
+    }
+
+    <!-- Error Panel -->
+    @if (error && !loading) {
+      <div class="notification notification-error animate-fade-in">
+        <span class="notification-icon">⚠️</span>
+        <div class="notification-details">
+          <h5>Request Failed</h5>
+          <p>{{ error }}</p>
+        </div>
+      </div>
+    }
+
+    <!-- Loading Skeleton Screen -->
+    @if (loading) {
+      <div class="loading-grid">
+        @for (item of [1, 2, 3, 4]; track item) {
+          <div class="skeleton-card">
+            <div class="skeleton-poster"></div>
+            <div class="skeleton-content">
+              <div class="skeleton-shimmer line-tag"></div>
+              <div class="skeleton-shimmer line-title"></div>
+              <div class="skeleton-shimmer line-director"></div>
+              <div class="skeleton-shimmer line-footer"></div>
+            </div>
+          </div>
+        }
+      </div>
+    } @else {
+      <!-- Results Grid -->
+      @if (movies.length > 0) {
+        <div class="movies-grid">
+          <!-- Component 3: Movie Card Renderers -->
+          @for (movie of movies; track movie.id) {
+            <app-movie-card [movie]="movie"></app-movie-card>
+          }
+        </div>
+      } @else if (!error) {
+        <!-- Welcome/Empty Search Placeholder -->
+        <div class="welcome-card animate-fade-in">
+          <div class="welcome-art">🔍</div>
+          <h3>Find Your Next Movie</h3>
+          <p>
+            Start typing in the search box above. The app will search the dummy database reactively
+            while debouncing keystrokes, ignoring empty queries, and cancelling old requests.
+          </p>
+          <div class="rxjs-badges">
+            <span class="rxjs-badge">debounceTime(300)</span>
+            <span class="rxjs-badge">filter()</span>
+            <span class="rxjs-badge">switchMap()</span>
+            <span class="rxjs-badge">BehaviorSubject</span>
+          </div>
+        </div>
+      }
+    }
+  </main>
+</div>

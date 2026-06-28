@@ -1,0 +1,221 @@
+<div class="app-container">
+  <!-- Top Navigation Header -->
+  <app-navbar></app-navbar>
+
+  <!-- Global Toast Alerts -->
+  <app-toast></app-toast>
+
+  <!-- Main Dashboard Layout -->
+  <div class="dashboard-content">
+    
+    <!-- LEFT PANEL: Controls, Search, Operators, Live Event Console -->
+    <aside class="left-panel">
+      <!-- Search Component -->
+      <div class="panel-card search-card">
+        <h3>🔍 Search Catalog</h3>
+        <div class="search-box">
+          <input 
+            type="text" 
+            placeholder="Search products by name..." 
+            (input)="onSearch($event)" 
+            class="search-input"
+          />
+        </div>
+      </div>
+
+      <!-- Concurrency Controls -->
+      <div class="panel-card operator-card">
+        <h3>⚡ Concurrency Mode</h3>
+        <p class="operator-desc">
+          Choose the RxJS flattening operator to manage overlapping "Add to Cart" API calls (simulated with 1.5s delay).
+        </p>
+        
+        <div class="operator-buttons">
+          <button 
+            [class.active]="activeOperator === 'concatMap'" 
+            (click)="onSetOperator('concatMap')"
+            class="op-btn"
+          >
+            concatMap
+          </button>
+          <button 
+            [class.active]="activeOperator === 'mergeMap'" 
+            (click)="onSetOperator('mergeMap')"
+            class="op-btn"
+          >
+            mergeMap
+          </button>
+          <button 
+            [class.active]="activeOperator === 'switchMap'" 
+            (click)="onSetOperator('switchMap')"
+            class="op-btn"
+          >
+            switchMap
+          </button>
+          <button 
+            [class.active]="activeOperator === 'exhaustMap'" 
+            (click)="onSetOperator('exhaustMap')"
+            class="op-btn"
+          >
+            exhaustMap
+          </button>
+        </div>
+      </div>
+
+      <!-- Real-time Event Log Console -->
+      <div class="panel-card console-card">
+        <div class="console-header">
+          <h3>📜 Event Console</h3>
+          <button (click)="onClearLogs()" class="clear-btn">Clear</button>
+        </div>
+        <div class="console-body">
+          @if (logs.length === 0) {
+            <p class="empty-logs">Click "Add to Cart" to see RxJS events...</p>
+          } @else {
+            <div class="logs-list">
+              @for (log of logs; track log.id) {
+                <div class="log-item" [class]="log.type">
+                  <span class="log-time">[{{ log.timestamp }}]</span>
+                  <span class="log-text">{{ log.message }}</span>
+                </div>
+              }
+            </div>
+          }
+        </div>
+      </div>
+    </aside>
+
+    <!-- MIDDLE PANEL: Products Catalog -->
+    <main class="products-panel">
+      <div class="products-header">
+        <h2>🛍️ Products Catalog</h2>
+        <button (click)="cartService.refreshProducts()" class="btn-refresh" [disabled]="loading">
+          🔄 Refresh
+        </button>
+      </div>
+
+      <!-- Loading skeleton -->
+      @if (loading) {
+        <div class="skeleton-grid">
+          @for (item of [1, 2, 3, 4, 5, 6]; track item) {
+            <div class="skeleton-card">
+              <div class="skeleton-img"></div>
+              <div class="skeleton-title"></div>
+              <div class="skeleton-text"></div>
+              <div class="skeleton-button"></div>
+            </div>
+          }
+        </div>
+      } @else if (error) {
+        <!-- Error Banner -->
+        <div class="error-container">
+          <div class="error-icon">⚠️</div>
+          <h3>Failed to Load Products</h3>
+          <p>{{ error }}</p>
+          <button (click)="cartService.refreshProducts()" class="btn-retry">
+            Retry Connection
+          </button>
+        </div>
+      } @else {
+        <!-- Empty Products List -->
+        @if (products.length === 0) {
+          <div class="empty-products">
+            <span class="empty-emoji">🔍</span>
+            <h3>No Products Found</h3>
+            <p>Try searching for a different item name.</p>
+          </div>
+        } @else {
+          <!-- Products Catalog Grid -->
+          <div class="products-grid">
+            @for (prod of products; track prod.id) {
+              <div class="product-card" [class.out-of-stock]="getAvailableStock(prod) <= 0">
+                <div class="product-img-wrapper">
+                  <img [src]="prod.thumbnail" [alt]="prod.title" class="product-img" />
+                  @if (getAvailableStock(prod) <= 0) {
+                    <span class="out-badge">Out of Stock</span>
+                  }
+                </div>
+                <div class="product-info">
+                  <h4 class="product-title">{{ prod.title }}</h4>
+                  <p class="product-desc">{{ prod.description }}</p>
+                  
+                  <div class="product-meta">
+                    <span class="product-price">${{ prod.price | number:'1.2-2' }}</span>
+                    <span class="product-stock" [class.low-stock]="getAvailableStock(prod) <= 2 && getAvailableStock(prod) > 0">
+                      Stock: {{ getAvailableStock(prod) }}
+                    </span>
+                  </div>
+
+                  <button 
+                    (click)="onAddToCart(prod)" 
+                    [disabled]="getAvailableStock(prod) <= 0" 
+                    class="btn-add-cart"
+                  >
+                    {{ getAvailableStock(prod) <= 0 ? 'Unavailable' : 'Add to Cart' }}
+                  </button>
+                </div>
+              </div>
+            }
+          </div>
+        }
+      }
+    </main>
+
+    <!-- RIGHT PANEL: Cart Summary Drawer -->
+    <section class="cart-panel">
+      <h2>🛒 Cart Summary</h2>
+      
+      <div class="cart-container">
+        @if (cart.length === 0) {
+          <div class="empty-cart">
+            <span class="cart-emoji">🛒</span>
+            <p>Your cart is empty.</p>
+            <p class="sub-text">Add products to start shopping!</p>
+          </div>
+        } @else {
+          <div class="cart-items">
+            @for (item of cart; track item.product.id) {
+              <div class="cart-item">
+                <img [src]="item.product.thumbnail" [alt]="item.product.title" class="cart-item-img" />
+                <div class="cart-item-info">
+                  <h5 class="cart-item-title">{{ item.product.title }}</h5>
+                  <span class="cart-item-price">${{ item.product.price | number:'1.2-2' }} each</span>
+                  <div class="cart-item-actions">
+                    <button 
+                      (click)="onUpdateQuantity(item.product, -1)" 
+                      class="qty-btn"
+                    >
+                      -
+                    </button>
+                    <span class="qty-num">{{ item.quantity }}</span>
+                    <button 
+                      (click)="onUpdateQuantity(item.product, 1)" 
+                      [disabled]="getAvailableStock(item.product) <= 0"
+                      class="qty-btn"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+                <div class="cart-item-total">
+                  ${{ (item.product.price * item.quantity) | number:'1.2-2' }}
+                </div>
+              </div>
+            }
+          </div>
+
+          <div class="cart-summary-footer">
+            <div class="total-row">
+              <span>Total Price:</span>
+              <span class="total-price">${{ getCartTotal() | number:'1.2-2' }}</span>
+            </div>
+            <button class="checkout-btn">
+              Proceed to Checkout
+            </button>
+          </div>
+        }
+      </div>
+    </section>
+
+  </div>
+</div>

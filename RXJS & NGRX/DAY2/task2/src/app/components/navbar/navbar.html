@@ -1,0 +1,15 @@
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="logo-emoji">🛒</span>
+    <h2>SmartCart RxJS</h2>
+  </div>
+
+  <div class="nav-operator-badge">
+    Mode: <span class="op-name">{{ activeOperator }}</span>
+  </div>
+
+  <div class="nav-cart-badge">
+    <span class="badge-icon">🛍️</span>
+    <span class="badge-text">{{ cartCount }} items | ${{ cartTotal | number:'1.2-2' }}</span>
+  </div>
+</nav>

@@ -1,0 +1,17 @@
+@if (note !== null) {
+  <div
+    /* class="toast" */
+    [class]="{
+      success: note.type === 'success',
+      error: note.type === 'error',
+      info: note.type === 'info',
+      warning: note.type === 'warning',
+    }"
+  >
+    <h3>📢 {{ note.title }}</h3>
+
+    <p>{{ note.message }}</p>
+
+    <small> {{ note.createdAt | date: 'mediumTime' }} </small>
+  </div>
+}

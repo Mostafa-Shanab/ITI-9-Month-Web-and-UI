@@ -1,0 +1,16 @@
+@if (note) {
+  <div class="history">
+    <h2>📜 Notification History</h2>
+    @for (n of note; track n.id) {
+      <div class="item">
+        <div class="header">
+          <strong> {{ n.title }} </strong>
+
+          <span> {{ n.createdAt }} | date:'shortTime' </span>
+        </div>
+
+        <p>{{ n.message }}</p>
+      </div>
+    }
+  </div>
+}

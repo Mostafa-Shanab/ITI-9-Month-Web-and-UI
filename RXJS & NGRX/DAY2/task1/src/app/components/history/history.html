@@ -1,0 +1,19 @@
+<div class="history">
+  <h2>📜 Notification History</h2>
+
+  @if (notifications.length === 0) {
+    <h1>No Notifications</h1>
+  } @else {
+    @for (n of notifications; track n.id) {
+      <div class="item">
+        <div class="header">
+          <strong> {{ n.title }} </strong>
+
+          <span> {{ n.createdAt | date: 'shortTime' }} </span>
+        </div>
+
+        <p>{{ n.message }}</p>
+      </div>
+    }
+  }
+</div>

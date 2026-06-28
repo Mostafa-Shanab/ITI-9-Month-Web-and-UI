@@ -1,0 +1,100 @@
+<div class="dashboard-wrapper">
+  <!-- Top Navigation Header -->
+  <header class="app-header">
+    <div class="header-left">
+      <div class="logo-icon">🎓</div>
+      <h1>Student Directory</h1>
+    </div>
+    <div class="header-right">
+      <!-- Shared State Total Count Badge -->
+      <div class="students-badge">
+        <span class="badge-dot"></span>
+        <span class="badge-text">{{ students.length }} Students</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Controls Panel (Search, Filter, Refresh) -->
+  <section class="controls-panel">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input 
+        type="text" 
+        placeholder="Search by student name..." 
+        (input)="onSearch($event)"
+        class="form-input search-input"
+        id="student-search-input"
+      />
+    </div>
+
+    <div class="filter-box">
+      <select 
+        (change)="onFilter($event)" 
+        class="form-input select-input"
+        id="student-dept-select"
+      >
+        <option value="">All Departments</option>
+        @for (dept of departments; track dept) {
+          <option [value]="dept">{{ dept }}</option>
+        }
+      </select>
+    </div>
+
+    <button 
+      (click)="onRefresh()" 
+      class="btn btn-refresh"
+      [class.btn-loading]="loading"
+      [disabled]="loading"
+      id="student-refresh-btn"
+    >
+      <span class="refresh-icon" [class.spinning]="loading">🔄</span>
+      Refresh
+    </button>
+  </section>
+
+  <!-- Loading State -->
+  @if (loading) {
+    <div class="skeleton-grid">
+      @for (item of [1, 2, 3, 4, 5, 6]; track item) {
+        <div class="skeleton-card">
+          <div class="skeleton-header"></div>
+          <div class="skeleton-avatar"></div>
+          <div class="skeleton-body">
+            <div class="skeleton-line title"></div>
+            <div class="skeleton-line badge"></div>
+            <div class="skeleton-line text"></div>
+            <div class="skeleton-line text short"></div>
+          </div>
+        </div>
+      }
+    </div>
+  } @else if (error) {
+    <!-- Error Alert Panel -->
+    <div class="error-container">
+      <div class="error-icon">⚠️</div>
+      <div class="error-details">
+        <h3>API Error Encountered</h3>
+        <p>{{ error }}</p>
+      </div>
+      <button (click)="onRefresh()" class="btn btn-retry">
+        Retry Request
+      </button>
+    </div>
+  } @else {
+    <!-- Empty State -->
+    @if (students.length === 0) {
+      <div class="empty-container">
+        <div class="empty-icon">📂</div>
+        <h3>No Students Found</h3>
+        <p>Try searching for another name or choosing a different department.</p>
+      </div>
+    } @else {
+      <!-- Students Card Grid -->
+      <main class="students-grid">
+        @for (student of students; track student.id) {
+          <app-student-card [student]="student"></app-student-card>
+        }
+      </main>
+    }
+  }
+</div>

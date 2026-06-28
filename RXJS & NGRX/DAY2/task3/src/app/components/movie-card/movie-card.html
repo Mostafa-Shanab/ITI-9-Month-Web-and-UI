@@ -1,0 +1,19 @@
+<div class="movie-card">
+  <div class="poster-wrapper">
+    <img [src]="movie.poster" [alt]="movie.title" class="movie-poster" />
+    <div class="rating-tag">★ {{ movie.rating }}</div>
+  </div>
+  <div class="movie-details">
+    <div class="genre-row">
+      <span class="genre-badge" [ngClass]="movie.genre.toLowerCase()">
+        {{ movie.genre }}
+      </span>
+      <span class="movie-year">{{ movie.year }}</span>
+    </div>
+    <h3 class="movie-title">{{ movie.title }}</h3>
+    <p class="movie-director">Dir: <span>{{ movie.director }}</span></p>
+    <div class="movie-footer">
+      <span class="role-badge">🎭 {{ movie.role }}</span>
+    </div>
+  </div>
+</div>

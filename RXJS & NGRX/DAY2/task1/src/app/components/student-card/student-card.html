@@ -1,0 +1,33 @@
+<div class="card-inner">
+  <div class="card-header-bg"></div>
+  <div class="card-avatar-wrapper">
+    <img [src]="student.image" [alt]="student.firstName" class="card-avatar" />
+  </div>
+  <div class="card-body">
+    <h3 class="student-name">{{ student.firstName }} {{ student.lastName }}</h3>
+    <span class="student-dept-badge">{{ student.company?.department || 'General' }}</span>
+    
+    <div class="student-meta">
+      <div class="meta-item">
+        <span class="meta-label">Email:</span>
+        <a [href]="'mailto:' + student.email" class="meta-value email-link" [title]="'Send email to ' + student.firstName">
+          {{ student.email }}
+        </a>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Phone:</span>
+        <span class="meta-value">{{ student.phone }}</span>
+      </div>
+      <div class="meta-row">
+        <div class="meta-item-half">
+          <span class="meta-label">Age:</span>
+          <span class="meta-value">{{ student.age }}</span>
+        </div>
+        <div class="meta-item-half">
+          <span class="meta-label">Gender:</span>
+          <span class="meta-value">{{ student.gender | titlecase }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

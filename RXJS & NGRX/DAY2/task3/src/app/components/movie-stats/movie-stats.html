@@ -1,0 +1,40 @@
+@if (totalMovies > 0) {
+  <div class="stats-panel">
+    <div class="stats-header">
+      <span class="header-icon">📊</span>
+      <div class="header-titles">
+        <h4>Live Search Insights</h4>
+        <p class="stats-subtitle">Analyzed from shared service state</p>
+      </div>
+    </div>
+    
+    <div class="stats-grid">
+      <div class="stat-box">
+        <span class="stat-label">Total Count</span>
+        <span class="stat-value">{{ totalMovies }}</span>
+      </div>
+      
+      <div class="stat-box">
+        <span class="stat-label">Avg Rating</span>
+        <span class="stat-value">★ {{ averageRating }}</span>
+      </div>
+
+      <div class="stat-box">
+        <span class="stat-label">Avg Release Year</span>
+        <span class="stat-value">📅 {{ averageYear }}</span>
+      </div>
+    </div>
+
+    <div class="genre-breakdown">
+      <h5 class="breakdown-title">Genre Distribution</h5>
+      <div class="genre-pills">
+        @for (item of genreBreakdown; track item.genre) {
+          <div class="genre-pill">
+            <span class="pill-name">{{ item.genre }}</span>
+            <span class="pill-count">{{ item.count }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+}

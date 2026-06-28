@@ -1,0 +1,17 @@
+@if (notification) {
+  <div
+    class="toast"
+    [class]="{
+      success: notification.type === 'success',
+      info: notification.type === 'info',
+      error: notification.type === 'error',
+      warning: notification.type === 'warning',
+    }"
+  >
+    <h3>📢 {{notification.title}}</h3>
+
+    <p>{{notification.message}}</p>
+
+    <small> {{notification.createdAt | date:'mediumTime'}} </small>
+  </div>
+}

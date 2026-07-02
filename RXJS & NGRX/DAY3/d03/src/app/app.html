@@ -1,0 +1,53 @@
+<h1 class="text-center text-4xl font-extrabold text-purple-800 my-8 tracking-wide">
+  Counter Application
+</h1>
+
+<div class="min-h-screen bg-liner-to-br from-slate-100 via-purple-50 to-indigo-100 p-8">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <div class="bg-gray-800 rounded-3xl shadow-xl border border-gray-100 p-6">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl font-bold text-gray-200">Counter Output</h2>
+
+        <button
+          (click)="hideOutput()"
+          class="px-5 py-2 rounded-xl bg-red-500 hover:bg-red-600 text-white font-semibold transition duration-300 shadow-md"
+        >
+          {{ outputComp ? 'Hide' : 'Show' }}
+        </button>
+      </div>
+
+      @if (outputComp) {
+        <app-counteroutput />
+      } @else {
+        <div
+          class="flex items-center justify-center h-72 rounded-2xl border-2 border-dashed border-gray-300 text-gray-400 text-lg"
+        >
+          Output Component Hidden
+        </div>
+      }
+    </div>
+
+    <div class="bg-gray-800 rounded-3xl shadow-xl border border-gray-100 p-6">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-2xl font-bold text-gray-200">Counter Controller</h2>
+
+        <button
+          (click)="hideControler()"
+          class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold transition duration-300 shadow-md"
+        >
+          {{ controlerComp ? 'Hide' : 'Show' }}
+        </button>
+      </div>
+
+      @if (controlerComp) {
+        <app-countercontroler />
+      } @else {
+        <div
+          class="flex items-center justify-center h-72 rounded-2xl border-2 border-dashed border-gray-300 text-gray-400 text-lg"
+        >
+          Controller Component Hidden
+        </div>
+      }
+    </div>
+  </div>
+</div>

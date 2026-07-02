@@ -1,0 +1,4 @@
+https://randomuser.me/api/
+https://api.escuelajs.co/api/v1/categories/slug/{slug}
+https://dummyjson.com/users/search?q=John
+https://dummyjson.com/users/filter?key=hair.color&value=Brown

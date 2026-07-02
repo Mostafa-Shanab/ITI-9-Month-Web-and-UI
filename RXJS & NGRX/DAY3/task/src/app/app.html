@@ -1,0 +1,41 @@
+<div
+  class="min-h-screen bg-slate-900 flex items-center justify-center p-6 text-white selection:bg-cyan-500 selection:text-slate-900"
+>
+  <div
+    class="w-full max-w-5xl bg-slate-950 border border-slate-800 rounded-3xl p-8 shadow-2xl relative overflow-hidden"
+  >
+    <!-- Subtle background glows for premium look -->
+    <div
+      class="absolute top-0 right-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl -z-10 pointer-events-none"
+    ></div>
+    <div
+      class="absolute bottom-0 left-0 w-80 h-80 bg-emerald-500/5 rounded-full blur-3xl -z-10 pointer-events-none"
+    ></div>
+
+    <div
+      class="flex flex-col md:flex-row md:items-center justify-between border-b border-slate-800 pb-6 mb-8"
+    >
+      <div>
+        <h1
+          class="text-2xl font-bold tracking-tight bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent"
+        >
+          AppComponent
+        </h1>
+        <p class="text-sm text-slate-400 mt-1">Reactive State Management using NgRx</p>
+      </div>
+    </div>
+
+    <!-- Layout Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+      <!-- Left: Contact List Component -->
+      <div class="flex flex-col h-full">
+        <app-contact-list class="h-full"></app-contact-list>
+      </div>
+
+      <!-- Right: Contact Form Component -->
+      <div class="flex flex-col h-full">
+        <app-contact-form class="h-full"></app-contact-form>
+      </div>
+    </div>
+  </div>
+</div>

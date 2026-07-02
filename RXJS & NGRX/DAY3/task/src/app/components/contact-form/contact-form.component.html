@@ -1,0 +1,45 @@
+<form (ngSubmit)="onSubmit()" class="bg-cyan-950 border border-cyan-800 rounded-3xl p-8 shadow-sm h-full flex flex-col justify-between space-y-6">
+  <div class="space-y-4">
+    <div>
+      <input
+        type="text"
+        name="name"
+        [(ngModel)]="name"
+        placeholder="Name"
+        required
+        class="w-full bg-orange-500 text-white placeholder-orange-200 border-none rounded-xl px-5 py-3.5 text-base font-semibold focus:outline-none focus:ring-2 focus:ring-orange-300 transition duration-150 shadow-inner"
+      />
+    </div>
+
+    <div>
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="email"
+        placeholder="Email"
+        required
+        class="w-full bg-orange-500 text-white placeholder-orange-200 border-none rounded-xl px-5 py-3.5 text-base font-semibold focus:outline-none focus:ring-2 focus:ring-orange-300 transition duration-150 shadow-inner"
+      />
+    </div>
+
+    <div>
+      <input
+        type="tel"
+        name="phone"
+        [(ngModel)]="phone"
+        placeholder="Phone"
+        required
+        class="w-full bg-orange-500 text-white placeholder-orange-200 border-none rounded-xl px-5 py-3.5 text-base font-semibold focus:outline-none focus:ring-2 focus:ring-orange-300 transition duration-150 shadow-inner"
+      />
+    </div>
+  </div>
+
+  <div class="flex justify-center pt-2">
+    <button
+      type="submit"
+      class="w-1/2 bg-emerald-500 hover:bg-emerald-600 active:bg-emerald-700 text-white font-bold py-3 px-6 rounded-xl transition duration-150 shadow-md cursor-pointer hover:scale-102 focus:outline-none focus:ring-2 focus:ring-emerald-300"
+    >
+      Submit
+    </button>
+  </div>
+</form>

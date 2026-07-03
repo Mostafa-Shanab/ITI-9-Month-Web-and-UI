@@ -1,0 +1,9 @@
+Install nest js cli  npm install -g @nestjs/cli
+
+Reference https://docs.nestjs.com/cli/overview
+
+nest g
+
+nest g --help
+
+nest g module tasks

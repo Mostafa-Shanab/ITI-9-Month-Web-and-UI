@@ -1,0 +1,69 @@
+﻿Install nest js cli  npm install -g @nestjs/cli
+
+Create nest js project nest new task-management-app
+
+Reference https://docs.nestjs.com/cli/overview
+
+nest g
+
+nest g --help
+
+generate tasks module => nest g module tasks
+
+generate tasks controller => nest g controller tasks --no-spec
+
+generate tasks service => nest g service tasks --no-spec
+to start app in dev mode => npm run start:dev
+
+to debug nestjs project using webstorm => https://dibishks.medium.com/how-to-add-breakpoints-in-webstorm-for-a-nestjs-project-0e5a05bf19d6
+
+class-validator https://www.npmjs.com/package/class-validator
+
+download PostgreSql https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+
+download PgAdmin https://www.pgadmin.org/download/ , https://www.postgresql.org/ftp/pgadmin/pgadmin4/v9.4/windows/
+
+Postgresql username: postgres, password: 1111, port: 5432, server => (localhost:5432)
+
+Create Database => (tasks-management)
+
+TypeORM https://typeorm.io/
+
+TypeORM Active Record vs Data Mapper:
+
+- https://orkhan.gitbook.io/typeorm/docs/active-record-data-mapper
+- https://amirmustafaofficial.medium.com/nest-js-data-mapper-vs-active-record-pattern-typeorm-14408cf4bc6e
+
+TypeORM Repository Api
+
+- https://orkhan.gitbook.io/typeorm/docs/repository-api
+
+
+Install TypeOrm Cli globally
+
+npm install -g typeorm
+
+or locally
+
+npm install typeorm --save-dev
+
+
+(1) Creating Migrations
+
+typeorm-ts-node-commonjs migration:generate src/migrations/InitialSchema -d src/data-source.ts
+
+(2) Running Migration
+
+typeorm-ts-node-commonjs migration:run -d src/data-source.ts
+
+(3) Revert last migration
+
+typeorm-ts-node-commonjs migration:revert -d src/data-source.ts
+
+(4) Show Applied and Pending Commits
+
+typeorm-ts-node-commonjs migration:show -d src/data-source.ts
+
+(5) Create Empty Migration (Manual SQL)
+
+typeorm-ts-node-commonjs migration:create src/migrations/MigrationName
